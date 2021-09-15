@@ -5,47 +5,54 @@
 const int ALPHABET_SIZE = 128;
 const char MIN_CHARACTER = 0;
 
+// Suffix struct
 struct Suffix
 {
 	int index;
 	int rank[2];
 };
 
+// Comparison function for suffixes.
 bool cmp(Suffix a, Suffix b)
 {
 	return a.rank[0] == b.rank[0] ? a.rank[1] < b.rank[1] : a.rank[0] < b.rank[0];
 }
 
+// Check if two suffixes have the same ranks.
 bool equal(Suffix a, Suffix b)
 {
 	return a.rank[0] == b.rank[0] && a.rank[1] == b.rank[1];
 }
 
-std::vector<Suffix> CreateSuffixes(std::string s)
+// Create suffix array in O(nlog(n)log(n))
+std::vector<Suffix> CreateSuffixes(std::string input)
 {
-	int n = s.length();
+	int len = input.length();
 
-	std::vector<Suffix> suffixes(n);
-	for (int i = 0; i < n; ++i)
+	// Rank according to first and second letter from i.
+	std::vector<Suffix> suffixes(len);
+	for (int i = 0; i < len; ++i)
 	{
 		suffixes[i].index = i;
-		suffixes[i].rank[0] = s[i];
-		if (i != n - 1)
-			suffixes[i].rank[1] = s[i + 1];
+		suffixes[i].rank[0] = input[i];
+		if (i != len - 1)
+			suffixes[i].rank[1] = input[i + 1];
 		else
 			suffixes[i].rank[1] = -1;
 	}
 
-	std::vector<int> index(n);
-	for (int k = 2; k < n * 2; k *= 2)
-	{
-		sort(suffixes.begin(), suffixes.end(), cmp);
+	std::sort(suffixes.begin(), suffixes.end(), cmp);
 
+	// Rank according to place in sorted array and place of suffix starting from i + k
+	std::vector<int> index(len);
+	for (int k = 2; k < len * 2; k *= 2)
+	{
 		int max_rank = 0;
 		suffixes[0].rank[0] = max_rank;
 		index[suffixes[0].index] = 0;
 
-		for (int i = 1; i < n; ++i)
+		// Get Rank[0] for all suffixes
+		for (int i = 1; i < len; ++i)
 		{
 			index[suffixes[i].index] = i;
 			if (!equal(suffixes[i], suffixes[i - 1]))
@@ -54,9 +61,11 @@ std::vector<Suffix> CreateSuffixes(std::string s)
 			}
 			suffixes[i].rank[0] = max_rank;
 		}
-		for (int i = 0; i < n; ++i)
+
+		// Get Rank[1] for all suffixes
+		for (int i = 0; i < len; ++i)
 		{
-			if (suffixes[i].index + k < n)
+			if (suffixes[i].index + k < len)
 				suffixes[i].rank[1] = suffixes[index[suffixes[i].index + k]].rank[0];
 			else
 				suffixes[i].rank[1] = -1;
@@ -66,57 +75,61 @@ std::vector<Suffix> CreateSuffixes(std::string s)
 	return suffixes;
 }
 
-std::string Encode(std::string s)
+// Encode string in O(nlog(n)log(n))
+std::string BWTEncode(std::string input)
 {
-	s += MIN_CHARACTER;
-	std::vector<Suffix> suffixes = CreateSuffixes(s);
-	std::string r = "";
+	// Get suffix array
+	input += MIN_CHARACTER;
+	std::vector<Suffix> suffixes = CreateSuffixes(input);
+
+	// Encode using suffix array
+	std::string encoded = "";
 	for (Suffix suffix : suffixes)
 	{
 		if (suffix.index == 0)
-			r += MIN_CHARACTER;
+			encoded += MIN_CHARACTER;
 		else
-			r += s[suffix.index - 1];
+			encoded += input[suffix.index - 1];
 	}
-	return r;
+	return encoded;
 }
 
-std::string Decode(std::string s)
+// Decode string in O(n + alphabet_size)
+std::string BWTDecode(std::string input)
 {
 	// Init
-	int amount[ALPHABET_SIZE] = {0};
-	int position[ALPHABET_SIZE] = {0};
+	int amount[ALPHABET_SIZE] = {0};   // Amount of character
+	int position[ALPHABET_SIZE] = {0}; // Starting position of char in sorted array
 
-	int n = s.size();
+	int len = input.length();
 
-	for (char c : s)
+	for (char c : input)
 		++amount[(int)c];
-	int x = 0;
+	int pos = 0;
 	for (int i = 0; i < ALPHABET_SIZE; ++i)
 	{
 		if (amount[i] > 0)
 		{
-			position[i] = x;
-			x += amount[i];
+			position[i] = pos;
+			pos += amount[i];
 			amount[i] = 0;
 		}
 	}
 
 	std::vector<int> l;
-	for (int i = 0; i < n; ++i)
-		l.push_back(amount[(int)s[i]]++);
+	for (int i = 0; i < len; ++i)
+		l.push_back(amount[(int)input[i]]++);
 
-	std::string r = "";
-	x = 0;
+	// Decode
+	std::string decoded = "";
+	pos = 0;
 	while (1)
 	{
-		if (r.length() == s.length())
+		if (input[pos] == MIN_CHARACTER)
 			break;
-		if (s[x] == MIN_CHARACTER)
-			break;
-		r += s[x];
-		x = position[(int)s[x]] + l[x];
+		decoded += input[pos];
+		pos = position[(int)input[pos]] + l[pos];
 	}
-	reverse(r.begin(), r.end());
-	return r;
+	reverse(decoded.begin(), decoded.end());
+	return decoded;
 }
