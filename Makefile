@@ -1,5 +1,4 @@
 all:
-	$(MAKE) -C ./tests
 	$(MAKE) -C ./src
 clean:
 	rm -rf ./build-files

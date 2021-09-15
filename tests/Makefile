@@ -9,7 +9,7 @@ DEPS := $(SRCS:$(SRCDIR)/%.cpp=$(DEPDIR)/%.d)
 TREE := $(patsubst %/,%,$(dir $(OBJS)))
 TREE := $(sort $(TREE))
 CPPFLAGS = -MMD -MP -MF $(@:$(OBJDIR)/%.o=$(DEPDIR)/%.d)
-CXXFLAGS := -O3 -march=native -Wall -Wextra -Wshadow
+CXXFLAGS := -O0 -march=native -Wall -Wextra -Wshadow -I /usr/include/catch2/
 
 .PHONY: all clean
 

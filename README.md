@@ -1,13 +1,12 @@
 # tiralabra
 
 ## Dependencies:
- - doctest
-    - Download the header file from the [releases page](https://github.com/onqtam/doctest/releases) and place it in the ./tests folder
+ - catch2
 
 ## Usage
-To compile the program, run `make`. This also automatically runs the tests.  
+To compile the program, run `make`.  
 Usage: `./bnzip`  
-Running tests: `make test`  
+Compiling and running tests: `make test`  
 
 ## Week reports
 - [Week report 1](./documentation/week-report-1.md)
