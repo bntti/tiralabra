@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <iostream>
-#include "burrows-wheeler-transform.hpp"
 
 const int MAX_CHARACTER = 255;
 const char MIN_CHARACTER = 0;
