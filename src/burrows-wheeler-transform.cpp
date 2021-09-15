@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-const int MAX_CHARACTER = 255;
+const int ALPHABET_SIZE = 128;
 const char MIN_CHARACTER = 0;
 
 struct Suffix
@@ -84,15 +84,15 @@ std::string Encode(std::string s)
 std::string Decode(std::string s)
 {
 	// Init
-	int amount[MAX_CHARACTER] = {0};
-	int position[MAX_CHARACTER] = {0};
+	int amount[ALPHABET_SIZE] = {0};
+	int position[ALPHABET_SIZE] = {0};
 
 	int n = s.size();
 
 	for (char c : s)
 		++amount[(int)c];
 	int x = 0;
-	for (int i = 0; i < MAX_CHARACTER; ++i)
+	for (int i = 0; i < ALPHABET_SIZE; ++i)
 	{
 		if (amount[i] > 0)
 		{
