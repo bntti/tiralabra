@@ -10,7 +10,11 @@
 ## Usage
 To compile the program, run `make`.  
 Usage: `./bnzip`  
-Compiling and running tests: `make test`  
+Compiling and running tests: `make test`
+
+## Documentation
+To generate documentation, run `doxygen`  
+Documentation is also available [here](https://bntti.github.io/tiralabra)
 
 ## Week reports
 - [Week report 1](./documentation/week-report-1.md)
