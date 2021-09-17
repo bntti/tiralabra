@@ -1,8 +1,18 @@
+/**
+ * @file test.cpp
+ * @author Juho Röyskö
+ * @brief Runs all tests
+ * @version 0.1
+ * @date 2021-09-17
+ */
 #define CATCH_CONFIG_MAIN
 #include <catch.hpp>
 #include "../src/burrows-wheeler-transform.hpp"
 #include "../src/move-to-front-transform.hpp"
 
+/**
+ * @brief Tests Burrows-Wheeler transform
+ */
 TEST_CASE("Testing Burrows-Wheeler transform", "[Burrows-Wheeler transform]")
 {
     std::pair<std::string, std::string> test_cases[4] = {
@@ -30,6 +40,9 @@ TEST_CASE("Testing Burrows-Wheeler transform", "[Burrows-Wheeler transform]")
     }
 }
 
+/**
+ * @brief Tests move-to-front transform
+ */
 TEST_CASE("Testing move-to-front transform", "[move-to-front transform]")
 {
     std::pair<std::string, std::vector<int>> test_cases[4] = {

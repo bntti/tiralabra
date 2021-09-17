@@ -1,3 +1,10 @@
+/**
+ * @file burrows-wheeler-transform.cpp
+ * @author Juho Röyskö
+ * @brief Burrows-Wheeler transform
+ * @version 0.1
+ * @date 2021-09-17
+ */
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -5,31 +12,52 @@
 const int ALPHABET_SIZE = 128;
 const char MIN_CHARACTER = 0;
 
-// Suffix struct
+/**
+ * @brief Suffix struct
+ */
 struct Suffix
 {
 	int index;
 	int rank[2];
 };
 
-// Comparison function for suffixes.
+/**
+ * @brief Comparison function for suffixes
+ * 
+ * @param a Suffix 1
+ * @param b Suffix 2
+ * @return true a < b
+ * @return false a >= b
+ */
 bool cmp(Suffix a, Suffix b)
 {
 	return a.rank[0] == b.rank[0] ? a.rank[1] < b.rank[1] : a.rank[0] < b.rank[0];
 }
 
-// Check if two suffixes have the same ranks.
+/**
+ * @brief Check if two suffixes have the same ranks
+ * 
+ * @param a Suffix 1
+ * @param b Suffix 2
+ * @return true a = b
+ * @return false a != b
+ */
 bool equal(Suffix a, Suffix b)
 {
 	return a.rank[0] == b.rank[0] && a.rank[1] == b.rank[1];
 }
 
-// Create suffix array in O(nlog(n)log(n))
+/**
+ * @brief Create suffix array in O(nlog(n)log(n))
+ * 
+ * @param input String to create suffix array form
+ * @return std::vector<Suffix> Suffix array
+ */
 std::vector<Suffix> CreateSuffixes(std::string input)
 {
 	int len = input.length();
 
-	// Rank according to first and second letter from i.
+	// Rank according to first and second letter from i
 	std::vector<Suffix> suffixes(len);
 	for (int i = 0; i < len; ++i)
 	{
@@ -75,7 +103,12 @@ std::vector<Suffix> CreateSuffixes(std::string input)
 	return suffixes;
 }
 
-// Encode string in O(nlog(n)log(n))
+/**
+ * @brief Encode string in O(nlog(n)log(n))
+ * 
+ * @param input String to encode
+ * @return std::string Encoded string
+ */
 std::string BWTEncode(std::string input)
 {
 	// Get suffix array
@@ -94,7 +127,12 @@ std::string BWTEncode(std::string input)
 	return encoded;
 }
 
-// Decode string in O(n + alphabet_size)
+/**
+ * @brief Decode string in O(n + alphabet_size)
+ * 
+ * @param input String to decode
+ * @return std::string Decoded string
+ */
 std::string BWTDecode(std::string input)
 {
 	// Init

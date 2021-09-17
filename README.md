@@ -1,9 +1,11 @@
-# tiralabra
+# Tiralabra
 [![Build Status](https://app.travis-ci.com/bntti/tiralabra.svg?branch=main)](https://app.travis-ci.com/bntti/tiralabra)
 [![codecov](https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1)](https://codecov.io/gh/bntti/tiralabra)
 
-## Dependencies:
+## Dependencies
  - catch2
+#### Optional dependencies
+ - doxygen (for generating documentation)
 
 ## Usage
 To compile the program, run `make`.  

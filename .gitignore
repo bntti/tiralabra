@@ -3,3 +3,5 @@ tests/test
 tests/doctest.h
 build-files
 bnzip
+html
+latex
