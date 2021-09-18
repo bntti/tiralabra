@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['suffix_0',['Suffix',['../structSuffix.html',1,'']]]
+  ['sameranks_0',['SameRanks',['../burrows-wheeler-transform_8cpp.html#ae4e22a35d9aa025dd57864118d0678af',1,'burrows-wheeler-transform.cpp']]],
+  ['suffix_1',['Suffix',['../structSuffix.html',1,'']]]
 ];
