@@ -2,7 +2,7 @@
  * @file burrows-wheeler-transform.cpp
  * @author Juho Röyskö
  * @brief Burrows-Wheeler transform
- * @version 0.1
+ * @version 0.1.1
  * @date 2021-09-17
  */
 #include <string>
@@ -26,10 +26,10 @@ struct Suffix
  * 
  * @param a Suffix 1
  * @param b Suffix 2
- * @return true a < b
- * @return false a >= b
+ * @return true If the first suffixes ranks are smaller than the second one's
+ * @return false Otherwise.
  */
-bool cmp(Suffix a, Suffix b)
+bool Compare(Suffix a, Suffix b)
 {
 	return a.rank[0] == b.rank[0] ? a.rank[1] < b.rank[1] : a.rank[0] < b.rank[0];
 }
@@ -39,10 +39,10 @@ bool cmp(Suffix a, Suffix b)
  * 
  * @param a Suffix 1
  * @param b Suffix 2
- * @return true a = b
- * @return false a != b
+ * @return true If both suffixes have the same ranks
+ * @return false Otherwise
  */
-bool equal(Suffix a, Suffix b)
+bool SameRanks(Suffix a, Suffix b)
 {
 	return a.rank[0] == b.rank[0] && a.rank[1] == b.rank[1];
 }
@@ -69,7 +69,7 @@ std::vector<Suffix> CreateSuffixes(std::string input)
 			suffixes[i].rank[1] = -1;
 	}
 
-	std::sort(suffixes.begin(), suffixes.end(), cmp);
+	std::sort(suffixes.begin(), suffixes.end(), Compare);
 
 	// Rank according to place in sorted array and place of suffix starting from i + k
 	std::vector<int> index(len);
@@ -83,7 +83,7 @@ std::vector<Suffix> CreateSuffixes(std::string input)
 		for (int i = 1; i < len; ++i)
 		{
 			index[suffixes[i].index] = i;
-			if (!equal(suffixes[i], suffixes[i - 1]))
+			if (!SameRanks(suffixes[i], suffixes[i - 1]))
 			{
 				++max_rank;
 			}
@@ -98,7 +98,7 @@ std::vector<Suffix> CreateSuffixes(std::string input)
 			else
 				suffixes[i].rank[1] = -1;
 		}
-		std::sort(suffixes.begin(), suffixes.end(), cmp);
+		std::sort(suffixes.begin(), suffixes.end(), Compare);
 	}
 	return suffixes;
 }
@@ -128,7 +128,7 @@ std::string BWTEncode(std::string input)
 }
 
 /**
- * @brief Decode string in O(n + alphabet_size)
+ * @brief Decode string in O(n + alphabet size)
  * 
  * @param input String to decode
  * @return std::string Decoded string

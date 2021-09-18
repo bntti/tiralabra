@@ -20,4 +20,4 @@ Documentation is also available [here](https://bntti.github.io/tiralabra)
 - [Week report 1](./documentation/week-report-1.md)
 
 ## Other documents
-- [Määrittelydokumentti](./documentation/maarittelydokumentti.md)
+- [Definition document](./documentation/definition-document.md)

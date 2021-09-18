@@ -1,4 +1,4 @@
-# Määrittelydokumentti
+# Definition document
 
 I will code different kinds of compression algorithms.  
 I will at least code Burrows-Wheeler transform + Move-to-front encoding + Huffman encoding and the Lempel Ziv compression algorithm. I will do more if I have the time.  
