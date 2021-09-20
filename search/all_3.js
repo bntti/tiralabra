@@ -4,6 +4,6 @@ var searchData=
   ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
   ['move_2dto_2dfront_2dtransform_2ecpp_2',['move-to-front-transform.cpp',['../move-to-front-transform_8cpp.html',1,'']]],
   ['move_2dto_2dfront_2dtransform_2ehpp_3',['move-to-front-transform.hpp',['../move-to-front-transform_8hpp.html',1,'']]],
-  ['mtftdecode_4',['MTFTDecode',['../move-to-front-transform_8cpp.html#af8f5fd90ed737c625303e414702eed97',1,'MTFTDecode(std::vector&lt; int &gt; input):&#160;move-to-front-transform.cpp'],['../move-to-front-transform_8hpp.html#af8f5fd90ed737c625303e414702eed97',1,'MTFTDecode(std::vector&lt; int &gt; input):&#160;move-to-front-transform.cpp']]],
-  ['mtftencode_5',['MTFTEncode',['../move-to-front-transform_8cpp.html#a862f59c0b6e80f8ac2a380504ffa0d20',1,'MTFTEncode(std::string input):&#160;move-to-front-transform.cpp'],['../move-to-front-transform_8hpp.html#a862f59c0b6e80f8ac2a380504ffa0d20',1,'MTFTEncode(std::string input):&#160;move-to-front-transform.cpp']]]
+  ['mtftdecode_4',['MTFTDecode',['../move-to-front-transform_8cpp.html#a4fbd81ec67d281434f1f963a830980b2',1,'MTFTDecode(std::vector&lt; uint8_t &gt; input):&#160;move-to-front-transform.cpp'],['../move-to-front-transform_8hpp.html#a4fbd81ec67d281434f1f963a830980b2',1,'MTFTDecode(std::vector&lt; uint8_t &gt; input):&#160;move-to-front-transform.cpp']]],
+  ['mtftencode_5',['MTFTEncode',['../move-to-front-transform_8cpp.html#a97b5b46c8c09732561245da1808b9e1c',1,'MTFTEncode(std::string input):&#160;move-to-front-transform.cpp'],['../move-to-front-transform_8hpp.html#a97b5b46c8c09732561245da1808b9e1c',1,'MTFTEncode(std::string input):&#160;move-to-front-transform.cpp']]]
 ];
