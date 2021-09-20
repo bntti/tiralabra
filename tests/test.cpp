@@ -2,8 +2,8 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Runs all tests
- * @version 0.1.1
- * @date 2021-09-17
+ * @version 0.2
+ * @date 2021-09-20
  */
 #define CATCH_CONFIG_MAIN
 #include <catch.hpp>
@@ -45,7 +45,7 @@ TEST_CASE("Test Burrows-Wheeler transform", "[Burrows-Wheeler transform]")
  */
 TEST_CASE("Test move-to-front transform", "[move-to-front transform]")
 {
-    std::pair<std::string, std::vector<int>> test_cases[4] = {
+    std::pair<std::string, std::vector<uint8_t>> test_cases[4] = {
         {"abc", {97, 98, 99}},
         {"aaa", {97, 0, 0}},
         {"aabbaa~~b", {97, 0, 98, 0, 1, 0, 126, 0, 2}},
@@ -53,13 +53,13 @@ TEST_CASE("Test move-to-front transform", "[move-to-front transform]")
 
     SECTION("Test encoding")
     {
-        for (std::pair<std::string, std::vector<int>> test_case : test_cases)
+        for (std::pair<std::string, std::vector<uint8_t>> test_case : test_cases)
             REQUIRE(MTFTEncode(test_case.first) == test_case.second);
     }
 
     SECTION("Test decoding")
     {
-        for (std::pair<std::string, std::vector<int>> test_case : test_cases)
+        for (std::pair<std::string, std::vector<uint8_t>> test_case : test_cases)
             REQUIRE(MTFTDecode(test_case.second) == test_case.first);
     }
 }
