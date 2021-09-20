@@ -6,19 +6,29 @@
  - catch2
 #### Optional dependencies
  - doxygen (for generating documentation)
+ - cppcheck (for code analysis)
 
 ## Usage
-To compile the program, run `make`.  
-Usage: `./bnzip`  
-Compiling and running tests: `make test`
+| Command        | Description                                                                       |
+| -------------- | --------------------------------------------------------------------------------- |
+| `make`         | Compiles program                                                                  |
+| `make test`    | Compile and run tests                                                             |
+| `make analyze` | Runs code analysis                                                                |
+| `make check`   | Same as `make analyze && make test`                                               |
+| `doxygen`      | Generate documentation (also available [here](https://bntti.github.io/tiralabra)) |
 
-## Documentation
-To generate documentation, run `doxygen`  
-Documentation is also available [here](https://bntti.github.io/tiralabra)
+#### Running program  
+```
+$ ./bnzip <flags> <file>
+```
+| Flag           | Description |
+| -------------- | ----------- |
+| `-t`, `--todo` | Todo        |
 
-## Week reports
+## Documents
+#### Week reports
 - [Week report 1](./documentation/week-report-1.md)
 - [Week report 2](./documentation/week-report-2.md)
 
-## Other documents
+#### Other documents
 - [Definition document](./documentation/definition-document.md)

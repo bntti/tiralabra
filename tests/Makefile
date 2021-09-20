@@ -16,7 +16,6 @@ CXXFLAGS := -O0 -march=native -Wall -Wextra -Wshadow -std=c++11 -I /usr/include/
 all: $(TARGET)
 	@echo
 	@./$(TARGET)
-	@echo
 
 clean:
 	rm -rf $(TARGET)
