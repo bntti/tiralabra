@@ -2,7 +2,7 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Runs all tests
- * @version 0.3
+ * @version 0.4
  * @date 2021-09-22
  */
 #define CATCH_CONFIG_MAIN
@@ -67,6 +67,9 @@ TEST_CASE("Test Huffman coding", "[Huffman coding]")
             // Check that the compressed file is smaller in size than the original file
             INFO("Comparing size of '" + compressed_file_name + "' with the size of the original file");
             CHECK(IsSmaller(compressed_file_name, original_file_name));
+
+            // Delete temporary file
+            INFO("Deleting file '" + compressed_file_name + "'");
             remove(compressed_file_name.c_str());
         }
     }
@@ -91,6 +94,30 @@ TEST_CASE("Test Huffman coding", "[Huffman coding]")
             INFO("Comparing '" + decompressed_file_name + "' with the original file");
             std::string command = "cmp -s " + original_file_name + " " + decompressed_file_name;
             CHECK(!system(command.c_str()));
+
+            // Delete temporary files
+            INFO("Deleting file '" + compressed_file_name + "'");
+            remove(compressed_file_name.c_str());
+            INFO("Deleting file '" + decompressed_file_name + "'");
+            remove(decompressed_file_name.c_str());
+        }
+    }
+
+    SECTION("Test that compression and decompression work when verbose is true")
+    {
+        for (std::string test_file : test_files)
+        {
+            std::string original_file_name = path + test_file;
+            std::string compressed_file_name = test_file + ".bnzip";
+            std::string decompressed_file_name = test_file;
+
+            // Compress the file
+            INFO("Compressing file '" + original_file_name + "'");
+            HuffmanCompress(original_file_name, 1);
+
+            // Decompress the compressed file
+            INFO("Decompressing file '" + compressed_file_name + "'");
+            HuffmanDecompress(compressed_file_name, 1);
 
             // Delete temporary files
             INFO("Deleting file '" + compressed_file_name + "'");
