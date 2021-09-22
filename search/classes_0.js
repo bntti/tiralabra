@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['suffix_0',['Suffix',['../structSuffix.html',1,'']]]
+  ['compareweight_0',['CompareWeight',['../structCompareWeight.html',1,'']]]
 ];

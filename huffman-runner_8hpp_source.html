@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tiralabra: src/move-to-front-transform.hpp Source File</title>
+<title>Tiralabra: src/huffman-runner.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,18 +66,16 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">move-to-front-transform.hpp</div></div>
+  <div class="headertitle"><div class="title">huffman-runner.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="move-to-front-transform_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>std::vector&lt;uint8_t&gt; <a class="code hl_function" href="move-to-front-transform_8hpp.html#a97b5b46c8c09732561245da1808b9e1c">MTFTEncode</a>(std::string input);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>std::string <a class="code hl_function" href="move-to-front-transform_8hpp.html#a4fbd81ec67d281434f1f963a830980b2">MTFTDecode</a>(std::vector&lt;uint8_t&gt; input);</div>
-<div class="ttc" id="amove-to-front-transform_8hpp_html_a4fbd81ec67d281434f1f963a830980b2"><div class="ttname"><a href="move-to-front-transform_8hpp.html#a4fbd81ec67d281434f1f963a830980b2">MTFTDecode</a></div><div class="ttdeci">std::string MTFTDecode(std::vector&lt; uint8_t &gt; input)</div><div class="ttdoc">Decode string in O(n)</div><div class="ttdef"><b>Definition:</b> move-to-front-transform.cpp:50</div></div>
-<div class="ttc" id="amove-to-front-transform_8hpp_html_a97b5b46c8c09732561245da1808b9e1c"><div class="ttname"><a href="move-to-front-transform_8hpp.html#a97b5b46c8c09732561245da1808b9e1c">MTFTEncode</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; MTFTEncode(std::string input)</div><div class="ttdoc">Encode string in O(n)</div><div class="ttdef"><b>Definition:</b> move-to-front-transform.cpp:19</div></div>
+<a href="huffman-runner_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keywordtype">void</span> <a class="code hl_function" href="huffman-runner_8hpp.html#a2942e7b8c1b9d5ce60ba25e95b8373f7">HuffmanCompress</a>(std::string <span class="keyword">const</span> &amp;input_file, <span class="keywordtype">bool</span> verbose = 0);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">void</span> <a class="code hl_function" href="huffman-runner_8hpp.html#a72861da6c3b375ccf9136bc1fcdf48bc">HuffmanDecompress</a>(std::string <span class="keyword">const</span> &amp;input_file, <span class="keywordtype">bool</span> verbose = 0);</div>
+<div class="ttc" id="ahuffman-runner_8hpp_html_a2942e7b8c1b9d5ce60ba25e95b8373f7"><div class="ttname"><a href="huffman-runner_8hpp.html#a2942e7b8c1b9d5ce60ba25e95b8373f7">HuffmanCompress</a></div><div class="ttdeci">void HuffmanCompress(std::string const &amp;input_file, bool verbose=0)</div><div class="ttdoc">Compress a file using Huffman coding.</div><div class="ttdef"><b>Definition:</b> huffman-runner.cpp:57</div></div>
+<div class="ttc" id="ahuffman-runner_8hpp_html_a72861da6c3b375ccf9136bc1fcdf48bc"><div class="ttname"><a href="huffman-runner_8hpp.html#a72861da6c3b375ccf9136bc1fcdf48bc">HuffmanDecompress</a></div><div class="ttdeci">void HuffmanDecompress(std::string const &amp;input_file, bool verbose=0)</div><div class="ttdoc">Decompress a file that was compressed with Huffman coding.</div><div class="ttdef"><b>Definition:</b> huffman-runner.cpp:131</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

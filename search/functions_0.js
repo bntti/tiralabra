@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bwtdecode_0',['BWTDecode',['../burrows-wheeler-transform_8cpp.html#a69c3f568a797d78be835bc879b5b334f',1,'BWTDecode(std::string input):&#160;burrows-wheeler-transform.cpp'],['../burrows-wheeler-transform_8hpp.html#a69c3f568a797d78be835bc879b5b334f',1,'BWTDecode(std::string input):&#160;burrows-wheeler-transform.cpp']]],
-  ['bwtencode_1',['BWTEncode',['../burrows-wheeler-transform_8cpp.html#a69e9d0d696f9e5ec232b1e32bb5ebed3',1,'BWTEncode(std::string input):&#160;burrows-wheeler-transform.cpp'],['../burrows-wheeler-transform_8hpp.html#a69e9d0d696f9e5ec232b1e32bb5ebed3',1,'BWTEncode(std::string input):&#160;burrows-wheeler-transform.cpp']]]
+  ['convertcodes_0',['ConvertCodes',['../huffman-coding_8cpp.html#ac92cdc4f403d7ba04725d29ef8d8fb76',1,'huffman-coding.cpp']]],
+  ['cwd_1',['Cwd',['../test_8cpp.html#aa240c25ae9fb822286f983208db9fd62',1,'test.cpp']]]
 ];

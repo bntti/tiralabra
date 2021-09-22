@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['mtftdecode_1',['MTFTDecode',['../move-to-front-transform_8cpp.html#a4fbd81ec67d281434f1f963a830980b2',1,'MTFTDecode(std::vector&lt; uint8_t &gt; input):&#160;move-to-front-transform.cpp'],['../move-to-front-transform_8hpp.html#a4fbd81ec67d281434f1f963a830980b2',1,'MTFTDecode(std::vector&lt; uint8_t &gt; input):&#160;move-to-front-transform.cpp']]],
-  ['mtftencode_2',['MTFTEncode',['../move-to-front-transform_8cpp.html#a97b5b46c8c09732561245da1808b9e1c',1,'MTFTEncode(std::string input):&#160;move-to-front-transform.cpp'],['../move-to-front-transform_8hpp.html#a97b5b46c8c09732561245da1808b9e1c',1,'MTFTEncode(std::string input):&#160;move-to-front-transform.cpp']]]
+  ['hcdecode_0',['HCDecode',['../huffman-coding_8cpp.html#aa8348837ccbf4a3a7fbde310444f863e',1,'HCDecode(std::string const &amp;input):&#160;huffman-coding.cpp'],['../huffman-coding_8hpp.html#aa8348837ccbf4a3a7fbde310444f863e',1,'HCDecode(std::string const &amp;input):&#160;huffman-coding.cpp']]],
+  ['hcencode_1',['HCEncode',['../huffman-coding_8cpp.html#abb5a0f4b4505782cc833a6112914dfff',1,'HCEncode(std::string const &amp;input):&#160;huffman-coding.cpp'],['../huffman-coding_8hpp.html#abb5a0f4b4505782cc833a6112914dfff',1,'HCEncode(std::string const &amp;input):&#160;huffman-coding.cpp']]],
+  ['huffmancompress_2',['HuffmanCompress',['../huffman-runner_8cpp.html#a2942e7b8c1b9d5ce60ba25e95b8373f7',1,'HuffmanCompress(std::string const &amp;input_file, bool verbose=0):&#160;huffman-runner.cpp'],['../huffman-runner_8hpp.html#a2942e7b8c1b9d5ce60ba25e95b8373f7',1,'HuffmanCompress(std::string const &amp;input_file, bool verbose=0):&#160;huffman-runner.cpp']]],
+  ['huffmandecompress_3',['HuffmanDecompress',['../huffman-runner_8cpp.html#a72861da6c3b375ccf9136bc1fcdf48bc',1,'HuffmanDecompress(std::string const &amp;input_file, bool verbose=0):&#160;huffman-runner.cpp'],['../huffman-runner_8hpp.html#a72861da6c3b375ccf9136bc1fcdf48bc',1,'HuffmanDecompress(std::string const &amp;input_file, bool verbose=0):&#160;huffman-runner.cpp']]]
 ];
