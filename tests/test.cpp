@@ -2,64 +2,101 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Runs all tests
- * @version 0.2
- * @date 2021-09-20
+ * @version 0.3
+ * @date 2021-09-22
  */
 #define CATCH_CONFIG_MAIN
 #include <catch.hpp>
-#include "../src/burrows-wheeler-transform.hpp"
-#include "../src/move-to-front-transform.hpp"
+#include <stdio.h>
+#include "../src/huffman-runner.hpp"
 
 /**
- * @brief Tests Burrows-Wheeler transform
+ * @brief Check if compressed file is smaller in size than the original
+ * 
+ * @param compressed_file_name Path to compressed file
+ * @param original_file_name Path to original file
+ * @return true If compressed file is smaller in size than the original
+ * @return false Otherwise
  */
-TEST_CASE("Test Burrows-Wheeler transform", "[Burrows-Wheeler transform]")
+bool IsSmaller(std::string compressed_file_name, std::string original_file_name)
 {
-    std::pair<std::string, std::string> test_cases[4] = {
-        {"foo", "o#of"},
-        {"bar", "rb#a"},
-        {"aybabtu", "ub#yabta"},
-        {" !~", "~# !"}};
+    // Open files and check that they are open
+    INFO("Opening file '" + original_file_name + "'");
+    std::ifstream original(original_file_name, std::ifstream::ate | std::ifstream::binary);
+    CHECK(original.is_open());
+    INFO("Opening file '" + compressed_file_name + "'");
+    std::ifstream compressed(compressed_file_name, std::ifstream::ate | std::ifstream::binary);
+    CHECK(compressed.is_open());
 
-    SECTION("Test encoding")
-    {
-        for (std::pair<std::string, std::string> test_case : test_cases)
-        {
-            std::replace(test_case.second.begin(), test_case.second.end(), '#', '\0');
-            REQUIRE(BWTEncode(test_case.first) == test_case.second);
-        }
-    }
-
-    SECTION("Test decoding")
-    {
-        for (std::pair<std::string, std::string> test_case : test_cases)
-        {
-            std::replace(test_case.second.begin(), test_case.second.end(), '#', '\0');
-            REQUIRE(BWTDecode(test_case.second) == test_case.first);
-        }
-    }
+    INFO("Size of compressed file ('" + compressed_file_name + "') is " + std::to_string(compressed.tellg()));
+    INFO("Size of original file ('" + original_file_name + "') is " + std::to_string(original.tellg()));
+    return compressed.tellg() < original.tellg();
 }
 
 /**
- * @brief Tests move-to-front transform
+ * @brief Get current working directory
+ * 
+ * @return std::string Current working directory
  */
-TEST_CASE("Test move-to-front transform", "[move-to-front transform]")
+std::string Cwd()
 {
-    std::pair<std::string, std::vector<uint8_t>> test_cases[4] = {
-        {"abc", {97, 98, 99}},
-        {"aaa", {97, 0, 0}},
-        {"aabbaa~~b", {97, 0, 98, 0, 1, 0, 126, 0, 2}},
-        {"abcdefghijka", {97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 10}}};
+    char cwd[256];
+    getcwd(cwd, 256);
+    return cwd;
+}
 
-    SECTION("Test encoding")
+/**
+ * @brief Test Huffman coding
+ */
+TEST_CASE("Test Huffman coding", "[Huffman coding]")
+{
+    std::string test_files[4] = {"plaintext.txt", "special-characters.txt", "all-characters.txt", "random-binary-data.bin"};
+    std::string path = Cwd() + "/test-files/";
+
+    SECTION("Test that compressed files are smaller")
     {
-        for (std::pair<std::string, std::vector<uint8_t>> test_case : test_cases)
-            REQUIRE(MTFTEncode(test_case.first) == test_case.second);
+        for (std::string test_file : test_files)
+        {
+            std::string original_file_name = path + test_file;
+            std::string compressed_file_name = test_file + ".bnzip";
+
+            // Compress the file
+            INFO("Compressing file '" + original_file_name + "'");
+            HuffmanCompress(original_file_name);
+
+            // Check that the compressed file is smaller in size than the original file
+            INFO("Comparing size of '" + compressed_file_name + "' with the size of the original file");
+            CHECK(IsSmaller(compressed_file_name, original_file_name));
+            remove(compressed_file_name.c_str());
+        }
     }
 
-    SECTION("Test decoding")
+    SECTION("Test that decompressed files are equal to original files")
     {
-        for (std::pair<std::string, std::vector<uint8_t>> test_case : test_cases)
-            REQUIRE(MTFTDecode(test_case.second) == test_case.first);
+        for (std::string test_file : test_files)
+        {
+            std::string original_file_name = path + test_file;
+            std::string compressed_file_name = test_file + ".bnzip";
+            std::string decompressed_file_name = test_file;
+
+            // Compress the file
+            INFO("Compressing file '" + original_file_name + "'");
+            HuffmanCompress(original_file_name);
+
+            // Decompress the compressed file
+            INFO("Decompressing file '" + compressed_file_name + "'");
+            HuffmanDecompress(compressed_file_name);
+
+            // Compare resulting file to original file and check that they are the same
+            INFO("Comparing '" + decompressed_file_name + "' with the original file");
+            std::string command = "cmp -s " + original_file_name + " " + decompressed_file_name;
+            CHECK(!system(command.c_str()));
+
+            // Delete temporary files
+            INFO("Deleting file '" + compressed_file_name + "'");
+            remove(compressed_file_name.c_str());
+            INFO("Deleting file '" + decompressed_file_name + "'");
+            remove(decompressed_file_name.c_str());
+        }
     }
 }

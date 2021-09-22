@@ -19,11 +19,14 @@
 
 #### Running program  
 ```
-$ ./bnzip <flags> <file>
+$ ./bnzip <args> <file>
 ```
-| Flag           | Description |
-| -------------- | ----------- |
-| `-t`, `--todo` | Todo        |
+| Argument             | Description                           |
+| -------------------- | ------------------------------------- |
+| `-c`, `--compress`   | Compress given file                   |
+| `-d`, `--decompress` | Decompress given file                 |
+| `-v`, `--verbose`    | Print what program is doing           |
+| `-h`, `--help`       | Show usage instructions and arguments |
 
 ## Documents
 #### Week reports
