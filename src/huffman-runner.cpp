@@ -139,8 +139,6 @@ void HuffmanDecompress(std::string const &input_file, bool verbose = 0)
     std::string decoded_data = HCDecode(data);
 
     std::string output_file = input_file;
-    if (verbose)
-        std::cout << output_file.substr(output_file.length() - 6, 6) << std::endl;
     while (output_file.length() >= 6 && output_file.substr(output_file.length() - 6, 6) == ".bnzip")
         output_file = output_file.substr(0, output_file.length() - 6);
     RemovePath(output_file);
