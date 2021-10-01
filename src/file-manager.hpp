@@ -2,12 +2,13 @@
  * @file file-manager.hpp
  * @author Juho Röyskö
  * @brief Header file for file-manager.cpp
- * @version 0.1
+ * @version 0.2
  * @date 2021-10-01
  */
 #include <string>
 #include <fstream>
 
+void RemoveExtension(std::string &filename);
 std::string ReadFile(std::string input_file);
 void RemovePath(std::string &file_path);
 

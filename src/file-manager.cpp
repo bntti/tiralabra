@@ -2,12 +2,18 @@
  * @file file-manager.cpp
  * @author Juho Röyskö
  * @brief File management utilities
- * @version 0.1
+ * @version 0.2
  * @date 2021-10-01
  */
 #include <string>
 #include <sstream>
 #include <fstream>
+
+void RemoveExtension(std::string &filename)
+{
+    while (filename.length() >= 6 && filename.substr(filename.length() - 6, 6) == ".bnzip")
+        filename = filename.substr(0, filename.length() - 6);
+}
 
 /**
  * @brief Read file into a single string

@@ -2,7 +2,7 @@
  * @file huffman-runner.cpp
  * @author Juho Röyskö
  * @brief Runs Huffman coding
- * @version 0.2
+ * @version 0.3
  * @date 2021-10-01
  */
 #include <iostream>
@@ -76,8 +76,7 @@ void HuffmanDecompress(std::string const &input_file, bool verbose = 0)
     std::string decoded_data = HCDecode(data);
 
     std::string output_file = input_file;
-    while (output_file.length() >= 6 && output_file.substr(output_file.length() - 6, 6) == ".bnzip")
-        output_file = output_file.substr(0, output_file.length() - 6);
+    RemoveExtension(output_file);
     RemovePath(output_file);
 
     if (verbose)
