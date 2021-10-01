@@ -2,7 +2,7 @@
  * @file huffman-runner.cpp
  * @author Juho Röyskö
  * @brief Runs Huffman coding
- * @version 0.3
+ * @version 0.4
  * @date 2021-10-01
  */
 #include <iostream>
@@ -20,7 +20,10 @@ const int ALPHABET_SIZE = 256;
 void HuffmanCompress(std::string const &input_file, bool verbose = 0)
 {
     if (verbose)
+    {
+        std::cout << "Compressing file with Huffman coding" << std::endl;
         std::cout << "Reading file '" << input_file << "'" << std::endl;
+    }
     std::string str = ReadFile(input_file);
 
     if (verbose)
@@ -32,11 +35,12 @@ void HuffmanCompress(std::string const &input_file, bool verbose = 0)
     RemovePath(output_file);
     output_file += ".bnzip";
 
-    // Open file.
     if (verbose)
         std::cout << "Writing compressed data to file '" << output_file << "'" << std::endl;
 
+    // Open file.
     FileWriter file_writer(output_file);
+    file_writer.Write(0); // Tell decompressor that this file is compressed with Huffman coding.
 
     // Write codebook to file and find longest code.
     std::string longest = "";
@@ -68,8 +72,12 @@ void HuffmanCompress(std::string const &input_file, bool verbose = 0)
 void HuffmanDecompress(std::string const &input_file, bool verbose = 0)
 {
     if (verbose)
+    {
+        std::cout << "Decompressing file with Huffman coding" << std::endl;
         std::cout << "Reading file '" << input_file << "'" << std::endl;
+    }
     std::string data = ReadFile(input_file);
+    data = data.substr(1); // Remove first byte
 
     if (verbose)
         std::cout << "Decompressing data" << std::endl;

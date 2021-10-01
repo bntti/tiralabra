@@ -25,8 +25,12 @@ $ ./bnzip <args> <file>
 | -------------------- | ------------------------------------- |
 | `-c`, `--compress`   | Compress given file                   |
 | `-d`, `--decompress` | Decompress given file                 |
-| `-v`, `--verbose`    | Print what program is doing           |
 | `-h`, `--help`       | Show usage instructions and arguments |
+| `-l`, `--lzw`        | Use LZW to compress                   |
+| `-v`, `--verbose`    | Print what program is doing           |
+
+If no compression or decompression arguments are given, then the program decompresses the file if the filename name ends with `.bnzip` and otherwise compresses it.  
+When decompressing, it is not necessary to provide `-l` or `--lzw` argument, because the file contains information about what it was compressed with.
 
 ## Documents
 #### Week reports
