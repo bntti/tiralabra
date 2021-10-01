@@ -2,7 +2,7 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Runs all tests
- * @version 0.6
+ * @version 0.7
  * @date 2021-09-22
  */
 #define CATCH_CONFIG_MAIN
@@ -22,15 +22,11 @@
 bool IsSmaller(std::string compressed_file_name, std::string original_file_name)
 {
     // Open files and check that they are open
-    UNSCOPED_INFO("Opening file '" + original_file_name + "'");
     std::ifstream original(original_file_name, std::ifstream::ate | std::ifstream::binary);
     CHECK(original.is_open());
-    UNSCOPED_INFO("Opening file '" + compressed_file_name + "'");
     std::ifstream compressed(compressed_file_name, std::ifstream::ate | std::ifstream::binary);
     CHECK(compressed.is_open());
 
-    UNSCOPED_INFO("Size of compressed file ('" + compressed_file_name + "') is " + std::to_string(compressed.tellg()));
-    UNSCOPED_INFO("Size of original file ('" + original_file_name + "') is " + std::to_string(original.tellg()));
     return compressed.tellg() < original.tellg();
 }
 
