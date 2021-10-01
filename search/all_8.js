@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readfile_0',['ReadFile',['../huffman-runner_8cpp.html#a6547352197c000ae752036a0d6fb6422',1,'huffman-runner.cpp']]],
-  ['removepath_1',['RemovePath',['../huffman-runner_8cpp.html#a06152551f749a2056bdaa17306d96d97',1,'huffman-runner.cpp']]]
+  ['main_0',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
+  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]]
 ];

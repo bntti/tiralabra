@@ -104,10 +104,14 @@ Running program</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>-d</code>, <code>--decompress</code>   </td><td class="markdownTableBodyNone">Decompress given file    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>-v</code>, <code>--verbose</code>   </td><td class="markdownTableBodyNone">Print what program is doing    </td></tr>
+<td class="markdownTableBodyNone"><code>-h</code>, <code>--help</code>   </td><td class="markdownTableBodyNone">Show usage instructions and arguments    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>-h</code>, <code>--help</code>   </td><td class="markdownTableBodyNone">Show usage instructions and arguments   </td></tr>
+<td class="markdownTableBodyNone"><code>-l</code>, <code>--lzw</code>   </td><td class="markdownTableBodyNone">Use LZW to compress    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>-v</code>, <code>--verbose</code>   </td><td class="markdownTableBodyNone">Print what program is doing   </td></tr>
 </table>
+<p >If no compression or decompression arguments are given, then the program decompresses the file if the filename name ends with <code>.bnzip</code> and otherwise compresses it. <br  />
+ When decompressing, it is not necessary to provide <code>-l</code> or <code>--lzw</code> argument, because the file contains information about what it was compressed with.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Documents</h1>
 <h3><a class="anchor" id="autotoc_md11"></a>
