@@ -2,7 +2,7 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Runs all tests
- * @version 0.4
+ * @version 0.5
  * @date 2021-09-22
  */
 #define CATCH_CONFIG_MAIN
@@ -21,15 +21,15 @@
 bool IsSmaller(std::string compressed_file_name, std::string original_file_name)
 {
     // Open files and check that they are open
-    INFO("Opening file '" + original_file_name + "'");
+    UNSCOPED_INFO("Opening file '" + original_file_name + "'");
     std::ifstream original(original_file_name, std::ifstream::ate | std::ifstream::binary);
     CHECK(original.is_open());
-    INFO("Opening file '" + compressed_file_name + "'");
+    UNSCOPED_INFO("Opening file '" + compressed_file_name + "'");
     std::ifstream compressed(compressed_file_name, std::ifstream::ate | std::ifstream::binary);
     CHECK(compressed.is_open());
 
-    INFO("Size of compressed file ('" + compressed_file_name + "') is " + std::to_string(compressed.tellg()));
-    INFO("Size of original file ('" + original_file_name + "') is " + std::to_string(original.tellg()));
+    UNSCOPED_INFO("Size of compressed file ('" + compressed_file_name + "') is " + std::to_string(compressed.tellg()));
+    UNSCOPED_INFO("Size of original file ('" + original_file_name + "') is " + std::to_string(original.tellg()));
     return compressed.tellg() < original.tellg();
 }
 
@@ -62,7 +62,7 @@ TEST_CASE("Test Huffman coding", "[Huffman coding]")
 
             // Compress the file
             INFO("Compressing file '" + original_file_name + "'");
-            HuffmanCompress(original_file_name);
+            HuffmanCompress(original_file_name, 0);
 
             // Check that the compressed file is smaller in size than the original file
             INFO("Comparing size of '" + compressed_file_name + "' with the size of the original file");
@@ -84,11 +84,11 @@ TEST_CASE("Test Huffman coding", "[Huffman coding]")
 
             // Compress the file
             INFO("Compressing file '" + original_file_name + "'");
-            HuffmanCompress(original_file_name);
+            HuffmanCompress(original_file_name, 0);
 
             // Decompress the compressed file
             INFO("Decompressing file '" + compressed_file_name + "'");
-            HuffmanDecompress(compressed_file_name);
+            HuffmanDecompress(compressed_file_name, 0);
 
             // Compare resulting file to original file and check that they are the same
             INFO("Comparing '" + decompressed_file_name + "' with the original file");
