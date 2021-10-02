@@ -49,14 +49,20 @@ int main(int argc, char **argv)
             {
                 if (argument[j] == 'c')
                     compress = 1;
-                if (argument[j] == 'd')
+                else if (argument[j] == 'd')
                     decompress = 1;
-                if (argument[j] == 'h')
+                else if (argument[j] == 'h')
                     help = 1;
-                if (argument[j] == 'l')
+                else if (argument[j] == 'l')
                     lzw = 1;
-                if (argument[j] == 'v')
+                else if (argument[j] == 'v')
                     verbose = 1;
+                else
+                {
+                    std::cout << "No such argument '-" << argument[j] << "'\n";
+                    std::cout << "Run '" << argv[0] << " -h' for usage instructions\n";
+                    return 1;
+                }
             }
         }
         else if (argument.length() >= 2 && argument[0] == '-' && argument[1] == '-')
@@ -65,20 +71,33 @@ int main(int argc, char **argv)
             ToLower(argument);
             if (argument == "compress")
                 compress = 1;
-            if (argument == "decompress")
+            else if (argument == "decompress")
                 decompress = 1;
-            if (argument == "lzw")
+            else if (argument == "lzw")
                 lzw = 1;
-            if (argument == "help")
+            else if (argument == "help")
                 help = 1;
-            if (argument == "verbose")
+            else if (argument == "verbose")
                 verbose = 1;
+            else
+            {
+                std::cout << "No such argument '--" << argument << "'\n";
+                std::cout << "Run '" << argv[0] << " -h' for usage instructions\n";
+                return 1;
+            }
         }
         else
             input_file = argument;
     }
 
-    if (input_file == "" || help)
+    if (!help && input_file == "")
+    {
+        std::cout << "No input file provided\n";
+        std::cout << "Run '" << argv[0] << " -h' for usage instructions\n";
+        return 1;
+    }
+
+    if (help)
     {
         std::cout << "Usage:\n$ " << argv[0] << " <flags> <file>\n";
         std::cout << R"rstring(
