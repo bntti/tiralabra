@@ -2,13 +2,13 @@
  * @file huffman-test.cpp
  * @author Juho Röyskö
  * @brief Tests Huffman coding compression
- * @version 0.1.1
+ * @version 0.1.2
  * @date 2021-10-02
  */
 #include <catch.hpp>
 #include <stdio.h>
 #include "helper.hpp"
-#include "../src/huffman-runner.hpp"
+#include "../src/huffman/huffman-runner.hpp"
 
 /**
  * @brief Test Huffman coding

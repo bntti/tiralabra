@@ -2,12 +2,12 @@
  * @file main.cpp
  * @author Juho Röyskö
  * @brief Reads arguments and runs the program
- * @version 0.3.1
+ * @version 0.3.2
  * @date 2021-10-02
  */
 #include <iostream>
-#include "huffman-runner.hpp"
-#include "lzw-runner.hpp"
+#include "huffman/huffman-runner.hpp"
+#include "lzw/lzw-runner.hpp"
 #include "file-manager.hpp"
 
 /**

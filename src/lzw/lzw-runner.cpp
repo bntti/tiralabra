@@ -2,14 +2,14 @@
  * @file lzw-runner.cpp
  * @author Juho Röyskö
  * @brief Runs LZW coding
- * @version 0.1.1
+ * @version 0.1.2
  * @date 2021-10-02
  */
 #include <string>
 #include <vector>
 #include <iostream>
-#include "constants.hpp"
-#include "file-manager.hpp"
+#include "../constants.hpp"
+#include "../file-manager.hpp"
 #include "lzw-coding.hpp"
 
 /**

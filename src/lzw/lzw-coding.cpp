@@ -2,14 +2,14 @@
  * @file lzw-coding.cpp
  * @author Juho Röyskö
  * @brief LZW Coding
- * @version 0.2
+ * @version 0.2.1
  * @date 2021-10-02
  */
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "constants.hpp"
-#include "file-manager.hpp"
+#include "../constants.hpp"
+#include "../file-manager.hpp"
 
 const int CODE_MAX = (1 << LZW_CODE_SIZE) - 1;
 

@@ -2,13 +2,13 @@
  * @file huffman-test.cpp
  * @author Juho Röyskö
  * @brief Tests compression using LZW coding
- * @version 0.1.1
+ * @version 0.1.2
  * @date 2021-10-02
  */
 #include <catch.hpp>
 #include <stdio.h>
 #include "helper.hpp"
-#include "../src/lzw-runner.hpp"
+#include "../src/lzw/lzw-runner.hpp"
 
 /**
  * @brief Test Huffman coding

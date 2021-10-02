@@ -2,13 +2,13 @@
  * @file huffman-runner.cpp
  * @author Juho Röyskö
  * @brief Runs Huffman coding
- * @version 0.4.1
+ * @version 0.4.2
  * @date 2021-10-02
  */
 #include <iostream>
 #include "huffman-coding.hpp"
-#include "file-manager.hpp"
-#include "constants.hpp"
+#include "../file-manager.hpp"
+#include "../constants.hpp"
 
 /**
  * @brief Compress a file using Huffman coding

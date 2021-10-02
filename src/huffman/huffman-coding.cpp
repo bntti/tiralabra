@@ -2,14 +2,14 @@
  * @file huffman-coding.cpp
  * @author Juho Röyskö
  * @brief Huffman coding
- * @version 0.1.1
+ * @version 0.1.2
  * @date 2021-10-02
  */
 #include <vector>
 #include <queue>
 #include <string>
 #include <algorithm>
-#include "constants.hpp"
+#include "../constants.hpp"
 
 /**
  * @brief Node in binary tree used to create Huffman coding
