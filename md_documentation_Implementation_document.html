@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tiralabra: Testing document</title>
+<title>Tiralabra: Implementation document</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,18 +62,32 @@ $(function() {
 
 </div><!-- top -->
 <div><div class="header">
-  <div class="headertitle"><div class="title">Testing document </div></div>
+  <div class="headertitle"><div class="title">Implementation document </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a href="https://codecov.io/gh/bntti/tiralabra"><img src="https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1" alt="codecov" style="pointer-events: none;" class="inline"/></a></p>
-<p >The tests check that:</p><ul>
-<li>The <a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a> works</li>
-<li>The compressed file is smaller than the original file.</li>
-<li>The decompressed file is identical to the original file.</li>
-<li>Compression and decompression work with the verbose argument set to true.</li>
-</ul>
-<p >The tests are run with test input files containing miscellenious data. <br  />
- Tests can be replicated by running <code>make test</code>. </p>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md2"></a>
+Huffman coding</h2>
+<p >Creates the Huffman coding codebook and converts it to Canonical Huffman code.</p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Lempel–Ziv–Welch (LZW)</h2>
+<p >Todo</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Time and memory complexity</h2>
+<p >A = Alphabet size used in the Huffman coding </p><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">time complexity   </th><th class="markdownTableHeadNone">memory complexity    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Huffman compression   </td><td class="markdownTableBodyNone">O(n+A²)   </td><td class="markdownTableBodyNone">O(n+A²)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Huffman decompression   </td><td class="markdownTableBodyNone">O(n+A²)   </td><td class="markdownTableBodyNone">O(n+A²)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LZW compression   </td><td class="markdownTableBodyNone">O(n)   </td><td class="markdownTableBodyNone">O(n)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LZW decompression   </td><td class="markdownTableBodyNone">O(n)   </td><td class="markdownTableBodyNone">O(n)   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Comparison</h2>
+<p >Todo </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
