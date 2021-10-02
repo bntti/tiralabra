@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['file_2dmanager_2ecpp_0',['file-manager.cpp',['../file-manager_8cpp.html',1,'']]],
-  ['file_2dmanager_2ehpp_1',['file-manager.hpp',['../file-manager_8hpp.html',1,'']]]
+  ['constants_2ehpp_0',['constants.hpp',['../constants_8hpp.html',1,'']]]
 ];

@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for <a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a>.  
+<p>Header file for <a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a>. Also contains <a class="el" href="structFileWriter.html" title="Writes (binary) data into a file.">FileWriter</a> struct.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
@@ -88,33 +88,33 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aa0c77e7179c6a24b0b821e342edbfefd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#aa0c77e7179c6a24b0b821e342edbfefd">IsCompressed</a> (std::string const &amp;filename)</td></tr>
+<tr class="memdesc:aa0c77e7179c6a24b0b821e342edbfefd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if file ends with .bnzip.  <a href="file-manager_8hpp.html#aa0c77e7179c6a24b0b821e342edbfefd">More...</a><br /></td></tr>
+<tr class="separator:aa0c77e7179c6a24b0b821e342edbfefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86b99111a29f9239cd4c8eee20e4909b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#a86b99111a29f9239cd4c8eee20e4909b">RemoveExtension</a> (std::string &amp;filename)</td></tr>
-<tr class="memdesc:a86b99111a29f9239cd4c8eee20e4909b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes .bnzip extensions from files.  <a href="file-manager_8hpp.html#a86b99111a29f9239cd4c8eee20e4909b">More...</a><br /></td></tr>
+<tr class="memdesc:a86b99111a29f9239cd4c8eee20e4909b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes .bnzip extensions from a filename.  <a href="file-manager_8hpp.html#a86b99111a29f9239cd4c8eee20e4909b">More...</a><br /></td></tr>
 <tr class="separator:a86b99111a29f9239cd4c8eee20e4909b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6547352197c000ae752036a0d6fb6422"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#a6547352197c000ae752036a0d6fb6422">ReadFile</a> (std::string input_file)</td></tr>
-<tr class="memdesc:a6547352197c000ae752036a0d6fb6422"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read file into a single string.  <a href="file-manager_8hpp.html#a6547352197c000ae752036a0d6fb6422">More...</a><br /></td></tr>
-<tr class="separator:a6547352197c000ae752036a0d6fb6422"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab963989c16bb8c34b4128b703be487e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#ab963989c16bb8c34b4128b703be487e0">FileExists</a> (std::string filename)</td></tr>
-<tr class="memdesc:ab963989c16bb8c34b4128b703be487e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if file exists.  <a href="file-manager_8hpp.html#ab963989c16bb8c34b4128b703be487e0">More...</a><br /></td></tr>
-<tr class="separator:ab963989c16bb8c34b4128b703be487e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbcf90767bf16c60e7c97fe6fb104105"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#acbcf90767bf16c60e7c97fe6fb104105">IsCompressed</a> (std::string filename)</td></tr>
-<tr class="memdesc:acbcf90767bf16c60e7c97fe6fb104105"><td class="mdescLeft">&#160;</td><td class="mdescRight">If file is compressed. Determined by checking if filename ends with .bnzip.  <a href="file-manager_8hpp.html#acbcf90767bf16c60e7c97fe6fb104105">More...</a><br /></td></tr>
-<tr class="separator:acbcf90767bf16c60e7c97fe6fb104105"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a965edd27d9f381db4c800363b42d1400"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#a965edd27d9f381db4c800363b42d1400">FirstByte</a> (std::string filename)</td></tr>
-<tr class="memdesc:a965edd27d9f381db4c800363b42d1400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns first byte of file.  <a href="file-manager_8hpp.html#a965edd27d9f381db4c800363b42d1400">More...</a><br /></td></tr>
-<tr class="separator:a965edd27d9f381db4c800363b42d1400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeac9d7d422fe50697cbf74786e9d265"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#adeac9d7d422fe50697cbf74786e9d265">ReadFile</a> (std::string const &amp;filename)</td></tr>
+<tr class="memdesc:adeac9d7d422fe50697cbf74786e9d265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read contents of a file into a single string.  <a href="file-manager_8hpp.html#adeac9d7d422fe50697cbf74786e9d265">More...</a><br /></td></tr>
+<tr class="separator:adeac9d7d422fe50697cbf74786e9d265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a611ed9aeb5cf6b0f627e90f4d9a269a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#a611ed9aeb5cf6b0f627e90f4d9a269a7">FileExists</a> (std::string const &amp;filename)</td></tr>
+<tr class="memdesc:a611ed9aeb5cf6b0f627e90f4d9a269a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if file exists.  <a href="file-manager_8hpp.html#a611ed9aeb5cf6b0f627e90f4d9a269a7">More...</a><br /></td></tr>
+<tr class="separator:a611ed9aeb5cf6b0f627e90f4d9a269a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c25bf6babd7604c3c108be22023a346"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#a5c25bf6babd7604c3c108be22023a346">FirstByte</a> (std::string const &amp;filename)</td></tr>
+<tr class="memdesc:a5c25bf6babd7604c3c108be22023a346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns first byte of a file.  <a href="file-manager_8hpp.html#a5c25bf6babd7604c3c108be22023a346">More...</a><br /></td></tr>
+<tr class="separator:a5c25bf6babd7604c3c108be22023a346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06152551f749a2056bdaa17306d96d97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file-manager_8hpp.html#a06152551f749a2056bdaa17306d96d97">RemovePath</a> (std::string &amp;file_path)</td></tr>
 <tr class="memdesc:a06152551f749a2056bdaa17306d96d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove leading path to file.  <a href="file-manager_8hpp.html#a06152551f749a2056bdaa17306d96d97">More...</a><br /></td></tr>
 <tr class="separator:a06152551f749a2056bdaa17306d96d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Header file for <a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a>. </p>
+<div class="textblock"><p >Header file for <a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a>. Also contains <a class="el" href="structFileWriter.html" title="Writes (binary) data into a file.">FileWriter</a> struct. </p>
 <dl class="section author"><dt>Author</dt><dd>Juho Röyskö </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.3 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021-10-01 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.4 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2021-10-02 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab963989c16bb8c34b4128b703be487e0" name="ab963989c16bb8c34b4128b703be487e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab963989c16bb8c34b4128b703be487e0">&#9670;&nbsp;</a></span>FileExists()</h2>
+<a id="a611ed9aeb5cf6b0f627e90f4d9a269a7" name="a611ed9aeb5cf6b0f627e90f4d9a269a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a611ed9aeb5cf6b0f627e90f4d9a269a7">&#9670;&nbsp;</a></span>FileExists()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +122,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool FileExists </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
@@ -132,7 +132,7 @@ Functions</h2></td></tr>
 <p>Checks if file exists. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>Filename of the file to check </td></tr>
+    <tr><td class="paramname">filename</td><td>Path to the file to check </td></tr>
   </table>
   </dd>
 </dl>
@@ -142,8 +142,8 @@ false otherwise </dd></dl>
 
 </div>
 </div>
-<a id="a965edd27d9f381db4c800363b42d1400" name="a965edd27d9f381db4c800363b42d1400"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a965edd27d9f381db4c800363b42d1400">&#9670;&nbsp;</a></span>FirstByte()</h2>
+<a id="a5c25bf6babd7604c3c108be22023a346" name="a5c25bf6babd7604c3c108be22023a346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c25bf6babd7604c3c108be22023a346">&#9670;&nbsp;</a></span>FirstByte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,26 +151,26 @@ false otherwise </dd></dl>
         <tr>
           <td class="memname">int FirstByte </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns first byte of file. </p>
+<p>Returns first byte of a file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>File to get first byte from </td></tr>
+    <tr><td class="paramname">filename</td><td>Path to the file to get the first byte from </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int First byte of file </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int First byte of the file </dd></dl>
 
 </div>
 </div>
-<a id="acbcf90767bf16c60e7c97fe6fb104105" name="acbcf90767bf16c60e7c97fe6fb104105"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbcf90767bf16c60e7c97fe6fb104105">&#9670;&nbsp;</a></span>IsCompressed()</h2>
+<a id="aa0c77e7179c6a24b0b821e342edbfefd" name="aa0c77e7179c6a24b0b821e342edbfefd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0c77e7179c6a24b0b821e342edbfefd">&#9670;&nbsp;</a></span>IsCompressed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,28 +178,28 @@ false otherwise </dd></dl>
         <tr>
           <td class="memname">bool IsCompressed </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>If file is compressed. Determined by checking if filename ends with .bnzip. </p>
+<p>Check if file ends with .bnzip. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>File to check </td></tr>
+    <tr><td class="paramname">filename</td><td>Path to file to check </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true If file is compressed </dd>
+<dl class="section return"><dt>Returns</dt><dd>true If file ends with .bnzip </dd>
 <dd>
 false Otherwise </dd></dl>
 
 </div>
 </div>
-<a id="a6547352197c000ae752036a0d6fb6422" name="a6547352197c000ae752036a0d6fb6422"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6547352197c000ae752036a0d6fb6422">&#9670;&nbsp;</a></span>ReadFile()</h2>
+<a id="adeac9d7d422fe50697cbf74786e9d265" name="adeac9d7d422fe50697cbf74786e9d265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeac9d7d422fe50697cbf74786e9d265">&#9670;&nbsp;</a></span>ReadFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,17 +207,17 @@ false Otherwise </dd></dl>
         <tr>
           <td class="memname">std::string ReadFile </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>input_file</em></td><td>)</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read file into a single string. </p>
+<p>Read contents of a file into a single string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input_file</td><td>File to read </td></tr>
+    <tr><td class="paramname">filename</td><td>Path to the file to read </td></tr>
   </table>
   </dd>
 </dl>
@@ -241,7 +241,7 @@ false Otherwise </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Removes .bnzip extensions from files. </p>
+<p>Removes .bnzip extensions from a filename. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td>Filename to remove .bnzip extensions from </td></tr>

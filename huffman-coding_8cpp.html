@@ -77,10 +77,10 @@ $(function() {
 <p>Huffman coding.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;bitset&gt;</code><br />
 <code>#include &lt;queue&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="constants_8hpp_source.html">constants.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -103,9 +103,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
 <tr class="memitem:a2f778b38bc108091224e04a9990f7b88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a2f778b38bc108091224e04a9990f7b88">IncrementBinaryString</a> (std::string &amp;binary_string)</td></tr>
 <tr class="memdesc:a2f778b38bc108091224e04a9990f7b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment binary string by one.  <a href="huffman-coding_8cpp.html#a2f778b38bc108091224e04a9990f7b88">More...</a><br /></td></tr>
 <tr class="separator:a2f778b38bc108091224e04a9990f7b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a534049875dde6587b28ec1faec057aee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a534049875dde6587b28ec1faec057aee">SetCodes</a> (std::vector&lt; std::pair&lt; uint8_t, uint8_t &gt; &gt; v)</td></tr>
-<tr class="memdesc:a534049875dde6587b28ec1faec057aee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the codes for characters using the Canonical Huffman code.  <a href="huffman-coding_8cpp.html#a534049875dde6587b28ec1faec057aee">More...</a><br /></td></tr>
-<tr class="separator:a534049875dde6587b28ec1faec057aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42bcf96638d6a33572fc87cf4a2ef30b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a42bcf96638d6a33572fc87cf4a2ef30b">SetCodes</a> (std::vector&lt; std::pair&lt; uint8_t, uint8_t &gt; &gt; &amp;v)</td></tr>
+<tr class="memdesc:a42bcf96638d6a33572fc87cf4a2ef30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the codes for characters using the Canonical Huffman code.  <a href="huffman-coding_8cpp.html#a42bcf96638d6a33572fc87cf4a2ef30b">More...</a><br /></td></tr>
+<tr class="separator:a42bcf96638d6a33572fc87cf4a2ef30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac92cdc4f403d7ba04725d29ef8d8fb76"><td class="memItemLeft" align="right" valign="top"><a id="ac92cdc4f403d7ba04725d29ef8d8fb76" name="ac92cdc4f403d7ba04725d29ef8d8fb76"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertCodes</b> ()</td></tr>
 <tr class="memdesc:ac92cdc4f403d7ba04725d29ef8d8fb76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert codes to Canonical Huffman codes. <br /></td></tr>
@@ -113,15 +113,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertCodes</b> ()</
 <tr class="memitem:abb5a0f4b4505782cc833a6112914dfff"><td class="memItemLeft" align="right" valign="top">std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#abb5a0f4b4505782cc833a6112914dfff">HCEncode</a> (std::string const &amp;input)</td></tr>
 <tr class="memdesc:abb5a0f4b4505782cc833a6112914dfff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Huffman encoding codebook.  <a href="huffman-coding_8cpp.html#abb5a0f4b4505782cc833a6112914dfff">More...</a><br /></td></tr>
 <tr class="separator:abb5a0f4b4505782cc833a6112914dfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8348837ccbf4a3a7fbde310444f863e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#aa8348837ccbf4a3a7fbde310444f863e">HCDecode</a> (std::string const &amp;input)</td></tr>
-<tr class="memdesc:aa8348837ccbf4a3a7fbde310444f863e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode data that has been compressed with Huffman coding.  <a href="huffman-coding_8cpp.html#aa8348837ccbf4a3a7fbde310444f863e">More...</a><br /></td></tr>
-<tr class="separator:aa8348837ccbf4a3a7fbde310444f863e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a326c577742cad6fb743585e27e205286"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a326c577742cad6fb743585e27e205286">HCDecode</a> (std::string const &amp;compressed_data)</td></tr>
+<tr class="memdesc:a326c577742cad6fb743585e27e205286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode data that has been compressed with Huffman coding.  <a href="huffman-coding_8cpp.html#a326c577742cad6fb743585e27e205286">More...</a><br /></td></tr>
+<tr class="separator:a326c577742cad6fb743585e27e205286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:afb525552ed6d204d5636ad18ccf5355f"><td class="memItemLeft" align="right" valign="top"><a id="afb525552ed6d204d5636ad18ccf5355f" name="afb525552ed6d204d5636ad18ccf5355f"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>ALPHABET_SIZE</b> = 256</td></tr>
-<tr class="separator:afb525552ed6d204d5636ad18ccf5355f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01cc49dde181e404c332a59aa3b88a39"><td class="memItemLeft" align="right" valign="top"><a id="a01cc49dde181e404c332a59aa3b88a39" name="a01cc49dde181e404c332a59aa3b88a39"></a>
 <a class="el" href="structNode.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>nodes</b> [ALPHABET_SIZE *2]</td></tr>
 <tr class="separator:a01cc49dde181e404c332a59aa3b88a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,8 +132,8 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Huffman coding. </p>
 <dl class="section author"><dt>Author</dt><dd>Juho Röyskö </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021-09-22 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2021-10-02 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a3bbf518ef41ef3d255522cad1ffa4e83" name="a3bbf518ef41ef3d255522cad1ffa4e83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3bbf518ef41ef3d255522cad1ffa4e83">&#9670;&nbsp;</a></span>GetCodes()</h2>
@@ -175,8 +172,8 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
 
 </div>
 </div>
-<a id="aa8348837ccbf4a3a7fbde310444f863e" name="aa8348837ccbf4a3a7fbde310444f863e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8348837ccbf4a3a7fbde310444f863e">&#9670;&nbsp;</a></span>HCDecode()</h2>
+<a id="a326c577742cad6fb743585e27e205286" name="a326c577742cad6fb743585e27e205286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a326c577742cad6fb743585e27e205286">&#9670;&nbsp;</a></span>HCDecode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +182,7 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
           <td class="memname">std::string HCDecode </td>
           <td>(</td>
           <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
+          <td class="paramname"><em>compressed_data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -194,7 +191,7 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
 <p>Decode data that has been compressed with Huffman coding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>Data to decompress </td></tr>
+    <tr><td class="paramname">compressed_data</td><td>Data to decompress </td></tr>
   </table>
   </dd>
 </dl>
@@ -225,7 +222,7 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string* Codebook </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string* Codebook of length 256 </dd></dl>
 
 </div>
 </div>
@@ -255,8 +252,8 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
 
 </div>
 </div>
-<a id="a534049875dde6587b28ec1faec057aee" name="a534049875dde6587b28ec1faec057aee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a534049875dde6587b28ec1faec057aee">&#9670;&nbsp;</a></span>SetCodes()</h2>
+<a id="a42bcf96638d6a33572fc87cf4a2ef30b" name="a42bcf96638d6a33572fc87cf4a2ef30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42bcf96638d6a33572fc87cf4a2ef30b">&#9670;&nbsp;</a></span>SetCodes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +261,7 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
         <tr>
           <td class="memname">void SetCodes </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::pair&lt; uint8_t, uint8_t &gt; &gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; uint8_t, uint8_t &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
@@ -274,7 +271,7 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
 <p>Set the codes for characters using the Canonical Huffman code. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Vector containing pairs of lengths of codes and characters. </td></tr>
+    <tr><td class="paramname">v</td><td>Vector containing pairs of {lengths of code, character} </td></tr>
   </table>
   </dd>
 </dl>

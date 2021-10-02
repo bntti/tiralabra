@@ -78,16 +78,17 @@ $(function() {
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="constants_8hpp_source.html">constants.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="file-manager_8hpp_source.html">file-manager.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4d23c148cff2b19c13acf96ed7c8fdf9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8cpp.html#a4d23c148cff2b19c13acf96ed7c8fdf9">ClearMap</a> (std::unordered_map&lt; std::string, int &gt; &amp;mp)</td></tr>
-<tr class="memdesc:a4d23c148cff2b19c13acf96ed7c8fdf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize map.  <a href="lzw-coding_8cpp.html#a4d23c148cff2b19c13acf96ed7c8fdf9">More...</a><br /></td></tr>
-<tr class="separator:a4d23c148cff2b19c13acf96ed7c8fdf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3f20fe7391ec1ee6ff573c4d321e28b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8cpp.html#ae3f20fe7391ec1ee6ff573c4d321e28b">ClearMap</a> (std::unordered_map&lt; int, std::string &gt; &amp;mp)</td></tr>
-<tr class="memdesc:ae3f20fe7391ec1ee6ff573c4d321e28b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize map.  <a href="lzw-coding_8cpp.html#ae3f20fe7391ec1ee6ff573c4d321e28b">More...</a><br /></td></tr>
-<tr class="separator:ae3f20fe7391ec1ee6ff573c4d321e28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6b234a78652fff15ecde69c76e747f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8cpp.html#ab6b234a78652fff15ecde69c76e747f5">InitCodebook</a> (std::unordered_map&lt; std::string, int &gt; &amp;mp)</td></tr>
+<tr class="memdesc:ab6b234a78652fff15ecde69c76e747f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize codebook that uses a map.  <a href="lzw-coding_8cpp.html#ab6b234a78652fff15ecde69c76e747f5">More...</a><br /></td></tr>
+<tr class="separator:ab6b234a78652fff15ecde69c76e747f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf1f0bd600f1f5d0bcb22593197a7cee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8cpp.html#acf1f0bd600f1f5d0bcb22593197a7cee">InitCodebook</a> (std::vector&lt; std::string &gt; &amp;codebook)</td></tr>
+<tr class="memdesc:acf1f0bd600f1f5d0bcb22593197a7cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize codebook that uses a vector.  <a href="lzw-coding_8cpp.html#acf1f0bd600f1f5d0bcb22593197a7cee">More...</a><br /></td></tr>
+<tr class="separator:acf1f0bd600f1f5d0bcb22593197a7cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a419abde4d02761dd5bfb7cd3ba2a8cda"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8cpp.html#a419abde4d02761dd5bfb7cd3ba2a8cda">LZWEncode</a> (std::string const &amp;data)</td></tr>
 <tr class="memdesc:a419abde4d02761dd5bfb7cd3ba2a8cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode data with LZW coding.  <a href="lzw-coding_8cpp.html#a419abde4d02761dd5bfb7cd3ba2a8cda">More...</a><br /></td></tr>
 <tr class="separator:a419abde4d02761dd5bfb7cd3ba2a8cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,36 +98,33 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aefcba2436e62e516a63bdad51613a2e5"><td class="memItemLeft" align="right" valign="top"><a id="aefcba2436e62e516a63bdad51613a2e5" name="aefcba2436e62e516a63bdad51613a2e5"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>B</b> = 11</td></tr>
-<tr class="separator:aefcba2436e62e516a63bdad51613a2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae19497195fb8abecb10ee90bd36bb19b"><td class="memItemLeft" align="right" valign="top"><a id="ae19497195fb8abecb10ee90bd36bb19b" name="ae19497195fb8abecb10ee90bd36bb19b"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>CODE_MAX</b> = (1 &lt;&lt; B) - 1</td></tr>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>CODE_MAX</b> = (1 &lt;&lt; LZW_CODE_SIZE) - 1</td></tr>
 <tr class="separator:ae19497195fb8abecb10ee90bd36bb19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >LZW Coding. </p>
 <dl class="section author"><dt>Author</dt><dd>Juho Röyskö </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021-10-01 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2021-10-02 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae3f20fe7391ec1ee6ff573c4d321e28b" name="ae3f20fe7391ec1ee6ff573c4d321e28b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3f20fe7391ec1ee6ff573c4d321e28b">&#9670;&nbsp;</a></span>ClearMap() <span class="overload">[1/2]</span></h2>
+<a id="ab6b234a78652fff15ecde69c76e747f5" name="ab6b234a78652fff15ecde69c76e747f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6b234a78652fff15ecde69c76e747f5">&#9670;&nbsp;</a></span>InitCodebook() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ClearMap </td>
+          <td class="memname">void InitCodebook </td>
           <td>(</td>
-          <td class="paramtype">std::unordered_map&lt; int, std::string &gt; &amp;&#160;</td>
+          <td class="paramtype">std::unordered_map&lt; std::string, int &gt; &amp;&#160;</td>
           <td class="paramname"><em>mp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize map. </p>
+<p>Initialize codebook that uses a map. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mp</td><td>Map to initialize </td></tr>
@@ -136,26 +134,26 @@ const int&#160;</td><td class="memItemRight" valign="bottom"><b>CODE_MAX</b> = (
 
 </div>
 </div>
-<a id="a4d23c148cff2b19c13acf96ed7c8fdf9" name="a4d23c148cff2b19c13acf96ed7c8fdf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d23c148cff2b19c13acf96ed7c8fdf9">&#9670;&nbsp;</a></span>ClearMap() <span class="overload">[2/2]</span></h2>
+<a id="acf1f0bd600f1f5d0bcb22593197a7cee" name="acf1f0bd600f1f5d0bcb22593197a7cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf1f0bd600f1f5d0bcb22593197a7cee">&#9670;&nbsp;</a></span>InitCodebook() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ClearMap </td>
+          <td class="memname">void InitCodebook </td>
           <td>(</td>
-          <td class="paramtype">std::unordered_map&lt; std::string, int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>mp</em></td><td>)</td>
+          <td class="paramtype">std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>codebook</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize map. </p>
+<p>Initialize codebook that uses a vector. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mp</td><td>Map to initialize </td></tr>
+    <tr><td class="paramname">mp</td><td>Vector to initialize </td></tr>
   </table>
   </dd>
 </dl>
