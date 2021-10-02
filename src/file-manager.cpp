@@ -2,37 +2,49 @@
  * @file file-manager.cpp
  * @author Juho Röyskö
  * @brief File management utilities
- * @version 0.3
- * @date 2021-10-01
+ * @version 0.4
+ * @date 2021-10-02
  */
 #include <string>
 #include <sstream>
 #include <fstream>
 
 /**
- * @brief Removes .bnzip extensions from files
+ * @brief Check if file ends with .bnzip
+ * 
+ * @param filename Path to file to check
+ * @return true If file ends with .bnzip
+ * @return false Otherwise
+ */
+bool IsCompressed(std::string const &filename)
+{
+    return filename.length() >= 6 && filename.substr(filename.length() - 6, 6) == ".bnzip";
+}
+
+/**
+ * @brief Removes .bnzip extensions from a filename
  * 
  * @param filename Filename to remove .bnzip extensions from
  */
 void RemoveExtension(std::string &filename)
 {
-    while (filename.length() >= 6 && filename.substr(filename.length() - 6, 6) == ".bnzip")
+    while (IsCompressed(filename))
         filename = filename.substr(0, filename.length() - 6);
 }
 
 /**
- * @brief Read file into a single string
+ * @brief Read contents of a file into a single string
  * 
- * @param input_file File to read
+ * @param filename Path to the file to read
  * @return std::string File content
  */
-std::string ReadFile(std::string input_file)
+std::string ReadFile(std::string const &filename)
 {
-    std::ifstream in_file;
-    in_file.open(input_file);
+    std::ifstream in;
+    in.open(filename);
 
     std::stringstream str_stream;
-    str_stream << in_file.rdbuf();
+    str_stream << in.rdbuf();
     std::string str = str_stream.str();
 
     return str;
@@ -41,42 +53,29 @@ std::string ReadFile(std::string input_file)
 /**
  * @brief Checks if file exists
  * 
- * @param filename Filename of the file to check
+ * @param filename Path to the file to check
  * @return true If file exists
  * @return false otherwise
  */
-bool FileExists(std::string filename)
+bool FileExists(std::string const &filename)
 {
     std::ifstream f(filename.c_str());
     return f.good();
 }
 
 /**
- * @brief If file is compressed. Determined by checking if filename ends with .bnzip
+ * @brief Returns first byte of a file
  * 
- * @param filename File to check
- * @return true If file is compressed
- * @return false Otherwise
+ * @param filename Path to the file to get the first byte from
+ * @return int First byte of the file
  */
-bool IsCompressed(std::string filename)
+int FirstByte(std::string const &filename)
 {
-    return filename.length() >= 6 && filename.substr(filename.length() - 6, 6) == ".bnzip";
-}
+    std::ifstream in(filename, std::ios::binary | std::ios::in);
 
-/**
- * @brief Returns first byte of file
- * 
- * @param filename File to get first byte from
- * @return int First byte of file
- */
-int FirstByte(std::string filename)
-{
-    std::ifstream f(filename, std::ios::binary | std::ios::in);
     char c;
-    if (f.get(c))
-    {
+    if (in.get(c))
         return c;
-    }
     return 0;
 }
 

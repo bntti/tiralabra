@@ -1,18 +1,18 @@
 /**
  * @file file-manager.hpp
  * @author Juho Röyskö
- * @brief Header file for file-manager.cpp
- * @version 0.3
- * @date 2021-10-01
+ * @brief Header file for file-manager.cpp. Also contains FileWriter struct
+ * @version 0.4
+ * @date 2021-10-02
  */
 #include <string>
 #include <fstream>
 
+bool IsCompressed(std::string const &filename);
 void RemoveExtension(std::string &filename);
-std::string ReadFile(std::string input_file);
-bool FileExists(std::string filename);
-bool IsCompressed(std::string filename);
-int FirstByte(std::string filename);
+std::string ReadFile(std::string const &filename);
+bool FileExists(std::string const &filename);
+int FirstByte(std::string const &filename);
 void RemovePath(std::string &file_path);
 
 /**
@@ -21,15 +21,15 @@ void RemovePath(std::string &file_path);
 struct FileWriter
 {
     std::ofstream out;
-    int currbyte = 0;
-    int bitcount = 0;
+    int current_byte = 0;
+    int bit_count = 0;
 
     /**
      * @brief Construct a new File Writer object
      * 
-     * @param output_file File to write data to
+     * @param output_file Path to the file to write data to
      */
-    explicit FileWriter(std::string output_file)
+    explicit FileWriter(std::string const &output_file)
     {
         out.open(output_file, std::ios::binary | std::ios::out);
     }
@@ -37,29 +37,29 @@ struct FileWriter
     /**
      * @brief Write binary string as binary into file
      * 
-     * @param data Binary string that will be written to file
+     * @param data Binary string that will be written to the file
      */
-    void BinaryWrite(std::string data)
+    void BinaryWrite(std::string const &data)
     {
         for (char c : data)
         {
             int bit = c == '1';
-            currbyte = currbyte << 1 | bit;
-            ++bitcount;
-            if (bitcount == 8)
+            current_byte = (current_byte << 1) | bit;
+            ++bit_count;
+            if (bit_count == 8)
             {
-                out.write((char *)&currbyte, 1);
-                currbyte = 0;
-                bitcount = 0;
+                out.write((char *)&current_byte, 1);
+                current_byte = 0;
+                bit_count = 0;
             }
         }
     }
 
     /**
-     * @brief Write b bits from int to file
+     * @brief Write b least significant bits from given integer to file
      * 
-     * @param data Int to write bits from
-     * @param b Amount of bits to write
+     * @param data Integer to write bits from
+     * @param b Amount of least significant bits to write
      */
     void Write(int data, int b)
     {
@@ -99,11 +99,11 @@ struct FileWriter
      * 
      * @param pad_data Data to pad with
      */
-    void Pad(std::string pad_data)
+    void Pad(std::string const &pad_data)
     {
-        if (bitcount > 0)
+        if (bit_count > 0)
         {
-            BinaryWrite(pad_data.substr(0, 8 - bitcount));
+            BinaryWrite(pad_data.substr(0, 8 - bit_count));
         }
     }
 

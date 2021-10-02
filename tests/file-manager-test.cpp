@@ -2,7 +2,7 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Tests file-manager.cpp
- * @version 0.1
+ * @version 0.2
  * @date 2021-10-02
  */
 #define CATCH_CONFIG_MAIN
@@ -22,7 +22,7 @@ TEST_CASE("Test file-manager.cpp", "[file-manager.cpp]")
     {
         std::string filename = "tmp.bin";
 
-        // Create file and write one byte to it
+        INFO("Create file and write one byte to it");
         FileWriter file_writer(filename);
         file_writer.Write(1);
         file_writer.Close();

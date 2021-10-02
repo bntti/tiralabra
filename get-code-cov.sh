@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Remove code coverage for test files.
+# Remove code coverage for test files
 for filename in $(find build-files/tests/obj/tests/ -name "*\.gc*" | egrep "\.(gcda|gcno)"); do
     rm $filename
 done

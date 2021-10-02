@@ -2,23 +2,23 @@
  * @file lzw-coding.cpp
  * @author Juho Röyskö
  * @brief LZW Coding
- * @version 0.1
- * @date 2021-10-01
+ * @version 0.2
+ * @date 2021-10-02
  */
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include "constants.hpp"
 #include "file-manager.hpp"
 
-const int B = 11;
-const int CODE_MAX = (1 << B) - 1;
+const int CODE_MAX = (1 << LZW_CODE_SIZE) - 1;
 
 /**
- * @brief Initialize map
+ * @brief Initialize codebook that uses a map
  * 
  * @param mp Map to initialize
  */
-void ClearMap(std::unordered_map<std::string, int> &mp)
+void InitCodebook(std::unordered_map<std::string, int> &mp)
 {
     mp.clear();
     for (int i = 0; i < 256; ++i)
@@ -30,18 +30,18 @@ void ClearMap(std::unordered_map<std::string, int> &mp)
 }
 
 /**
- * @brief Initialize map
+ * @brief Initialize codebook that uses a vector
  * 
- * @param mp Map to initialize
+ * @param mp Vector to initialize
  */
-void ClearMap(std::unordered_map<int, std::string> &mp)
+void InitCodebook(std::vector<std::string> &codebook)
 {
-    mp.clear();
+    codebook.clear();
     for (int i = 0; i < 256; ++i)
     {
         std::string chr = "";
         chr += (char)i;
-        mp[i] = chr;
+        codebook.push_back(chr);
     }
 }
 
@@ -54,7 +54,7 @@ void ClearMap(std::unordered_map<int, std::string> &mp)
 std::vector<int> LZWEncode(std::string const &data)
 {
     std::unordered_map<std::string, int> codebook;
-    ClearMap(codebook);
+    InitCodebook(codebook);
 
     int current_code = 256;
     std::vector<int> output;
@@ -74,7 +74,7 @@ std::vector<int> LZWEncode(std::string const &data)
             {
                 current_code = 256;
                 output.push_back(CODE_MAX);
-                ClearMap(codebook);
+                InitCodebook(codebook);
             }
         }
         old_string = new_string;
@@ -93,8 +93,8 @@ std::vector<int> LZWEncode(std::string const &data)
  */
 std::string LZWDecode(std::vector<int> const &codes)
 {
-    std::unordered_map<int, std::string> codebook;
-    ClearMap(codebook);
+    std::vector<std::string> codebook; // Vector is used instead of a unordered_map<int, string>
+    InitCodebook(codebook);
 
     std::string output = "";
 
@@ -105,7 +105,7 @@ std::string LZWDecode(std::vector<int> const &codes)
         if (code == CODE_MAX)
         {
             current_code = 256;
-            ClearMap(codebook);
+            InitCodebook(codebook);
             continue;
         }
 
@@ -116,10 +116,10 @@ std::string LZWDecode(std::vector<int> const &codes)
         }
 
         int next_code = codes[i + 1];
-        if (codebook.find(next_code) == codebook.end())
-            codebook[current_code] = codebook[code] + codebook[code][0];
+        if (next_code >= (int)codebook.size())
+            codebook.push_back(codebook[code] + codebook[code][0]);
         else
-            codebook[current_code] = codebook[code] + codebook[next_code][0];
+            codebook.push_back(codebook[code] + codebook[next_code][0]);
 
         ++current_code;
         output += codebook[code];

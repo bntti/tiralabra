@@ -2,8 +2,8 @@
  * @file main.cpp
  * @author Juho Röyskö
  * @brief Reads arguments and runs the program
- * @version 0.3
- * @date 2021-09-22
+ * @version 0.3.1
+ * @date 2021-10-02
  */
 #include <iostream>
 #include "huffman-runner.hpp"
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     for (int i = 1; i < argc; ++i)
     {
         std::string argument = argv[i];
-        if (argument.length() > 1 && argument[0] == '-' && argument[1] != '-')
+        if (argument.length() >= 2 && argument[0] == '-' && argument[1] != '-')
         {
             ToLower(argument);
             for (int j = 1; j < (int)argument.length(); ++j)
@@ -59,7 +59,7 @@ int main(int argc, char **argv)
                     verbose = 1;
             }
         }
-        else if (argument.length() > 1 && argument[0] == '-' && argument[1] == '-')
+        else if (argument.length() >= 2 && argument[0] == '-' && argument[1] == '-')
         {
             argument = argument.substr(2, argument.length() - 2);
             ToLower(argument);
