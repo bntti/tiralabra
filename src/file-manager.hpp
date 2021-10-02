@@ -21,6 +21,7 @@ void RemovePath(std::string &file_path);
 struct FileWriter
 {
     std::ofstream out;
+    std::string data_to_write = "";
     int current_byte = 0;
     int bit_count = 0;
 
@@ -48,7 +49,7 @@ struct FileWriter
             ++bit_count;
             if (bit_count == 8)
             {
-                out.write((char *)&current_byte, 1);
+                data_to_write += current_byte;
                 current_byte = 0;
                 bit_count = 0;
             }
@@ -91,7 +92,7 @@ struct FileWriter
      */
     void Write(std::string const &data)
     {
-        out << data;
+        data_to_write += data;
     }
 
     /**
@@ -112,6 +113,7 @@ struct FileWriter
      */
     void Close()
     {
+        out << data_to_write;
         out.close();
     }
 };
