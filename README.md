@@ -30,6 +30,7 @@ $ ./bnzip <args> <file>
 | `-v`, `--verbose`    | Print what program is doing           |
 
 If no compression or decompression arguments are given, then the program decompresses the file if the filename name ends with `.bnzip` and otherwise compresses it.  
+When compressing and `-l` or `--lzw` argument is not provided, Huffman coding is used to compress the file.  
 When decompressing, it is not necessary to provide `-l` or `--lzw` argument, because the file contains information about what it was compressed with.
 
 ## Documents

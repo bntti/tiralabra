@@ -81,13 +81,18 @@ int main(int argc, char **argv)
     if (input_file == "" || help)
     {
         std::cout << "Usage:\n$ " << argv[0] << " <flags> <file>\n";
-        std::cout << '\n';
-        std::cout << "Arguments:\n";
-        std::cout << "\t-c, --compress | Compress selected file\n";
-        std::cout << "\t-d, --decompress | Decompress selected file\n";
-        std::cout << "\t-h, --help | Print this message\n";
-        std::cout << "\t-l, --lzw | Use LZW to compress\n";
-        std::cout << "\t-v, --verbose | Print what program is doing\n";
+        std::cout << R"rstring(
+Arguments:
+    -c, --compress | Compress selected file
+    -d, --decompress | Decompress selected file
+    -h, --help | Print this message
+    -l, --lzw | Use LZW to compress
+    -v, --verbose | Print what program is doing
+
+If no compression or decompression arguments are given, then the program decompresses the file if the filename name ends with `.bnzip` and otherwise compresses it.
+When compressing and `-l` or `--lzw` argument is not provided, Huffman coding is used to compress the file.
+When decompressing, it is not necessary to provide `-l` or `--lzw` argument, because the file contains information about what it was compressed with.
+)rstring";
         return 0;
     }
 
