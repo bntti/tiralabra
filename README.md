@@ -1,4 +1,4 @@
-# Tiralabra
+# Tiralabra: Data compression
 [![Build Status](https://app.travis-ci.com/bntti/tiralabra.svg?branch=main)](https://app.travis-ci.com/bntti/tiralabra)
 [![codecov](https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1)](https://codecov.io/gh/bntti/tiralabra)
 
