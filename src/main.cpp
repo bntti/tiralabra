@@ -2,7 +2,7 @@
  * @file main.cpp
  * @author Juho Röyskö
  * @brief Reads arguments and runs the program
- * @version 0.3.2
+ * @version 0.4
  * @date 2021-10-02
  */
 #include <iostream>
@@ -28,7 +28,7 @@ void ToLower(std::string &input)
  * @param argv Arguments
  * @return int Return code
  */
-int main(int argc, char **argv)
+int main(int argc, char const **argv)
 {
     // Argument values
     std::string input_file = "";
