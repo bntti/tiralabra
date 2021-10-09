@@ -65,17 +65,64 @@ $(function() {
   <div class="headertitle"><div class="title">Implementation document </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md2"></a>
+<div class="textblock"><p >Show project structure</p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Project structure</h2>
+<p >&lt;details&gt;</p>
+<div class="fragment"><div class="line">├── documentation</div>
+<div class="line">│   ├── definition-document.md</div>
+<div class="line">│   ├── Implementation-document.md</div>
+<div class="line">│   ├── testing-document.md</div>
+<div class="line">│   ├── week-report-1.md</div>
+<div class="line">│   ├── week-report-2.md</div>
+<div class="line">│   ├── week-report-3.md</div>
+<div class="line">│   ├── week-report-4.md</div>
+<div class="line">│   └── week-report-5.md</div>
+<div class="line">├── Doxyfile</div>
+<div class="line">├── get-code-cov.sh</div>
+<div class="line">├── Makefile</div>
+<div class="line">├── README.md</div>
+<div class="line">├── src</div>
+<div class="line">│   ├── constants.hpp</div>
+<div class="line">│   ├── file-manager.cpp</div>
+<div class="line">│   ├── file-manager.hpp</div>
+<div class="line">│   ├── huffman</div>
+<div class="line">│   │   ├── huffman-coding.cpp</div>
+<div class="line">│   │   ├── huffman-coding.hpp</div>
+<div class="line">│   │   ├── huffman-runner.cpp</div>
+<div class="line">│   │   └── huffman-runner.hpp</div>
+<div class="line">│   ├── lzw</div>
+<div class="line">│   │   ├── lzw-coding.cpp</div>
+<div class="line">│   │   ├── lzw-coding.hpp</div>
+<div class="line">│   │   ├── lzw-runner.cpp</div>
+<div class="line">│   │   └── lzw-runner.hpp</div>
+<div class="line">│   ├── main.cpp</div>
+<div class="line">│   └── Makefile</div>
+<div class="line">└── tests</div>
+<div class="line">    ├── file-manager-test.cpp</div>
+<div class="line">    ├── helper.cpp</div>
+<div class="line">    ├── helper.hpp</div>
+<div class="line">    ├── huffman-test.cpp</div>
+<div class="line">    ├── lzw-test.cpp</div>
+<div class="line">    ├── Makefile</div>
+<div class="line">    └── test-files</div>
+<div class="line">        ├── all-characters.txt</div>
+<div class="line">        ├── plaintext.txt</div>
+<div class="line">        ├── random-binary-data.bin</div>
+<div class="line">        ├── random-plaintext.txt</div>
+<div class="line">        └── special-characters.txt</div>
+</div><!-- fragment --><p> &lt;/details&gt;</p>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Huffman coding</h2>
 <p >Creates the Huffman coding codebook and converts it to Canonical Huffman code.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Lempel–Ziv–Welch (LZW)</h2>
 <p >Todo</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Time and memory complexity</h2>
 <p >A = Alphabet size used in the Huffman coding </p><table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">time complexity   </th><th class="markdownTableHeadNone">memory complexity    </th></tr>
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">Time complexity   </th><th class="markdownTableHeadNone">Memory complexity    </th></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Huffman compression   </td><td class="markdownTableBodyNone">O(n+A²)   </td><td class="markdownTableBodyNone">O(n+A²)    </td></tr>
 <tr class="markdownTableRowEven">
@@ -85,9 +132,91 @@ Time and memory complexity</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">LZW decompression   </td><td class="markdownTableBodyNone">O(n)   </td><td class="markdownTableBodyNone">O(n)   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Comparison</h2>
-<p >Todo </p>
+<h3><a class="anchor" id="autotoc_md8"></a>
+&lt;a href="../tests/test-files/plaintext.txt" &gt;Plain text&lt;/a&gt; (Repetitive data)</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">2889   </td><td class="markdownTableBodyNone">36.1%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">556   </td><td class="markdownTableBodyNone">6.95%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">66   </td><td class="markdownTableBodyNone">0.83%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">120   </td><td class="markdownTableBodyNone">1.5%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">99   </td><td class="markdownTableBodyNone">1.24%   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md9"></a>
+&lt;a href="../tests/test-files/random-plaintext.txt" &gt;Random plaintext&lt;/a&gt; (Non-repetitive data)</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">7008   </td><td class="markdownTableBodyNone">56.0%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">7847   </td><td class="markdownTableBodyNone">62.7%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">5667   </td><td class="markdownTableBodyNone">45.3%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">6240   </td><td class="markdownTableBodyNone">49.9%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">6311   </td><td class="markdownTableBodyNone">50.5%   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md10"></a>
+&lt;a href="../tests/test-files/special-characters.txt" &gt;Special characters&lt;/a&gt; (Repetitive data)</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">11754   </td><td class="markdownTableBodyNone">84.8%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">3935   </td><td class="markdownTableBodyNone">28.4%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">710   </td><td class="markdownTableBodyNone">5.13%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">412   </td><td class="markdownTableBodyNone">2.97%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">468   </td><td class="markdownTableBodyNone">3.38%   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md11"></a>
+&lt;a href="../tests/test-files/all-characters.txt" &gt;All characters&lt;/a&gt; (Repetitive data)</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">9381   </td><td class="markdownTableBodyNone">81.4%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">6049   </td><td class="markdownTableBodyNone">52.5%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">868   </td><td class="markdownTableBodyNone">7.53%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">396   </td><td class="markdownTableBodyNone">3.44%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">465   </td><td class="markdownTableBodyNone">4.04%   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md12"></a>
+&lt;a href="../tests/test-files/random-binary-data.bin" &gt;Random binary data&lt;/a&gt; (Non-repetitive data)</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">8532   </td><td class="markdownTableBodyNone">80.9%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">10365   </td><td class="markdownTableBodyNone">98.2%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">7555   </td><td class="markdownTableBodyNone">71.6%    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">7396   </td><td class="markdownTableBodyNone">70.1%    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">8607   </td><td class="markdownTableBodyNone">81.6%   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Possible improvements</h2>
+<p >todo </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
