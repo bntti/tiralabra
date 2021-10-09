@@ -3,9 +3,10 @@
 
 The tests check that:
 - The file-manager.cpp works
-- The compressed file is smaller than the original file.
-- The decompressed file is identical to the original file.
-- Compression and decompression work with the verbose argument set to true.
+- Compressed files are smaller than the original files.
+- Decompressed files are identical to the original files.
+- Compression and decompression both work with the verbose argument set to true.
 
 The tests are run with test input files containing miscellenious data.  
-Tests can be replicated by running `make test`.
+Tests can be replicated by running `make test`.  
+Empirical testing data available [here](./Implementation-document.md).
