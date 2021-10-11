@@ -3,8 +3,10 @@
 [![codecov](https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1)](https://codecov.io/gh/bntti/tiralabra)
 
 ## Dependencies
- - catch2
+ - g++
+ - make
 #### Optional dependencies
+ - catch2 (for running tests)
  - doxygen (for generating documentation)
  - cppcheck (for code analysis)
 
