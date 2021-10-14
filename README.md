@@ -42,6 +42,7 @@ When decompressing, it is not necessary to provide `-l` or `--lzw` argument, bec
 - [Week report 3](./documentation/week-report-3.md)
 - [Week report 4](./documentation/week-report-4.md)
 - [Week report 5](./documentation/week-report-5.md)
+- [Week report 6](./documentation/week-report-6.md)
 
 #### Other documents
 - [Definition document](./documentation/definition-document.md)
