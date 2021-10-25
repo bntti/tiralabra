@@ -73,11 +73,13 @@ Project structure</h2>
 <div class="line">│   ├── definition-document.md</div>
 <div class="line">│   ├── Implementation-document.md</div>
 <div class="line">│   ├── testing-document.md</div>
+<div class="line">│   ├── usage-instructions.md</div>
 <div class="line">│   ├── week-report-1.md</div>
 <div class="line">│   ├── week-report-2.md</div>
 <div class="line">│   ├── week-report-3.md</div>
 <div class="line">│   ├── week-report-4.md</div>
-<div class="line">│   └── week-report-5.md</div>
+<div class="line">│   ├── week-report-5.md</div>
+<div class="line">│   └── week-report-6.md</div>
 <div class="line">├── Doxyfile</div>
 <div class="line">├── get-code-cov.sh</div>
 <div class="line">├── Makefile</div>
@@ -134,87 +136,21 @@ Time and memory complexity</h2>
 </table>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Comparison</h2>
-<h3><a class="anchor" id="autotoc_md8"></a>
-&lt;a href="../tests/test-files/plaintext.txt" &gt;Plain text&lt;/a&gt; (Repetitive data)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
+<th class="markdownTableHeadNone">file   </th><th class="markdownTableHeadNone">original size   </th><th class="markdownTableHeadNone"><code>./bnzip</code>   </th><th class="markdownTableHeadNone"><code>./bnzip -l</code>   </th><th class="markdownTableHeadNone"><code>bzip2</code>   </th><th class="markdownTableHeadNone"><code>xz</code>   </th><th class="markdownTableHeadNone"><code>gzip</code>    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">2889   </td><td class="markdownTableBodyNone">36.1%    </td></tr>
+<td class="markdownTableBodyNone"><a href="../tests/test-files/plaintext.txt">Plain text</a>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">2889 (36.1%)   </td><td class="markdownTableBodyNone">556 (6.95%)   </td><td class="markdownTableBodyNone">66 (0.83%)   </td><td class="markdownTableBodyNone">120 (1.5%)   </td><td class="markdownTableBodyNone">99 (1.24%)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">556   </td><td class="markdownTableBodyNone">6.95%    </td></tr>
+<td class="markdownTableBodyNone"><a href="../tests/test-files/random-plaintext.txt">Random plaintext</a>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">7008 (56.0%)   </td><td class="markdownTableBodyNone">7847 (62.7%)   </td><td class="markdownTableBodyNone">5667 (45.3%)   </td><td class="markdownTableBodyNone">6240 (49.9%)   </td><td class="markdownTableBodyNone">6311 (50.5%)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">66   </td><td class="markdownTableBodyNone">0.83%    </td></tr>
+<td class="markdownTableBodyNone"><a href="../tests/test-files/special-characters.txt">Special characters</a>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">11754 (84.8%)   </td><td class="markdownTableBodyNone">3935 (28.4%)   </td><td class="markdownTableBodyNone">710 (5.13%)   </td><td class="markdownTableBodyNone">412 (2.97%)   </td><td class="markdownTableBodyNone">468 (3.38%)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">120   </td><td class="markdownTableBodyNone">1.5%    </td></tr>
+<td class="markdownTableBodyNone"><a href="../tests/test-files/all-characters.txt">All characters</a>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">9381 (81.4%)   </td><td class="markdownTableBodyNone">6049 (52.5%)   </td><td class="markdownTableBodyNone">868 (7.53%)   </td><td class="markdownTableBodyNone">396 (3.44%)   </td><td class="markdownTableBodyNone">465 (4.04%)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">99   </td><td class="markdownTableBodyNone">1.24%   </td></tr>
+<td class="markdownTableBodyNone"><a href="../tests/test-files/random-binary-data.bin">Random binary data</a>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">8532 (80.9%)   </td><td class="markdownTableBodyNone">10365(98.2%)   </td><td class="markdownTableBodyNone">7555 (71.6%)   </td><td class="markdownTableBodyNone">7396 (70.1%)   </td><td class="markdownTableBodyNone">8607 (81.6%)   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md9"></a>
-&lt;a href="../tests/test-files/random-plaintext.txt" &gt;Random plaintext&lt;/a&gt; (Non-repetitive data)</h3>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">7008   </td><td class="markdownTableBodyNone">56.0%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">7847   </td><td class="markdownTableBodyNone">62.7%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">5667   </td><td class="markdownTableBodyNone">45.3%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">6240   </td><td class="markdownTableBodyNone">49.9%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">6311   </td><td class="markdownTableBodyNone">50.5%   </td></tr>
-</table>
-<h3><a class="anchor" id="autotoc_md10"></a>
-&lt;a href="../tests/test-files/special-characters.txt" &gt;Special characters&lt;/a&gt; (Repetitive data)</h3>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">11754   </td><td class="markdownTableBodyNone">84.8%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">3935   </td><td class="markdownTableBodyNone">28.4%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">710   </td><td class="markdownTableBodyNone">5.13%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">412   </td><td class="markdownTableBodyNone">2.97%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">468   </td><td class="markdownTableBodyNone">3.38%   </td></tr>
-</table>
-<h3><a class="anchor" id="autotoc_md11"></a>
-&lt;a href="../tests/test-files/all-characters.txt" &gt;All characters&lt;/a&gt; (Repetitive data)</h3>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">9381   </td><td class="markdownTableBodyNone">81.4%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">6049   </td><td class="markdownTableBodyNone">52.5%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">868   </td><td class="markdownTableBodyNone">7.53%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">396   </td><td class="markdownTableBodyNone">3.44%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">465   </td><td class="markdownTableBodyNone">4.04%   </td></tr>
-</table>
-<h3><a class="anchor" id="autotoc_md12"></a>
-&lt;a href="../tests/test-files/random-binary-data.bin" &gt;Random binary data&lt;/a&gt; (Non-repetitive data)</h3>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Command   </th><th class="markdownTableHeadNone">Original size   </th><th class="markdownTableHeadNone">Compressed size   </th><th class="markdownTableHeadNone">Ratio    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>./bnzip</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">8532   </td><td class="markdownTableBodyNone">80.9%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>./bnzip -l</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">10365   </td><td class="markdownTableBodyNone">98.2%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>bzip2</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">7555   </td><td class="markdownTableBodyNone">71.6%    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>xz</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">7396   </td><td class="markdownTableBodyNone">70.1%    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>gzip</code>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">8607   </td><td class="markdownTableBodyNone">81.6%   </td></tr>
-</table>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Possible improvements</h2>
 <p >todo </p>
 </div></div><!-- contents -->
