@@ -19,7 +19,7 @@
 | `make check`   | Same as `make analyze && make test`                                               |
 | `doxygen`      | Generate documentation (also available [here](https://bntti.github.io/tiralabra)) |
 
-#### Running program  
+#### Running program
 ```
 $ ./bnzip <args> <file>
 ```
@@ -48,4 +48,4 @@ When decompressing, it is not necessary to provide `-l` or `--lzw` argument, bec
 - [Definition document](./documentation/definition-document.md)
 - [Testing document](./documentation/testing-document.md)
 - [Implementation document](./documentation/Implementation-document.md)
-- [Usage instructions](./documentation/usage-instructions.md)  
+- [Usage instructions](./documentation/usage-instructions.md)

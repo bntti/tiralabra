@@ -17,7 +17,7 @@
 | `make check`   | Same as `make analyze && make test`                                               |
 | `doxygen`      | Generate documentation (also available [here](https://bntti.github.io/tiralabra)) |
 
-#### Running program  
+#### Running program
 ```
 $ ./bnzip <args> <file>
 ```

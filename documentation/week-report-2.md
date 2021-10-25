@@ -1,5 +1,5 @@
 # Week report 2
-Time spent: 5h  
+Time spent: 5h
 
 This week I:
 - Refactored the project
