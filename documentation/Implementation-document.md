@@ -9,11 +9,13 @@
 │   ├── definition-document.md
 │   ├── Implementation-document.md
 │   ├── testing-document.md
+│   ├── usage-instructions.md
 │   ├── week-report-1.md
 │   ├── week-report-2.md
 │   ├── week-report-3.md
 │   ├── week-report-4.md
-│   └── week-report-5.md
+│   ├── week-report-5.md
+│   └── week-report-6.md
 ├── Doxyfile
 ├── get-code-cov.sh
 ├── Makefile
@@ -68,52 +70,15 @@ A = Alphabet size used in the Huffman coding
 
 
 ### Comparison
-#### [Plain text](../tests/test-files/plaintext.txt) (Repetitive data)
-| Command      | Original size | Compressed size | Ratio |
-| ------------ | ------------- | --------------- | ----- |
-| `./bnzip`    | 8000          | 2889            | 36.1% |
-| `./bnzip -l` | 8000          | 556             | 6.95% |
-| `bzip2`      | 8000          | 66              | 0.83% |
-| `xz`         | 8000          | 120             | 1.5%  |
-| `gzip`       | 8000          | 99              | 1.24% |
 
-#### [Random plaintext](../tests/test-files/random-plaintext.txt) (Non-repetitive data)
-| Command      | Original size | Compressed size | Ratio |
-| ------------ | ------------- | --------------- | ----- |
-| `./bnzip`    | 12507         | 7008            | 56.0% |
-| `./bnzip -l` | 12507         | 7847            | 62.7% |
-| `bzip2`      | 12507         | 5667            | 45.3% |
-| `xz`         | 12507         | 6240            | 49.9% |
-| `gzip`       | 12507         | 6311            | 50.5% |
+| file                                                             | original size | `./bnzip`     | `./bnzip -l` | `bzip2`      | `xz`         | `gzip`       |
+| ---------------------------------------------------------------- | ------------- | ------------- | ------------ | ------------ | ------------ | ------------ |
+| [Plain text](../tests/test-files/plaintext.txt)                  | 8000          | 2889 (36.1%)  | 556 (6.95%)  | 66 (0.83%)   | 120 (1.5%)   | 99 (1.24%)   |
+| [Random plaintext](../tests/test-files/random-plaintext.txt)     | 12507         | 7008 (56.0%)  | 7847 (62.7%) | 5667 (45.3%) | 6240 (49.9%) | 6311 (50.5%) |
+| [Special characters](../tests/test-files/special-characters.txt) | 13853         | 11754 (84.8%) | 3935 (28.4%) | 710 (5.13%)  | 412 (2.97%)  | 468 (3.38%)  |
+| [All characters](../tests/test-files/all-characters.txt)         | 11520         | 9381 (81.4%)  | 6049 (52.5%) | 868 (7.53%)  | 396 (3.44%)  | 465 (4.04%)  |
+| [Random binary data](../tests/test-files/random-binary-data.bin) | 10552         | 8532 (80.9%)  | 10365(98.2%) | 7555 (71.6%) | 7396 (70.1%) | 8607 (81.6%) |
 
-#### [Special characters](../tests/test-files/special-characters.txt) (Repetitive data)
-| Command      | Original size | Compressed size | Ratio |
-| ------------ | ------------- | --------------- | ----- |
-| `./bnzip`    | 13853         | 11754           | 84.8% |
-| `./bnzip -l` | 13853         | 3935            | 28.4% |
-| `bzip2`      | 13853         | 710             | 5.13% |
-| `xz`         | 13853         | 412             | 2.97% |
-| `gzip`       | 13853         | 468             | 3.38% |
-
-
-#### [All characters](../tests/test-files/all-characters.txt) (Repetitive data)
-| Command      | Original size | Compressed size | Ratio |
-| ------------ | ------------- | --------------- | ----- |
-| `./bnzip`    | 11520         | 9381            | 81.4% |
-| `./bnzip -l` | 11520         | 6049            | 52.5% |
-| `bzip2`      | 11520         | 868             | 7.53% |
-| `xz`         | 11520         | 396             | 3.44% |
-| `gzip`       | 11520         | 465             | 4.04% |
-
-
-#### [Random binary data](../tests/test-files/random-binary-data.bin) (Non-repetitive data)
-| Command      | Original size | Compressed size | Ratio |
-| ------------ | ------------- | --------------- | ----- |
-| `./bnzip`    | 10552         | 8532            | 80.9% |
-| `./bnzip -l` | 10552         | 10365           | 98.2% |
-| `bzip2`      | 10552         | 7555            | 71.6% |
-| `xz`         | 10552         | 7396            | 70.1% |
-| `gzip`       | 10552         | 8607            | 81.6% |
 
 ### Possible improvements
 todo
