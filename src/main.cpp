@@ -99,7 +99,7 @@ int main(int argc, char const **argv)
 
     if (help)
     {
-        std::cout << "Usage:\n$ " << argv[0] << " <flags> <file>\n";
+        std::cout << "Usage:\n$ " << argv[0] << " <args> <file>\n";
         std::cout << R"rstring(
 Arguments:
     -c, --compress | Compress selected file
