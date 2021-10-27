@@ -67,7 +67,7 @@ struct CompareWeight
 {
     /**
      * @brief Compare Nodes. Return is flipped because priority_queue sorts in reverse
-     * 
+     *
      * @param node_index_1 Node 1
      * @param node_index_2 Node 2
      * @return true If first Node has bigger weight
@@ -81,7 +81,7 @@ struct CompareWeight
 
 /**
  * @brief Get codes for characters using depth first search
- * 
+ *
  * @param nodeindex Current node
  * @param code Current code
  */
@@ -111,7 +111,7 @@ void GetCodes(int nodeindex, std::string &code)
 
 /**
  * @brief Increment binary string by one
- * 
+ *
  * @param binary_string Binary string to increment
  */
 void IncrementBinaryString(std::string &binary_string)
@@ -130,7 +130,7 @@ void IncrementBinaryString(std::string &binary_string)
 
 /**
  * @brief Set the codes for characters using the Canonical Huffman code
- * 
+ *
  * @param v Vector containing pairs of {lengths of code, character}
  */
 void SetCodes(std::vector<std::pair<uint8_t, uint8_t>> &v)
@@ -166,7 +166,7 @@ void ConvertCodes()
 
 /**
  * @brief Create Huffman encoding codebook
- * 
+ *
  * @param input String to create codebook from
  * @return std::string* Codebook of length 256
  */
@@ -212,7 +212,7 @@ std::string *HCEncode(std::string const &input)
 
 /**
  * @brief Decode data that has been compressed with Huffman coding
- * 
+ *
  * @param compressed_data Data to decompress
  * @return std::string Decompressed data
  */

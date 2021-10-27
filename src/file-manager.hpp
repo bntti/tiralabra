@@ -27,7 +27,7 @@ struct FileWriter
 
     /**
      * @brief Construct a new File Writer object
-     * 
+     *
      * @param output_file Path to the file to write data to
      */
     explicit FileWriter(std::string const &output_file)
@@ -37,7 +37,7 @@ struct FileWriter
 
     /**
      * @brief Write binary string as binary into file
-     * 
+     *
      * @param data Binary string that will be written to the file
      */
     void BinaryWrite(std::string const &data)
@@ -58,7 +58,7 @@ struct FileWriter
 
     /**
      * @brief Write b least significant bits from given integer to file
-     * 
+     *
      * @param data Integer to write bits from
      * @param b Amount of least significant bits to write
      */
@@ -77,7 +77,7 @@ struct FileWriter
 
     /**
      * @brief Write bits of character into file
-     * 
+     *
      * @param data Character from which to write bits from
      */
     void Write(char data)
@@ -87,7 +87,7 @@ struct FileWriter
 
     /**
      * @brief Write string into file
-     * 
+     *
      * @param data String that will be written to the file
      */
     void Write(std::string const &data)
@@ -97,7 +97,7 @@ struct FileWriter
 
     /**
      * @brief Pad the end of the file so that we can write all necessary bits
-     * 
+     *
      * @param pad_data Data to pad with
      */
     void Pad(std::string const &pad_data)

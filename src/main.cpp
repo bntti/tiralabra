@@ -12,7 +12,7 @@
 
 /**
  * @brief Converts string to lowercase
- * 
+ *
  * @param input String to convert
  */
 void ToLower(std::string &input)
@@ -23,7 +23,7 @@ void ToLower(std::string &input)
 
 /**
  * @brief Reads arguments and runs the program
- * 
+ *
  * @param argc Amount of arguments
  * @param argv Arguments
  * @return int Return code

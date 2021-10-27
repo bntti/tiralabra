@@ -12,7 +12,7 @@
 
 /**
  * @brief Check if compressed file is smaller in size than the original
- * 
+ *
  * @param compressed_file_name Path to compressed file
  * @param original_file_name Path to original file
  * @return true If compressed file is smaller in size than the original
@@ -31,7 +31,7 @@ bool IsSmaller(std::string compressed_file_name, std::string original_file_name)
 
 /**
  * @brief Get current working directory
- * 
+ *
  * @return std::string Current working directory
  */
 std::string Cwd()

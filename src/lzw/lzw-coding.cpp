@@ -15,7 +15,7 @@ const int CODE_MAX = (1 << LZW_CODE_SIZE) - 1;
 
 /**
  * @brief Initialize codebook that uses a map
- * 
+ *
  * @param mp Map to initialize
  */
 void InitCodebook(std::unordered_map<std::string, int> &mp)
@@ -31,7 +31,7 @@ void InitCodebook(std::unordered_map<std::string, int> &mp)
 
 /**
  * @brief Initialize codebook that uses a vector
- * 
+ *
  * @param mp Vector to initialize
  */
 void InitCodebook(std::vector<std::string> &codebook)
@@ -47,7 +47,7 @@ void InitCodebook(std::vector<std::string> &codebook)
 
 /**
  * @brief Encode data with LZW coding
- * 
+ *
  * @param data Data to encode
  * @return std::vector<int> Encoded data
  */
@@ -87,7 +87,7 @@ std::vector<int> LZWEncode(std::string const &data)
 
 /**
  * @brief Decode data that has been encoded with LZW coding
- * 
+ *
  * @param codes Data to decode
  * @return std::string Decoded data
  */

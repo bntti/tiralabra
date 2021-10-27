@@ -14,7 +14,7 @@
 
 /**
  * @brief Compress file with LZW coding
- * 
+ *
  * @param input_file Path to the file to compress
  * @param verbose If true then print what function is doing
  */
@@ -52,7 +52,7 @@ void LZWCompress(std::string const &input_file, bool verbose = 0)
 
 /**
  * @brief Decompress file that has been compressed with LZW coding
- * 
+ *
  * @param input_file Path to the file to decompress
  * @param verbose If true then print what function is doing
  */

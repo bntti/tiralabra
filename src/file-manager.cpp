@@ -11,7 +11,7 @@
 
 /**
  * @brief Check if file ends with .bnzip
- * 
+ *
  * @param filename Path to file to check
  * @return true If file ends with .bnzip
  * @return false Otherwise
@@ -23,7 +23,7 @@ bool IsCompressed(std::string const &filename)
 
 /**
  * @brief Removes .bnzip extensions from a filename
- * 
+ *
  * @param filename Filename to remove .bnzip extensions from
  */
 void RemoveExtension(std::string &filename)
@@ -34,7 +34,7 @@ void RemoveExtension(std::string &filename)
 
 /**
  * @brief Read contents of a file into a single string
- * 
+ *
  * @param filename Path to the file to read
  * @return std::string File content
  */
@@ -52,7 +52,7 @@ std::string ReadFile(std::string const &filename)
 
 /**
  * @brief Checks if file exists
- * 
+ *
  * @param filename Path to the file to check
  * @return true If file exists
  * @return false otherwise
@@ -65,7 +65,7 @@ bool FileExists(std::string const &filename)
 
 /**
  * @brief Returns first byte of a file
- * 
+ *
  * @param filename Path to the file to get the first byte from
  * @return int First byte of the file
  */
@@ -81,7 +81,7 @@ int FirstByte(std::string const &filename)
 
 /**
  * @brief Remove leading path to file
- * 
+ *
  * @param file_path File path to remove leading path from
  */
 void RemovePath(std::string &file_path)
