@@ -19,7 +19,7 @@ TEST_CASE("Test LZW coding", "[LZW coding]")
 
     SECTION("Test that compressed files are smaller")
     {
-        for (std::string test_file : TEST_FILES)
+        for (std::string test_file : COMPRESSION_TEST_FILES)
         {
             std::string original_file_name = path + test_file;
             std::string compressed_file_name = test_file + ".bnzip";
@@ -37,7 +37,7 @@ TEST_CASE("Test LZW coding", "[LZW coding]")
 
     SECTION("Test that decompressed files are equal to original files")
     {
-        for (std::string test_file : TEST_FILES)
+        for (std::string test_file : INTEGRITY_TEST_FILES)
         {
             std::string original_file_name = path + test_file;
             std::string compressed_file_name = test_file + ".bnzip";
@@ -62,7 +62,7 @@ TEST_CASE("Test LZW coding", "[LZW coding]")
 
     SECTION("Test that compression and decompression work when verbose is true")
     {
-        for (std::string test_file : TEST_FILES)
+        for (std::string test_file : INTEGRITY_TEST_FILES)
         {
             std::string original_file_name = path + test_file;
             std::string compressed_file_name = test_file + ".bnzip";
