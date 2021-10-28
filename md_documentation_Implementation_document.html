@@ -153,19 +153,32 @@ Decompressing</h3>
 Lempel–Ziv–Welch (LZW)</h2>
 <h3><a class="anchor" id="autotoc_md6"></a>
 Compressing</h3>
-<p >todo</p>
+<p >A high level view of the encoding algorithm:</p><ol type="1">
+<li>Initialize the dictionary to contain all strings of length one</li>
+<li>Read bytes from the input into string S untill S isn't in the dictionary</li>
+<li>Go back one byte and remove the byte from S</li>
+<li>Add the dictionary index for S to output</li>
+<li>Add S followed by the next symbol in the input to the dictionary</li>
+<li>Go to step 2</li>
+</ol>
 <h3><a class="anchor" id="autotoc_md7"></a>
 Decompressing</h3>
-<p >todo</p>
+<p >A high level view of the decoding algorithm:</p><ol type="1">
+<li>Initialize the dictionary to contain all strings of length one</li>
+<li>Decode value and add decoded value to output</li>
+<li>Add the first character of the next decoded string to the decoded value</li>
+<li>Add the new string to the dictionary</li>
+<li>Go to step 2</li>
+</ol>
 <h2><a class="anchor" id="autotoc_md8"></a>
 Time and memory complexity</h2>
 <p >A = Alphabet size used in the Huffman coding </p><table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">Time complexity   </th><th class="markdownTableHeadNone">Memory complexity    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Huffman compression   </td><td class="markdownTableBodyNone">O(n+A²)   </td><td class="markdownTableBodyNone">O(n+A²)    </td></tr>
+<td class="markdownTableBodyNone">Huffman compression   </td><td class="markdownTableBodyNone">O(n+Alog(A))   </td><td class="markdownTableBodyNone">O(n+Alog(A))    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Huffman decompression   </td><td class="markdownTableBodyNone">O(n+A²)   </td><td class="markdownTableBodyNone">O(n+A²)    </td></tr>
+<td class="markdownTableBodyNone">Huffman decompression   </td><td class="markdownTableBodyNone">O(n+Alog(A))   </td><td class="markdownTableBodyNone">O(n+Alog(A))    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">LZW compression   </td><td class="markdownTableBodyNone">O(n)   </td><td class="markdownTableBodyNone">O(n)    </td></tr>
 <tr class="markdownTableRowEven">
@@ -173,20 +186,9 @@ Time and memory complexity</h2>
 </table>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Comparison</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">file   </th><th class="markdownTableHeadNone">original size   </th><th class="markdownTableHeadNone"><code>./bnzip</code>   </th><th class="markdownTableHeadNone"><code>./bnzip -l</code>   </th><th class="markdownTableHeadNone"><code>bzip2</code>   </th><th class="markdownTableHeadNone"><code>xz</code>   </th><th class="markdownTableHeadNone"><code>gzip</code>    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="../tests/test-files/plaintext.txt">Plain text</a>   </td><td class="markdownTableBodyNone">8000   </td><td class="markdownTableBodyNone">2889 (36.1%)   </td><td class="markdownTableBodyNone">556 (6.95%)   </td><td class="markdownTableBodyNone">66 (0.83%)   </td><td class="markdownTableBodyNone">120 (1.5%)   </td><td class="markdownTableBodyNone">99 (1.24%)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a href="../tests/test-files/random-plaintext.txt">Random plaintext</a>   </td><td class="markdownTableBodyNone">12507   </td><td class="markdownTableBodyNone">7008 (56.0%)   </td><td class="markdownTableBodyNone">7847 (62.7%)   </td><td class="markdownTableBodyNone">5667 (45.3%)   </td><td class="markdownTableBodyNone">6240 (49.9%)   </td><td class="markdownTableBodyNone">6311 (50.5%)    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="../tests/test-files/special-characters.txt">Special characters</a>   </td><td class="markdownTableBodyNone">13853   </td><td class="markdownTableBodyNone">11754 (84.8%)   </td><td class="markdownTableBodyNone">3935 (28.4%)   </td><td class="markdownTableBodyNone">710 (5.13%)   </td><td class="markdownTableBodyNone">412 (2.97%)   </td><td class="markdownTableBodyNone">468 (3.38%)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a href="../tests/test-files/all-characters.txt">All characters</a>   </td><td class="markdownTableBodyNone">11520   </td><td class="markdownTableBodyNone">9381 (81.4%)   </td><td class="markdownTableBodyNone">6049 (52.5%)   </td><td class="markdownTableBodyNone">868 (7.53%)   </td><td class="markdownTableBodyNone">396 (3.44%)   </td><td class="markdownTableBodyNone">465 (4.04%)    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="../tests/test-files/random-binary-data.bin">Random binary data</a>   </td><td class="markdownTableBodyNone">10552   </td><td class="markdownTableBodyNone">8532 (80.9%)   </td><td class="markdownTableBodyNone">10365(98.2%)   </td><td class="markdownTableBodyNone">7555 (71.6%)   </td><td class="markdownTableBodyNone">7396 (70.1%)   </td><td class="markdownTableBodyNone">8607 (81.6%)   </td></tr>
-</table>
+<p >Tested with files containing random finnish words seperated with spaces. In <code>./bnzip -l (x)</code>, x means the value of LZW_CODE_SIZE. <br  />
+ <img src="./images/compression.png" alt="Compression" class="inline"/> <img src="./images/compression-ratio.png" alt="Compression ratio" class="inline"/> <br  />
+ The <code>./bnzip -l (18)</code> jumps up in the compression rate, because its dictionary filled up and it needed to create a new one. <img src="./images/time.png" alt="Compression time" class="inline"/></p>
 <h2><a class="anchor" id="autotoc_md10"></a>
 Project structure</h2>
 <div class="fragment"><div class="line">├── documentation</div>
@@ -246,6 +248,7 @@ Sources</h2>
 <li><a href="https://en.wikipedia.org/wiki/Canonical_Huffman_code">Canonical Huffman Code (wikipedia.org)</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch">Lempel-Ziv-Welch (wikipedia.org)</a></li>
 <li><a href="https://www.geeksforgeeks.org/lzw-lempel-ziv-welch-compression-technique/">Lempel-Ziv-Welch (geeksforgeeks.org)</a></li>
+<li><a href="https://kaino.kotus.fi/sanat/nykysuomi/">List of words</a></li>
 </ul>
 <h3><a class="anchor" id="autotoc_md13"></a>
 Image sources</h3>
