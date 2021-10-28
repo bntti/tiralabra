@@ -191,6 +191,12 @@ In the tests, the compression algorithms were tested with files containing rando
 ```
 ├── documentation
 │   ├── definition-document.md
+│   ├── images
+│   │   ├── codecov-report.png
+│   │   ├── compression.png
+│   │   ├── compression-ratio.png
+│   │   ├── compression-time.png
+│   │   └── decompression-time.png
 │   ├── Implementation-document.md
 │   ├── testing-document.md
 │   ├── usage-instructions.md
@@ -228,7 +234,7 @@ In the tests, the compression algorithms were tested with files containing rando
     ├── lzw-test.cpp
     ├── Makefile
     └── test-files
-        ├── all-characters.txt
+        ├── all-bytes.bin
         ├── plaintext.txt
         ├── random-binary-data.bin
         ├── random-plaintext.txt
