@@ -65,12 +65,17 @@ $(function() {
   <div class="headertitle"><div class="title">Testing document </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a href="https://codecov.io/gh/bntti/tiralabra"><img src="https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1" alt="codecov" style="pointer-events: none;" class="inline"/></a></p>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md15"></a>
+Code coverage:</h1>
+<p ><img src="https://github.com/bntti/tiralabra/actions/workflows/codecov.yml/badge.svg" alt="Codecov workflow badge" style="pointer-events: none;" class="inline"/> <a href="https://codecov.io/gh/bntti/tiralabra"><img src="https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1" alt="codecov" style="pointer-events: none;" class="inline"/></a> <br  />
+ <img src="./images/codecov-report.png" alt="Code coverage report" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Tests</h1>
 <p >The tests check that:</p><ul>
-<li>The <a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a> works</li>
-<li>Compressed files are smaller than the original files.</li>
-<li>Decompressed files are identical to the original files.</li>
-<li>Compression and decompression both work with the verbose argument set to true.</li>
+<li><a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a> works</li>
+<li>Compressed files are smaller than the original files for both Huffman and LZW.</li>
+<li>Decompressed files are identical to the original files for both Huffman and LZW.</li>
+<li>Compression and decompression both work with the verbose argument set to true for both Huffman and LZW.</li>
 </ul>
 <p >The tests are run with test input files containing miscellenious data. <br  />
  Tests can be replicated by running <code>make test</code>. <br  />
