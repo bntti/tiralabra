@@ -155,15 +155,37 @@ Lempel–Ziv–Welch (LZW)</h2>
 Compressing</h3>
 <p >A high level view of the encoding algorithm:</p><ol type="1">
 <li>Initialize the dictionary to contain all strings of length one</li>
-<li>Read bytes from the input into string S untill S isn't in the dictionary</li>
+<li>Read bytes from the input into string S until S isn't in the dictionary</li>
 <li>Go back one byte and remove the byte from S</li>
 <li>Add the dictionary index for S to output</li>
 <li>Add S followed by the next symbol in the input to the dictionary</li>
 <li>Go to step 2</li>
 </ol>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<p >The amount of bits used for each code is one in the beginning and gets larger as codes require more bits. <br  />
+ To do this, while the bit-length of the code is greater than code_bits, we write 111...111 to the file, where there are code_bits bits, where code_bits is the current code length in bits.</p>
+<p >Pseudocode for writing the codes to the file: </p><div class="fragment"><div class="line">code_bits = 1</div>
+<div class="line">for code in encoded_data:</div>
+<div class="line">    while code &gt;= (1 &lt;&lt; code_bits) - 1:</div>
+<div class="line">        file.write((1 &lt;&lt; code_bits) - 1)</div>
+<div class="line">        ++code_bits</div>
+<div class="line">    file.write(code)</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
 Decompressing</h3>
-<p >A high level view of the decoding algorithm:</p><ol type="1">
+<p >When reading the codes from the file, we need to be able to figure out where the number of bits used for the codes changes. Pseudocode for reading the bits from the file: </p><div class="fragment"><div class="line">codes = []</div>
+<div class="line">code_bits = 1</div>
+<div class="line">cur_byte = 0</div>
+<div class="line">bit_count = 0</div>
+<div class="line">for bit in compressed_data:</div>
+<div class="line">    cur_byte = (cur_byte &lt;&lt; 1) | bit</div>
+<div class="line">    ++bit_count</div>
+<div class="line">    if bit_count == code_bits:</div>
+<div class="line">        if cur_byte &gt;= (1 &lt;&lt; code_bits) - 1:</div>
+<div class="line">            ++code_bits</div>
+<div class="line">        else:</div>
+<div class="line">            codes.append(cur_byte)</div>
+<div class="line">        cur_byte = 0</div>
+<div class="line">        bit_count = 0</div>
+</div><!-- fragment --><p >A high level view of the decoding algorithm:</p><ol type="1">
 <li>Initialize the dictionary to contain all strings of length one</li>
 <li>Decode value and add decoded value to output</li>
 <li>Add the first character of the next decoded string to the decoded value</li>
@@ -186,9 +208,10 @@ Time and memory complexity</h2>
 </table>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Comparison</h2>
-<p >Tested with files containing random finnish words seperated with spaces. In <code>./bnzip -l (x)</code>, x means the value of LZW_CODE_SIZE. <br  />
- <img src="./images/compression.png" alt="Compression" class="inline"/> <img src="./images/compression-ratio.png" alt="Compression ratio" class="inline"/> <br  />
- The <code>./bnzip -l (18)</code> jumps up in the compression rate, because its dictionary filled up and it needed to create a new one. <img src="./images/time.png" alt="Compression time" class="inline"/></p>
+<p >In the tests, the compression algorithms were tested with files containing random Finnish words separated with spaces. <br  />
+ <code>./bnzip</code> uses Huffman coding and <code>./bnzip -l</code> uses LZW coding. <br  />
+ <img src="./images/compression.png" alt="Graph comparing compression between different algorithms" class="inline"/> <img src="./images/compression-ratio.png" alt="Graph comparing compression ratios between different algorithms" class="inline"/> <br  />
+ <img src="./images/compression-time.png" alt="Graph comparing compression times between different algorithms" class="inline"/> <img src="./images/decompression-time.png" alt="Graph comparing decompression times between different algorithms" class="inline"/></p>
 <h2><a class="anchor" id="autotoc_md10"></a>
 Project structure</h2>
 <div class="fragment"><div class="line">├── documentation</div>
@@ -238,8 +261,8 @@ Project structure</h2>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
 Possible improvements</h2>
 <ul>
-<li>Variable-width codes in LZW coding</li>
 <li>Progress indicator</li>
+<li>Deleting the original file</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Sources</h2>
