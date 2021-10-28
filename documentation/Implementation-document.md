@@ -122,28 +122,37 @@ After decoding the data it is written to the output file.
 
 ### Lempel–Ziv–Welch (LZW)
 #### Compressing
-todo
+A high level view of the encoding algorithm:
+1. Initialize the dictionary to contain all strings of length one
+2. Read bytes from the input into string S untill S isn't in the dictionary
+3. Go back one byte and remove the byte from S
+5. Add the dictionary index for S to output
+6. Add S followed by the next symbol in the input to the dictionary
+7. Go to step 2
 
 #### Decompressing
-todo
+A high level view of the decoding algorithm:
+1. Initialize the dictionary to contain all strings of length one
+2. Decode value and add decoded value to output
+3. Add the first character of the next decoded string to the decoded value
+4. Add the new string to the dictionary
+5. Go to step 2
 
 ### Time and memory complexity
 A = Alphabet size used in the Huffman coding
 |                       | Time complexity | Memory complexity |
 | --------------------- | --------------- | ----------------- |
-| Huffman compression   | O(n+A²)         | O(n+A²)           |
-| Huffman decompression | O(n+A²)         | O(n+A²)           |
+| Huffman compression   | O(n+Alog(A))    | O(n+Alog(A))      |
+| Huffman decompression | O(n+Alog(A))    | O(n+Alog(A))      |
 | LZW compression       | O(n)            | O(n)              |
 | LZW decompression     | O(n)            | O(n)              |
 
 ### Comparison
-| file                                                             | original size | `./bnzip`     | `./bnzip -l` | `bzip2`      | `xz`         | `gzip`       |
-| ---------------------------------------------------------------- | ------------- | ------------- | ------------ | ------------ | ------------ | ------------ |
-| [Plain text](../tests/test-files/plaintext.txt)                  | 8000          | 2889 (36.1%)  | 556 (6.95%)  | 66 (0.83%)   | 120 (1.5%)   | 99 (1.24%)   |
-| [Random plaintext](../tests/test-files/random-plaintext.txt)     | 12507         | 7008 (56.0%)  | 7847 (62.7%) | 5667 (45.3%) | 6240 (49.9%) | 6311 (50.5%) |
-| [Special characters](../tests/test-files/special-characters.txt) | 13853         | 11754 (84.8%) | 3935 (28.4%) | 710 (5.13%)  | 412 (2.97%)  | 468 (3.38%)  |
-| [All characters](../tests/test-files/all-characters.txt)         | 11520         | 9381 (81.4%)  | 6049 (52.5%) | 868 (7.53%)  | 396 (3.44%)  | 465 (4.04%)  |
-| [Random binary data](../tests/test-files/random-binary-data.bin) | 10552         | 8532 (80.9%)  | 10365(98.2%) | 7555 (71.6%) | 7396 (70.1%) | 8607 (81.6%) |
+Tested with files containing random finnish words seperated with spaces. In `./bnzip -l (x)`, x means the value of LZW_CODE_SIZE.  
+![Compression][Compression]
+![Compression ratio][Compression ratio]  
+The `./bnzip -l (18)` jumps up in the compression rate, because its dictionary filled up and it needed to create a new one.
+![Compression time][Time]
 
 ### Project structure
 ```
@@ -202,9 +211,13 @@ A = Alphabet size used in the Huffman coding
 * [Canonical Huffman Code (wikipedia.org)](https://en.wikipedia.org/wiki/Canonical_Huffman_code)
 * [Lempel-Ziv-Welch (wikipedia.org)](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch)
 * [Lempel-Ziv-Welch (geeksforgeeks.org)](https://www.geeksforgeeks.org/lzw-lempel-ziv-welch-compression-technique/)
+* [List of words](https://kaino.kotus.fi/sanat/nykysuomi/)
 
 
 #### Image sources
 * [Example image of constructing a Huffman tree](https://en.wikipedia.org/wiki/File:HuffmanCodeAlg.png)
 
 [Huffman example]: https://upload.wikimedia.org/wikipedia/commons/d/d8/HuffmanCodeAlg.png
+[Compression]: ./images/compression.png
+[Compression ratio]: ./images/compression-ratio.png
+[Time]: ./images/time.png
