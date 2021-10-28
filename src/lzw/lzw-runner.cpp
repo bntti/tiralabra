@@ -2,7 +2,7 @@
  * @file lzw-runner.cpp
  * @author Juho Röyskö
  * @brief Runs LZW coding
- * @version 0.1.2
+ * @version 0.2.0
  * @date 2021-10-02
  */
 #include <string>
@@ -40,13 +40,21 @@ void LZWCompress(std::string const &input_file, bool verbose = 0)
     file_writer.Write(1); // Tell decompressor that this file is compressed with LZW coding
 
     if (verbose)
+    {
         std::cout << "Writing compressed data to file '" << output_file << "'" << std::endl;
+    }
+    int code_bits = 1;
     for (int x : encoded_data)
     {
-        file_writer.Write(x, LZW_CODE_SIZE);
+        while (x >= (1 << code_bits) - 1)
+        {
+            file_writer.Write((1 << code_bits) - 1, code_bits);
+            ++code_bits;
+        }
+        file_writer.Write(x, code_bits);
     }
 
-    file_writer.Pad("00000000");
+    file_writer.Pad("11111111");
     file_writer.Close();
 }
 
@@ -73,6 +81,7 @@ void LZWDecompress(std::string const &input_file, bool verbose = 0)
     std::vector<int> codes;
     int current_byte = 0;
     int bit_count = 0;
+    int code_bits = 1;
     for (char c : data)
     {
         for (int i = 7; i >= 0; --i)
@@ -80,9 +89,12 @@ void LZWDecompress(std::string const &input_file, bool verbose = 0)
             int bit = (c & (1 << i)) > 0;
             current_byte = current_byte << 1 | bit;
             ++bit_count;
-            if (bit_count == LZW_CODE_SIZE)
+            if (bit_count == code_bits)
             {
-                codes.push_back(current_byte);
+                if (current_byte >= (1 << code_bits) - 1)
+                    ++code_bits;
+                else
+                    codes.push_back(current_byte);
                 current_byte = 0;
                 bit_count = 0;
             }

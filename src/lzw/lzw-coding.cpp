@@ -2,7 +2,7 @@
  * @file lzw-coding.cpp
  * @author Juho Röyskö
  * @brief LZW Coding
- * @version 0.2.1
+ * @version 0.3.0
  * @date 2021-10-02
  */
 #include <string>
@@ -10,40 +10,6 @@
 #include <vector>
 #include "../constants.hpp"
 #include "../file-manager.hpp"
-
-const int CODE_MAX = (1 << LZW_CODE_SIZE) - 1;
-
-/**
- * @brief Initialize codebook that uses a map
- *
- * @param mp Map to initialize
- */
-void InitCodebook(std::unordered_map<std::string, int> &mp)
-{
-    mp.clear();
-    for (int i = 0; i < 256; ++i)
-    {
-        std::string chr = "";
-        chr += (char)i;
-        mp[chr] = i;
-    }
-}
-
-/**
- * @brief Initialize codebook that uses a vector
- *
- * @param mp Vector to initialize
- */
-void InitCodebook(std::vector<std::string> &codebook)
-{
-    codebook.clear();
-    for (int i = 0; i < 256; ++i)
-    {
-        std::string chr = "";
-        chr += (char)i;
-        codebook.push_back(chr);
-    }
-}
 
 /**
  * @brief Encode data with LZW coding
@@ -54,7 +20,12 @@ void InitCodebook(std::vector<std::string> &codebook)
 std::vector<int> LZWEncode(std::string const &data)
 {
     std::unordered_map<std::string, int> codebook;
-    InitCodebook(codebook);
+    for (int i = 0; i < 256; ++i)
+    {
+        std::string chr = "";
+        chr += (char)i;
+        codebook[chr] = i;
+    }
 
     int current_code = 256;
     std::vector<int> output;
@@ -69,13 +40,6 @@ std::vector<int> LZWEncode(std::string const &data)
             codebook[new_string] = current_code;
             ++current_code;
             new_string = c;
-
-            if (current_code == CODE_MAX)
-            {
-                current_code = 256;
-                output.push_back(CODE_MAX);
-                InitCodebook(codebook);
-            }
         }
         old_string = new_string;
     }
@@ -94,7 +58,12 @@ std::vector<int> LZWEncode(std::string const &data)
 std::string LZWDecode(std::vector<int> const &codes)
 {
     std::vector<std::string> codebook; // Vector is used instead of a unordered_map<int, string>
-    InitCodebook(codebook);
+    for (int i = 0; i < 256; ++i)
+    {
+        std::string chr = "";
+        chr += (char)i;
+        codebook.push_back(chr);
+    }
 
     std::string output = "";
 
@@ -102,13 +71,6 @@ std::string LZWDecode(std::vector<int> const &codes)
     for (int i = 0; i < (int)codes.size(); ++i)
     {
         int code = codes[i];
-        if (code == CODE_MAX)
-        {
-            current_code = 256;
-            InitCodebook(codebook);
-            continue;
-        }
-
         if (i == (int)codes.size() - 1)
         {
             output += codebook[code];

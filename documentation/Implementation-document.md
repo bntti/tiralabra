@@ -124,13 +124,45 @@ After decoding the data it is written to the output file.
 #### Compressing
 A high level view of the encoding algorithm:
 1. Initialize the dictionary to contain all strings of length one
-2. Read bytes from the input into string S untill S isn't in the dictionary
-3. Go back one byte and remove the byte from S
-5. Add the dictionary index for S to output
-6. Add S followed by the next symbol in the input to the dictionary
-7. Go to step 2
+3. Read bytes from the input into string S until S isn't in the dictionary
+4. Go back one byte and remove the byte from S
+6. Add the dictionary index for S to output
+7. Add S followed by the next symbol in the input to the dictionary
+8. Go to step 2
+
+The amount of bits used for each code is one in the beginning and gets larger as codes require more bits.  
+To do this, while the bit-length of the code is greater than code_bits, we write 111...111 to the file, where there are code_bits bits, where code_bits is the current code length in bits.
+
+Pseudocode for writing the codes to the file:
+```
+code_bits = 1
+for code in encoded_data:
+    while code >= (1 << code_bits) - 1:
+        file.write((1 << code_bits) - 1)
+        ++code_bits
+    file.write(code)
+```
 
 #### Decompressing
+When reading the codes from the file, we need to be able to figure out where the number of bits used for the codes changes.
+Pseudocode for reading the bits from the file:
+```
+codes = []
+code_bits = 1
+cur_byte = 0
+bit_count = 0
+for bit in compressed_data:
+    cur_byte = (cur_byte << 1) | bit
+    ++bit_count
+    if bit_count == code_bits:
+        if cur_byte >= (1 << code_bits) - 1:
+            ++code_bits
+        else:
+            codes.append(cur_byte)
+        cur_byte = 0
+        bit_count = 0
+```
+
 A high level view of the decoding algorithm:
 1. Initialize the dictionary to contain all strings of length one
 2. Decode value and add decoded value to output
@@ -148,11 +180,12 @@ A = Alphabet size used in the Huffman coding
 | LZW decompression     | O(n)            | O(n)              |
 
 ### Comparison
-Tested with files containing random finnish words seperated with spaces. In `./bnzip -l (x)`, x means the value of LZW_CODE_SIZE.  
-![Compression][Compression]
-![Compression ratio][Compression ratio]  
-The `./bnzip -l (18)` jumps up in the compression rate, because its dictionary filled up and it needed to create a new one.
-![Compression time][Time]
+In the tests, the compression algorithms were tested with files containing random Finnish words separated with spaces.  
+`./bnzip` uses Huffman coding and `./bnzip -l` uses LZW coding.  
+![Graph comparing compression between different algorithms][Compression]
+![Graph comparing compression ratios between different algorithms][Compression ratio]  
+![Graph comparing compression times between different algorithms][Compression time]
+![Graph comparing decompression times between different algorithms][Decompression time]
 
 ### Project structure
 ```
@@ -203,8 +236,8 @@ The `./bnzip -l (18)` jumps up in the compression rate, because its dictionary f
 ```
 
 ### Possible improvements
-* Variable-width codes in LZW coding
 * Progress indicator
+* Deleting the original file
 
 ### Sources
 * [Huffman coding (wikipedia.org)](https://en.wikipedia.org/wiki/Huffman_coding)
@@ -220,4 +253,5 @@ The `./bnzip -l (18)` jumps up in the compression rate, because its dictionary f
 [Huffman example]: https://upload.wikimedia.org/wikipedia/commons/d/d8/HuffmanCodeAlg.png
 [Compression]: ./images/compression.png
 [Compression ratio]: ./images/compression-ratio.png
-[Time]: ./images/time.png
+[Compression time]: ./images/compression-time.png
+[Decompression time]: ./images/decompression-time.png
