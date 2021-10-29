@@ -242,19 +242,19 @@ In the tests, the compression algorithms were tested with files containing rando
 ```
 
 ### Possible improvements
-* Progress indicator
-* Deleting the original file
+- Progress indicator
+- Deleting the original file
 
 ### Sources
-* [Huffman coding (wikipedia.org)](https://en.wikipedia.org/wiki/Huffman_coding)
-* [Canonical Huffman Code (wikipedia.org)](https://en.wikipedia.org/wiki/Canonical_Huffman_code)
-* [Lempel-Ziv-Welch (wikipedia.org)](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch)
-* [Lempel-Ziv-Welch (geeksforgeeks.org)](https://www.geeksforgeeks.org/lzw-lempel-ziv-welch-compression-technique/)
-* [List of words](https://kaino.kotus.fi/sanat/nykysuomi/)
+- [Huffman coding (wikipedia.org)](https://en.wikipedia.org/wiki/Huffman_coding)
+- [Canonical Huffman Code (wikipedia.org)](https://en.wikipedia.org/wiki/Canonical_Huffman_code)
+- [Lempel-Ziv-Welch (wikipedia.org)](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch)
+- [Lempel-Ziv-Welch (geeksforgeeks.org)](https://www.geeksforgeeks.org/lzw-lempel-ziv-welch-compression-technique/)
+- [List of words](https://kaino.kotus.fi/sanat/nykysuomi/)
 
 
 #### Image sources
-* [Example image of constructing a Huffman tree](https://en.wikipedia.org/wiki/File:HuffmanCodeAlg.png)
+- [Example image of constructing a Huffman tree](https://en.wikipedia.org/wiki/File:HuffmanCodeAlg.png)
 
 [Huffman example]: https://upload.wikimedia.org/wikipedia/commons/d/d8/HuffmanCodeAlg.png
 [Compression]: ./images/compression.png
