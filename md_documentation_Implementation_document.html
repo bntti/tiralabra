@@ -214,6 +214,38 @@ Comparison</h2>
  <img src="./images/compression-time.png" alt="Graph comparing compression times between different algorithms" class="inline"/> <img src="./images/decompression-time.png" alt="Graph comparing decompression times between different algorithms" class="inline"/></p>
 <h2><a class="anchor" id="autotoc_md10"></a>
 Project structure</h2>
+<ul>
+<li><code>.github/workflows/</code> Contains github actions</li>
+<li><code>documentation/</code> Contains documentation files<ul>
+<li><code>images/</code> Contains images for documentation files</li>
+</ul>
+</li>
+<li><code>src/</code> Contains code<ul>
+<li><code><a class="el" href="constants_8hpp.html" title="Contains some constants that multiple files use.">constants.hpp</a></code> Contains one constant that Huffman coding uses.</li>
+<li><code><a class="el" href="main_8cpp.html" title="Reads arguments and runs the program.">main.cpp</a></code> Reads flags and path to the file and then calls <code><a class="el" href="lzw-runner_8cpp.html" title="Runs LZW coding.">lzw-runner.cpp</a></code> or <code><a class="el" href="huffman-runner_8cpp.html" title="Runs Huffman coding.">huffman-runner.cpp</a></code>, depending on which algorithm will be used. <code><a class="el" href="main_8cpp.html" title="Reads arguments and runs the program.">main.cpp</a></code> can also print usage instructions</li>
+<li><code>huffman/</code> Contains <code>huffman-runner</code> and <code>huffman-coding</code><ul>
+<li><code><a class="el" href="huffman-runner_8cpp.html" title="Runs Huffman coding.">huffman-runner.cpp</a></code> Manages files and uses <code><a class="el" href="huffman-coding_8cpp.html" title="Huffman coding.">huffman-coding.cpp</a></code> for encoding and decoding</li>
+</ul>
+</li>
+<li><code>lzw/</code> Contains <code>lzw-runner</code> and <code>lzw-coding</code><ul>
+<li><code><a class="el" href="lzw-runner_8cpp.html" title="Runs LZW coding.">lzw-runner.cpp</a></code> Manages files and uses <code><a class="el" href="lzw-coding_8cpp.html" title="LZW Coding.">lzw-coding.cpp</a></code> for encoding and decoding</li>
+</ul>
+</li>
+<li><code><a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a></code>/<code><a class="el" href="file-manager_8hpp.html" title="Header file for file-manager.cpp. Also contains FileWriter struct.">file-manager.hpp</a></code> Contain tools for writing to files, checking if files exist, and reading from files</li>
+</ul>
+</li>
+<li><code>tests/</code> Contains tests for code<ul>
+<li><code>test-files/</code> Contains files that will be used for testing compression and decompression</li>
+<li><code>file-manager-test.cpp</code> Tests <code><a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a></code></li>
+<li><code><a class="el" href="helper_8cpp.html" title="Provides functions for tests.">helper.cpp</a></code>/<code><a class="el" href="helper_8hpp.html" title="Header file for helper.cpp.">helper.hpp</a></code> Contain functions and variables that other tests use</li>
+<li><code><a class="el" href="huffman-test_8cpp.html" title="Tests Huffman coding compression.">huffman-test.cpp</a></code> Tests Huffman compression and decompression</li>
+<li><code>lzw-test.cpp</code> Tests LZW compression and decompression.</li>
+</ul>
+</li>
+</ul>
+<p >Makefiles are used for automating compilation and other tasks. </p>
+<h3><a class="anchor" id="autotoc_md11"></a>
+File structure</h3>
 <div class="fragment"><div class="line">├── documentation</div>
 <div class="line">│   ├── definition-document.md</div>
 <div class="line">│   ├── images</div>
@@ -264,13 +296,17 @@ Project structure</h2>
 <div class="line">        ├── random-binary-data.bin</div>
 <div class="line">        ├── random-plaintext.txt</div>
 <div class="line">        └── special-characters.txt</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
 Possible improvements</h2>
 <ul>
 <li>Progress indicator</li>
 <li>Deleting the original file</li>
+<li>Using less RAM</li>
+<li>Huffman coding supporting other alphabet sizes</li>
+<li>Other compression algorithms</li>
+<li>Combining compression algorithms</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Sources</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding (wikipedia.org)</a></li>
@@ -279,7 +315,7 @@ Sources</h2>
 <li><a href="https://www.geeksforgeeks.org/lzw-lempel-ziv-welch-compression-technique/">Lempel-Ziv-Welch (geeksforgeeks.org)</a></li>
 <li><a href="https://kaino.kotus.fi/sanat/nykysuomi/">List of words</a></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md14"></a>
 Image sources</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/File:HuffmanCodeAlg.png">Example image of constructing a Huffman tree</a> </li>
