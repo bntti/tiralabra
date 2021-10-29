@@ -9,7 +9,7 @@ DEPS := $(SRCS:$(SRCDIR)/%.cpp=$(DEPDIR)/%.d)
 TREE := $(patsubst %/,%,$(dir $(OBJS)))
 TREE := $(sort $(TREE))
 CPPFLAGS = -MMD -MP -MF $(@:$(OBJDIR)/%.o=$(DEPDIR)/%.d)
-CXXFLAGS := -O0 -march=native -Wall -Wextra -Wshadow -std=c++11 -I /usr/include/catch2/ -fprofile-arcs -ftest-coverage
+CXXFLAGS := -O0 -march=native -Wall -Wextra -Wshadow -fsanitize=undefined -std=c++11 -I /usr/include/catch2/ -fprofile-arcs -ftest-coverage
 
 .PHONY: all clean
 

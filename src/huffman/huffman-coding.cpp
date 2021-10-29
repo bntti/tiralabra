@@ -2,14 +2,27 @@
  * @file huffman-coding.cpp
  * @author Juho Röyskö
  * @brief Huffman coding
- * @version 0.1.3
+ * @version 0.2.0
  * @date 2021-10-29
  */
 #include <vector>
 #include <queue>
 #include <string>
 #include <algorithm>
+#include <cassert>
 #include "../constants.hpp"
+
+std::string codes[ALPHABET_SIZE];
+long long amt[ALPHABET_SIZE];
+
+/**
+ * @brief Clear global variables
+ */
+void Init()
+{
+    std::fill_n(codes, ALPHABET_SIZE, "");
+    std::fill_n(amt, ALPHABET_SIZE, 0);
+}
 
 /**
  * @brief Node in the binary tree used to create Huffman coding
@@ -19,26 +32,26 @@ struct Node
     long long weight; // Amount of occurences of character / sum of weights in subtree
     bool has_val;
     uint8_t val;
-    int left, right;
+    Node *left, *right;
     Node()
     {
         weight = 0;
         has_val = 0;
         val = 0;
-        left = -1;
-        right = -1;
+        left = nullptr;
+        right = nullptr;
     }
     Node(long long _weight, uint8_t _val)
     {
         weight = _weight;
         val = _val;
         has_val = 1;
-        left = -1;
-        right = -1;
+        left = nullptr;
+        right = nullptr;
     }
-    Node(int _left, int _right, int _weight)
+    Node(Node *_left, Node *_right)
     {
-        weight = _weight;
+        weight = _left->weight + _right->weight;
         val = 0;
         has_val = 0;
         left = _left;
@@ -46,18 +59,18 @@ struct Node
     }
 };
 
-Node nodes[ALPHABET_SIZE * 2]; // Nodes are stored in a global array to prevent dealing with pointers
-std::string codes[ALPHABET_SIZE];
-long long amt[ALPHABET_SIZE];
-
 /**
- * @brief Clear global variables
+ * @brief Delete nodes from memory by using depth-first search
+ *
+ * @param node Current node
  */
-void Init()
+void DeleteNodes(Node *node)
 {
-    std::fill_n(nodes, ALPHABET_SIZE * 2, Node());
-    std::fill_n(codes, ALPHABET_SIZE, "");
-    std::fill_n(amt, ALPHABET_SIZE, 0);
+    if (node->left != nullptr)
+        DeleteNodes(node->left);
+    if (node->right != nullptr)
+        DeleteNodes(node->right);
+    delete node;
 }
 
 /**
@@ -68,42 +81,41 @@ struct CompareWeight
     /**
      * @brief Compare Nodes. Return is flipped because priority_queue sorts in reverse
      *
-     * @param node_index_1 Node 1
-     * @param node_index_2 Node 2
+     * @param node_1 Node 1
+     * @param node_2 Node 2
      * @return true If first Node has bigger weight
      * @return false Otherwise
      */
-    bool operator()(int node_index_1, int node_index_2)
+    bool operator()(Node *node_1, Node *node_2)
     {
-        return nodes[node_index_1].weight > nodes[node_index_2].weight;
+        return node_1->weight > node_2->weight;
     }
 };
 
 /**
  * @brief Get codes for characters using depth-first search
  *
- * @param nodeindex Current node
+ * @param node Current node
  * @param code Current code
  */
-void GetCodes(int nodeindex, std::string &code)
+void GetCodes(Node *node, std::string &code)
 {
-    Node node = nodes[nodeindex];
-    if (node.has_val)
+    if (node->has_val)
     {
-        codes[node.val] = code;
+        codes[node->val] = code;
     }
     else
     {
-        if (node.left != -1)
+        if (node->left != nullptr)
         {
             code += '0';
-            GetCodes(node.left, code);
+            GetCodes(node->left, code);
             code.pop_back();
         }
-        if (node.right != -1)
+        if (node->right != nullptr)
         {
             code += '1';
-            GetCodes(node.right, code);
+            GetCodes(node->right, code);
             code.pop_back();
         }
     }
@@ -181,32 +193,27 @@ std::string *HCEncode(std::string const &input)
     // We add the characters that don't appear in the input with weight 0,
     // because we need a code that is at least 8 bits long,
     // so that we can pad the end of the compressed file
-    int node_array_size = 0;
-    std::priority_queue<int, std::vector<int>, CompareWeight> q; // Priority queue containing indexes of nodes
+    std::priority_queue<Node *, std::vector<Node *>, CompareWeight> q; // Priority queue containing nodes
     for (int i = 0; i < ALPHABET_SIZE; ++i)
-    {
-        nodes[node_array_size] = Node(amt[i], i);
-        q.push(node_array_size);
-        ++node_array_size;
-    }
+        q.push(new Node(amt[i], i));
 
     // Create a tree from the nodes. Combine two lightest nodes and create a Node as their parent and replace them with their parent
     while (q.size() > 1)
     {
-        int node_index_1 = q.top();
+        Node *node_1 = q.top();
         q.pop();
-        int node_index_2 = q.top();
+        Node *node_2 = q.top();
         q.pop();
 
-        nodes[node_array_size] = Node(node_index_1, node_index_2, nodes[node_index_1].weight + nodes[node_index_2].weight);
-        q.push(node_array_size);
-        ++node_array_size;
+        Node *new_node = new Node(node_1, node_2);
+        q.push(new_node);
     }
 
     std::string current = "";
     GetCodes(q.top(), current);
 
     ConvertCodes();
+    DeleteNodes(q.top()); // Clear nodes from memory
     return codes;
 }
 
@@ -227,42 +234,32 @@ std::string HCDecode(std::string const &compressed_data)
     SetCodes(v);
 
     // Recreate the tree
-    int node_index = 0;
-    nodes[node_index] = Node();
-    ++node_index;
+    Node *start_node = new Node();
     for (int i = 0; i < ALPHABET_SIZE; ++i)
     {
-        int current_node = 0;
+        Node *current_node = start_node;
         for (char c : codes[i])
         {
             if (c == '0')
             {
-                if (nodes[current_node].left == -1)
-                {
-                    nodes[node_index] = Node();
-                    nodes[current_node].left = node_index;
-                    ++node_index;
-                }
-                current_node = nodes[current_node].left;
+                if (current_node->left == nullptr)
+                    current_node->left = new Node();
+                current_node = current_node->left;
             }
             else
             {
-                if (nodes[current_node].right == -1)
-                {
-                    nodes[node_index] = Node();
-                    nodes[current_node].right = node_index;
-                    ++node_index;
-                }
-                current_node = nodes[current_node].right;
+                if (current_node->right == nullptr)
+                    current_node->right = new Node();
+                current_node = current_node->right;
             }
         }
-        nodes[current_node].has_val = 1;
-        nodes[current_node].val = i;
+        current_node->has_val = 1;
+        current_node->val = i;
     }
 
     // Decode input using the codes and the tree
     std::string output = "";
-    int current_node = 0;
+    Node *current_node = start_node;
     for (int i = ALPHABET_SIZE; i < (int)compressed_data.length(); ++i)
     {
         uint8_t x = compressed_data[i];
@@ -270,16 +267,18 @@ std::string HCDecode(std::string const &compressed_data)
         {
             int bit = x & (1 << k);
             if (bit == 0)
-                current_node = nodes[current_node].left;
+                current_node = current_node->left;
             else
-                current_node = nodes[current_node].right;
+                current_node = current_node->right;
 
-            if (nodes[current_node].has_val)
+            if (current_node->has_val)
             {
-                output += nodes[current_node].val;
-                current_node = 0;
+                output += current_node->val;
+                current_node = start_node;
             }
         }
     }
+
+    DeleteNodes(start_node); // Clear nodes from memory
     return output;
 }
