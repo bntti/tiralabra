@@ -188,6 +188,26 @@ In the tests, the compression algorithms were tested with files containing rando
 ![Graph comparing decompression times between different algorithms][Decompression time]
 
 ### Project structure
+- `.github/workflows/` Contains github actions
+- `documentation/` Contains documentation files
+  - `images/` Contains images for documentation files
+- `src/` Contains code
+  - `constants.hpp` Contains one constant that Huffman coding uses.
+  - `main.cpp` Reads flags and path to the file and then calls `lzw-runner.cpp` or `huffman-runner.cpp`, depending on which algorithm will be used. `main.cpp` can also print usage instructions
+  - `huffman/` Contains `huffman-runner` and `huffman-coding`
+    - `huffman-runner.cpp` Manages files and uses `huffman-coding.cpp` for encoding and decoding
+  - `lzw/` Contains `lzw-runner` and `lzw-coding`
+    - `lzw-runner.cpp` Manages files and uses `lzw-coding.cpp` for encoding and decoding
+  - `file-manager.cpp`/`file-manager.hpp` Contain tools for writing to files, checking if files exist, and reading from files
+- `tests/` Contains tests for code
+  - `test-files/` Contains files that will be used for testing compression and decompression
+  - `file-manager-test.cpp` Tests `file-manager.cpp`
+  - `helper.cpp`/`helper.hpp` Contain functions and variables that other tests use
+  - `huffman-test.cpp` Tests Huffman compression and decompression
+  - `lzw-test.cpp` Tests LZW compression and decompression.
+
+Makefiles are used for automating compilation and other tasks.
+#### File structure
 ```
 ├── documentation
 │   ├── definition-document.md
@@ -244,6 +264,10 @@ In the tests, the compression algorithms were tested with files containing rando
 ### Possible improvements
 - Progress indicator
 - Deleting the original file
+- Using less RAM
+- Huffman coding supporting other alphabet sizes
+- Other compression algorithms
+- Combining compression algorithms
 
 ### Sources
 - [Huffman coding (wikipedia.org)](https://en.wikipedia.org/wiki/Huffman_coding)
