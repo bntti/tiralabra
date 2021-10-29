@@ -1,0 +1,26 @@
+name: Release Action
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: sudo apt install -y make gcc catch
+      - name: Run tests
+        run: make test
+      - name: Build
+        run: make BUILD=release
+      - name: Release action
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: latest
+          prerelease: true
+          title: Development Build
+          files: bnzip

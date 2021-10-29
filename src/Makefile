@@ -9,7 +9,12 @@ DEPS := $(SRCS:$(SRCDIR)/%.cpp=$(DEPDIR)/%.d)
 TREE := $(patsubst %/,%,$(dir $(OBJS)))
 TREE := $(sort $(TREE))
 CPPFLAGS = -MMD -MP -MF $(@:$(OBJDIR)/%.o=$(DEPDIR)/%.d)
-CXXFLAGS := -O3 -march=native -Wall -Wextra -Wshadow
+
+BUILD := default
+cxxflags.common := -Wall -Wextra -Wshadow
+cxxflags.default := -O3 -march=native
+cxxflags.release := -O2 -static
+CXXFLAGS := ${cxxflags.${BUILD}} ${cxxflags.common}
 
 .PHONY: all clean
 
