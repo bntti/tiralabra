@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getcodes_0',['GetCodes',['../huffman-coding_8cpp.html#a3bbf518ef41ef3d255522cad1ffa4e83',1,'huffman-coding.cpp']]]
+  ['getcodes_0',['GetCodes',['../huffman-coding_8cpp.html#a438e46ff65e0dd85debc41391efb73fe',1,'huffman-coding.cpp']]]
 ];

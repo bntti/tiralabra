@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['test_5fcase_0',['TEST_CASE',['../huffman-test_8cpp.html#a9734028d053bc7839f5f65b34059cbc3',1,'huffman-test.cpp']]],
-  ['tolower_1',['ToLower',['../main_8cpp.html#a4ff72cbe2db538d2cf82ab2842cb01c5',1,'main.cpp']]]
+  ['setcodes_0',['SetCodes',['../huffman-coding_8cpp.html#a42bcf96638d6a33572fc87cf4a2ef30b',1,'huffman-coding.cpp']]]
 ];

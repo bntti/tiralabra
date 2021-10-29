@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['lzwcompress_0',['LZWCompress',['../lzw-runner_8cpp.html#a0e068560ba1eb8d941b1177f73a3fb78',1,'lzw-runner.cpp']]],
-  ['lzwdecode_1',['LZWDecode',['../lzw-coding_8cpp.html#a68a2baaf6d041be3d74359fd396b3f3a',1,'LZWDecode(std::vector&lt; int &gt; const &amp;codes):&#160;lzw-coding.cpp'],['../lzw-coding_8hpp.html#a53c837b91ca6192dc36cf71f30aecec0',1,'LZWDecode(std::vector&lt; int &gt; const &amp;data):&#160;lzw-coding.cpp']]],
-  ['lzwdecompress_2',['LZWDecompress',['../lzw-runner_8cpp.html#a9c84aaa59a8b7674ca042bcac718a569',1,'lzw-runner.cpp']]],
-  ['lzwencode_3',['LZWEncode',['../lzw-coding_8cpp.html#a419abde4d02761dd5bfb7cd3ba2a8cda',1,'LZWEncode(std::string const &amp;data):&#160;lzw-coding.cpp'],['../lzw-coding_8hpp.html#a419abde4d02761dd5bfb7cd3ba2a8cda',1,'LZWEncode(std::string const &amp;data):&#160;lzw-coding.cpp']]]
+  ['incrementbinarystring_0',['IncrementBinaryString',['../huffman-coding_8cpp.html#a2f778b38bc108091224e04a9990f7b88',1,'huffman-coding.cpp']]],
+  ['init_1',['Init',['../huffman-coding_8cpp.html#a1e3b6d38df0786ccf7f938d60e386aae',1,'huffman-coding.cpp']]],
+  ['iscompressed_2',['IsCompressed',['../file-manager_8cpp.html#aa0c77e7179c6a24b0b821e342edbfefd',1,'IsCompressed(std::string const &amp;filename):&#160;file-manager.cpp'],['../file-manager_8hpp.html#aa0c77e7179c6a24b0b821e342edbfefd',1,'IsCompressed(std::string const &amp;filename):&#160;file-manager.cpp']]],
+  ['issmaller_3',['IsSmaller',['../helper_8cpp.html#ab3dcfec7a32fb82fab996243b17ce4f7',1,'IsSmaller(std::string compressed_file_name, std::string original_file_name):&#160;helper.cpp'],['../helper_8hpp.html#ab3dcfec7a32fb82fab996243b17ce4f7',1,'IsSmaller(std::string compressed_file_name, std::string original_file_name):&#160;helper.cpp']]]
 ];

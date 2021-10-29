@@ -74,15 +74,15 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa017d7c2b342e36870692a7c55a498c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCompareWeight.html#aa017d7c2b342e36870692a7c55a498c3">operator()</a> (int node_index_1, int node_index_2)</td></tr>
-<tr class="memdesc:aa017d7c2b342e36870692a7c55a498c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare Nodes. Return is flipped because priority_queue sorts in reverse.  <a href="structCompareWeight.html#aa017d7c2b342e36870692a7c55a498c3">More...</a><br /></td></tr>
-<tr class="separator:aa017d7c2b342e36870692a7c55a498c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141da1aaaf5de12ac1a1b6e9703285a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCompareWeight.html#a141da1aaaf5de12ac1a1b6e9703285a6">operator()</a> (<a class="el" href="structNode.html">Node</a> *node_1, <a class="el" href="structNode.html">Node</a> *node_2)</td></tr>
+<tr class="memdesc:a141da1aaaf5de12ac1a1b6e9703285a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare Nodes. Return is flipped because priority_queue sorts in reverse.  <a href="structCompareWeight.html#a141da1aaaf5de12ac1a1b6e9703285a6">More...</a><br /></td></tr>
+<tr class="separator:a141da1aaaf5de12ac1a1b6e9703285a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Compare Nodes. Return is flipped because priority_queue sorts in reverse. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa017d7c2b342e36870692a7c55a498c3" name="aa017d7c2b342e36870692a7c55a498c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa017d7c2b342e36870692a7c55a498c3">&#9670;&nbsp;</a></span>operator()()</h2>
+<a id="a141da1aaaf5de12ac1a1b6e9703285a6" name="a141da1aaaf5de12ac1a1b6e9703285a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a141da1aaaf5de12ac1a1b6e9703285a6">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -93,14 +93,14 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool CompareWeight::operator() </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>node_index_1</em>, </td>
+          <td class="paramtype"><a class="el" href="structNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node_1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>node_index_2</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node_2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -118,12 +118,12 @@ Public Member Functions</h2></td></tr>
 <p>Compare Nodes. Return is flipped because priority_queue sorts in reverse. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">node_index_1</td><td><a class="el" href="structNode.html" title="Node in binary tree used to create Huffman coding.">Node</a> 1 </td></tr>
-    <tr><td class="paramname">node_index_2</td><td><a class="el" href="structNode.html" title="Node in binary tree used to create Huffman coding.">Node</a> 2 </td></tr>
+    <tr><td class="paramname">node_1</td><td><a class="el" href="structNode.html" title="Node in the binary tree used to create Huffman coding.">Node</a> 1 </td></tr>
+    <tr><td class="paramname">node_2</td><td><a class="el" href="structNode.html" title="Node in the binary tree used to create Huffman coding.">Node</a> 2 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true If first <a class="el" href="structNode.html" title="Node in binary tree used to create Huffman coding.">Node</a> has bigger weight </dd>
+<dl class="section return"><dt>Returns</dt><dd>true If first <a class="el" href="structNode.html" title="Node in the binary tree used to create Huffman coding.">Node</a> has bigger weight </dd>
 <dd>
 false Otherwise </dd></dl>
 

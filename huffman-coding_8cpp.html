@@ -80,12 +80,13 @@ $(function() {
 <code>#include &lt;queue&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 <code>#include &quot;<a class="el" href="constants_8hpp_source.html">../constants.hpp</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNode.html">Node</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structNode.html" title="Node in binary tree used to create Huffman coding.">Node</a> in binary tree used to create Huffman coding.  <a href="structNode.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structNode.html" title="Node in the binary tree used to create Huffman coding.">Node</a> in the binary tree used to create Huffman coding.  <a href="structNode.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCompareWeight.html">CompareWeight</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare Nodes. Return is flipped because priority_queue sorts in reverse.  <a href="structCompareWeight.html#details">More...</a><br /></td></tr>
@@ -97,9 +98,12 @@ Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Init</b> ()</td></tr>
 <tr class="memdesc:a1e3b6d38df0786ccf7f938d60e386aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear global variables. <br /></td></tr>
 <tr class="separator:a1e3b6d38df0786ccf7f938d60e386aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bbf518ef41ef3d255522cad1ffa4e83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a3bbf518ef41ef3d255522cad1ffa4e83">GetCodes</a> (int nodeindex, std::string &amp;code)</td></tr>
-<tr class="memdesc:a3bbf518ef41ef3d255522cad1ffa4e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get codes for characters using depth first search.  <a href="huffman-coding_8cpp.html#a3bbf518ef41ef3d255522cad1ffa4e83">More...</a><br /></td></tr>
-<tr class="separator:a3bbf518ef41ef3d255522cad1ffa4e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5401ff0eeb9c82292386d29cbc943c3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a5401ff0eeb9c82292386d29cbc943c3b">DeleteNodes</a> (<a class="el" href="structNode.html">Node</a> *node)</td></tr>
+<tr class="memdesc:a5401ff0eeb9c82292386d29cbc943c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete nodes from memory by using depth-first search.  <a href="huffman-coding_8cpp.html#a5401ff0eeb9c82292386d29cbc943c3b">More...</a><br /></td></tr>
+<tr class="separator:a5401ff0eeb9c82292386d29cbc943c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438e46ff65e0dd85debc41391efb73fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a438e46ff65e0dd85debc41391efb73fe">GetCodes</a> (<a class="el" href="structNode.html">Node</a> *node, std::string &amp;code)</td></tr>
+<tr class="memdesc:a438e46ff65e0dd85debc41391efb73fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get codes for characters using depth-first search.  <a href="huffman-coding_8cpp.html#a438e46ff65e0dd85debc41391efb73fe">More...</a><br /></td></tr>
+<tr class="separator:a438e46ff65e0dd85debc41391efb73fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f778b38bc108091224e04a9990f7b88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8cpp.html#a2f778b38bc108091224e04a9990f7b88">IncrementBinaryString</a> (std::string &amp;binary_string)</td></tr>
 <tr class="memdesc:a2f778b38bc108091224e04a9990f7b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment binary string by one.  <a href="huffman-coding_8cpp.html#a2f778b38bc108091224e04a9990f7b88">More...</a><br /></td></tr>
 <tr class="separator:a2f778b38bc108091224e04a9990f7b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,9 +123,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertCodes</b> ()</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a01cc49dde181e404c332a59aa3b88a39"><td class="memItemLeft" align="right" valign="top"><a id="a01cc49dde181e404c332a59aa3b88a39" name="a01cc49dde181e404c332a59aa3b88a39"></a>
-<a class="el" href="structNode.html">Node</a>&#160;</td><td class="memItemRight" valign="bottom"><b>nodes</b> [ALPHABET_SIZE *2]</td></tr>
-<tr class="separator:a01cc49dde181e404c332a59aa3b88a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa13d266b7abff0e6e6e35da8184a305e"><td class="memItemLeft" align="right" valign="top"><a id="aa13d266b7abff0e6e6e35da8184a305e" name="aa13d266b7abff0e6e6e35da8184a305e"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>codes</b> [ALPHABET_SIZE]</td></tr>
 <tr class="separator:aa13d266b7abff0e6e6e35da8184a305e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,11 +133,37 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Huffman coding. </p>
 <dl class="section author"><dt>Author</dt><dd>Juho Röyskö </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1.2 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021-10-02 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.2.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2021-10-29 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a3bbf518ef41ef3d255522cad1ffa4e83" name="a3bbf518ef41ef3d255522cad1ffa4e83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bbf518ef41ef3d255522cad1ffa4e83">&#9670;&nbsp;</a></span>GetCodes()</h2>
+<a id="a5401ff0eeb9c82292386d29cbc943c3b" name="a5401ff0eeb9c82292386d29cbc943c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5401ff0eeb9c82292386d29cbc943c3b">&#9670;&nbsp;</a></span>DeleteNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DeleteNodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete nodes from memory by using depth-first search. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>Current node </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a438e46ff65e0dd85debc41391efb73fe" name="a438e46ff65e0dd85debc41391efb73fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438e46ff65e0dd85debc41391efb73fe">&#9670;&nbsp;</a></span>GetCodes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,8 +171,8 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
         <tr>
           <td class="memname">void GetCodes </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nodeindex</em>, </td>
+          <td class="paramtype"><a class="el" href="structNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -161,10 +188,10 @@ long long&#160;</td><td class="memItemRight" valign="bottom"><b>amt</b> [ALPHABE
       </table>
 </div><div class="memdoc">
 
-<p>Get codes for characters using depth first search. </p>
+<p>Get codes for characters using depth-first search. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nodeindex</td><td>Current node </td></tr>
+    <tr><td class="paramname">node</td><td>Current node </td></tr>
     <tr><td class="paramname">code</td><td>Current code </td></tr>
   </table>
   </dd>
