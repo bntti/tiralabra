@@ -2,18 +2,18 @@
  * @file file-manager.cpp
  * @author Juho Röyskö
  * @brief File management utilities
- * @version 0.4
- * @date 2021-10-02
+ * @version 0.4.1
+ * @date 2021-10-29
  */
 #include <string>
 #include <sstream>
 #include <fstream>
 
 /**
- * @brief Check if file ends with .bnzip
+ * @brief Check if a filename ends with .bnzip
  *
  * @param filename Path to file to check
- * @return true If file ends with .bnzip
+ * @return true If the filename ends with .bnzip
  * @return false Otherwise
  */
 bool IsCompressed(std::string const &filename)
@@ -51,10 +51,10 @@ std::string ReadFile(std::string const &filename)
 }
 
 /**
- * @brief Checks if file exists
+ * @brief Checks if a file exists
  *
  * @param filename Path to the file to check
- * @return true If file exists
+ * @return true If the file exists
  * @return false otherwise
  */
 bool FileExists(std::string const &filename)
@@ -64,7 +64,7 @@ bool FileExists(std::string const &filename)
 }
 
 /**
- * @brief Returns first byte of a file
+ * @brief Returns the first byte of a file
  *
  * @param filename Path to the file to get the first byte from
  * @return int First byte of the file
@@ -82,7 +82,7 @@ int FirstByte(std::string const &filename)
 /**
  * @brief Remove leading path to file
  *
- * @param file_path File path to remove leading path from
+ * @param file_path File path to remove the leading path from
  */
 void RemovePath(std::string &file_path)
 {

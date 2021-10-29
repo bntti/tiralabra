@@ -2,8 +2,8 @@
  * @file helper.cpp
  * @author Juho Röyskö
  * @brief Provides functions for tests
- * @version 0.1
- * @date 2021-10-02
+ * @version 0.1.1
+ * @date 2021-10-29
  */
 #include <catch.hpp>
 #include <string>
@@ -11,11 +11,11 @@
 #include <unistd.h>
 
 /**
- * @brief Check if compressed file is smaller in size than the original
+ * @brief Check if the compressed file is smaller in size than the original
  *
  * @param compressed_file_name Path to compressed file
- * @param original_file_name Path to original file
- * @return true If compressed file is smaller in size than the original
+ * @param original_file_name Path to the original file
+ * @return true If the compressed file is smaller in size than the original
  * @return false Otherwise
  */
 bool IsSmaller(std::string compressed_file_name, std::string original_file_name)

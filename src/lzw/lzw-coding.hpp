@@ -2,8 +2,8 @@
  * @file lzw-coding.hpp
  * @author Juho Röyskö
  * @brief Header file for lzw-coding.cpp
- * @version 0.1
- * @date 2021-10-01
+ * @version 0.1.1
+ * @date 2021-10-29
  */
 #include <vector>
 

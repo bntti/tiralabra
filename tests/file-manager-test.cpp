@@ -2,8 +2,8 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Tests file-manager.cpp
- * @version 0.2
- * @date 2021-10-02
+ * @version 0.2.1
+ * @date 2021-10-29
  */
 #define CATCH_CONFIG_MAIN
 

@@ -1,9 +1,9 @@
 /**
- * @file lzw-runner.cpp
+ * @file lzw-runner.hpp
  * @author Juho Röyskö
  * @brief Header file for lzw-runner.cpp
- * @version 0.2
- * @date 2021-10-02
+ * @version 0.2.1
+ * @date 2021-10-29
  */
 #include <string>
 

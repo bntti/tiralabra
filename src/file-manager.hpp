@@ -2,8 +2,8 @@
  * @file file-manager.hpp
  * @author Juho Röyskö
  * @brief Header file for file-manager.cpp. Also contains FileWriter struct
- * @version 0.4
- * @date 2021-10-02
+ * @version 0.4.1
+ * @date 2021-10-29
  */
 #include <string>
 #include <fstream>
@@ -36,7 +36,7 @@ struct FileWriter
     }
 
     /**
-     * @brief Write binary string as binary into file
+     * @brief Write binary string as binary into the file
      *
      * @param data Binary string that will be written to the file
      */
@@ -57,7 +57,7 @@ struct FileWriter
     }
 
     /**
-     * @brief Write b least significant bits from given integer to file
+     * @brief Write b least significant bits from a given integer to the file
      *
      * @param data Integer to write bits from
      * @param b Amount of least significant bits to write
@@ -76,7 +76,7 @@ struct FileWriter
     }
 
     /**
-     * @brief Write bits of character into file
+     * @brief Write bits of character into the file
      *
      * @param data Character from which to write bits from
      */
@@ -86,7 +86,7 @@ struct FileWriter
     }
 
     /**
-     * @brief Write string into file
+     * @brief Write string into the file
      *
      * @param data String that will be written to the file
      */
@@ -109,7 +109,7 @@ struct FileWriter
     }
 
     /**
-     * @brief Close file
+     * @brief Close the file
      */
     void Close()
     {

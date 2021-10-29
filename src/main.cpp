@@ -2,8 +2,8 @@
  * @file main.cpp
  * @author Juho Röyskö
  * @brief Reads arguments and runs the program
- * @version 0.4
- * @date 2021-10-02
+ * @version 0.4.1
+ * @date 2021-10-29
  */
 #include <iostream>
 #include "huffman/huffman-runner.hpp"

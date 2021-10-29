@@ -2,8 +2,8 @@
  * @file huffman-coding.cpp
  * @author Juho Röyskö
  * @brief Huffman coding
- * @version 0.1.2
- * @date 2021-10-02
+ * @version 0.1.3
+ * @date 2021-10-29
  */
 #include <vector>
 #include <queue>
@@ -12,7 +12,7 @@
 #include "../constants.hpp"
 
 /**
- * @brief Node in binary tree used to create Huffman coding
+ * @brief Node in the binary tree used to create Huffman coding
  */
 struct Node
 {
@@ -80,7 +80,7 @@ struct CompareWeight
 };
 
 /**
- * @brief Get codes for characters using depth first search
+ * @brief Get codes for characters using depth-first search
  *
  * @param nodeindex Current node
  * @param code Current code
@@ -190,7 +190,7 @@ std::string *HCEncode(std::string const &input)
         ++node_array_size;
     }
 
-    // Create tree from nodes. Combine two lightest nodes and create a Node as their parent and replace them with their parent
+    // Create a tree from the nodes. Combine two lightest nodes and create a Node as their parent and replace them with their parent
     while (q.size() > 1)
     {
         int node_index_1 = q.top();
