@@ -1,15 +1,20 @@
 name: Codecov Action
-on: [push]
+
+on:
+  push:
+    branches: [main]
+
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: install dependencies
+      - name: Checkout action
+        uses: actions/checkout@v2
+      - name: Install dependencies
         run: sudo apt install -y catch make gcc
-      - name: "run tests"
+      - name: Run tests
         run: make test
-      - name: "get code coverage"
+      - name: Get code coverage
         run: ./get-code-cov.sh
-      - name: "upload code coverage"
+      - name: Upload code coverage
         run: bash <(curl -s https://codecov.io/bash)

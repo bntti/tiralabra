@@ -1,6 +1,7 @@
 # Tiralabra: Data compression
-![Codecov workflow status badge](https://github.com/bntti/tiralabra/actions/workflows/codecov.yml/badge.svg)
 ![Doxygen workflow status badge](https://github.com/bntti/tiralabra/actions/workflows/doxygen.yml/badge.svg)
+![Release workflow status badge](https://github.com/bntti/tiralabra/actions/workflows/release.yml/badge.svg)
+![Codecov workflow status badge](https://github.com/bntti/tiralabra/actions/workflows/codecov.yml/badge.svg)
 [![codecov](https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1)](https://codecov.io/gh/bntti/tiralabra)
 
 ## Dependencies
