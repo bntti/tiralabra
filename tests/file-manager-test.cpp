@@ -2,8 +2,8 @@
  * @file test.cpp
  * @author Juho Röyskö
  * @brief Tests file-manager.cpp
- * @version 0.2.1
- * @date 2021-10-29
+ * @version 0.3.0
+ * @date 2021-10-30
  */
 #define CATCH_CONFIG_MAIN
 
@@ -32,6 +32,9 @@ TEST_CASE("Test file-manager.cpp", "[file-manager.cpp]")
 
         INFO("Check that the first byte is correct");
         CHECK(FirstByte(filename) == 1);
+
+        INFO("Check that a file that doesn't exist with FileExists()");
+        CHECK(!FileExists("nonexistent.bin"));
 
         INFO("Try to read first byte of a file that doesn't exist");
         CHECK(FirstByte("nonexistent.bin") == 0);
