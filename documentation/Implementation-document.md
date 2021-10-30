@@ -228,6 +228,12 @@ Makefiles are used for automating compilation and other tasks.
 │   └── week-report-6.md
 ├── Doxyfile
 ├── get-code-cov.sh
+├── .github
+│   └── workflows
+│       ├── codecov.yml
+│       ├── doxygen.yml
+│       └── release.yml
+├── .gitignore
 ├── Makefile
 ├── README.md
 ├── src
