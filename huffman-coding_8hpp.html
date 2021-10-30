@@ -80,57 +80,30 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abb5a0f4b4505782cc833a6112914dfff"><td class="memItemLeft" align="right" valign="top">std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8hpp.html#abb5a0f4b4505782cc833a6112914dfff">HCEncode</a> (std::string const &amp;input)</td></tr>
-<tr class="memdesc:abb5a0f4b4505782cc833a6112914dfff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Huffman encoding codebook.  <a href="huffman-coding_8hpp.html#abb5a0f4b4505782cc833a6112914dfff">More...</a><br /></td></tr>
-<tr class="separator:abb5a0f4b4505782cc833a6112914dfff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8348837ccbf4a3a7fbde310444f863e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8hpp.html#aa8348837ccbf4a3a7fbde310444f863e">HCDecode</a> (std::string const &amp;input)</td></tr>
-<tr class="memdesc:aa8348837ccbf4a3a7fbde310444f863e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode data that has been compressed with Huffman coding.  <a href="huffman-coding_8hpp.html#aa8348837ccbf4a3a7fbde310444f863e">More...</a><br /></td></tr>
-<tr class="separator:aa8348837ccbf4a3a7fbde310444f863e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4889b07a0f26449f5adf6e66b5a0c801"><td class="memItemLeft" align="right" valign="top">std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8hpp.html#a4889b07a0f26449f5adf6e66b5a0c801">HCCreateCodebook</a> (std::string const &amp;data)</td></tr>
+<tr class="memdesc:a4889b07a0f26449f5adf6e66b5a0c801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Huffman encoding codebook.  <a href="huffman-coding_8hpp.html#a4889b07a0f26449f5adf6e66b5a0c801">More...</a><br /></td></tr>
+<tr class="separator:a4889b07a0f26449f5adf6e66b5a0c801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8fa5fae6ce0b257b479e17aee801229"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="huffman-coding_8hpp.html#ab8fa5fae6ce0b257b479e17aee801229">HCDecode</a> (std::string const &amp;encoded_data)</td></tr>
+<tr class="memdesc:ab8fa5fae6ce0b257b479e17aee801229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode data that has been encoded with Huffman coding.  <a href="huffman-coding_8hpp.html#ab8fa5fae6ce0b257b479e17aee801229">More...</a><br /></td></tr>
+<tr class="separator:ab8fa5fae6ce0b257b479e17aee801229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Header file for <a class="el" href="huffman-coding_8cpp.html" title="Huffman coding.">huffman-coding.cpp</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Juho Röyskö </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021-10-02 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1.2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2021-10-30 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="aa8348837ccbf4a3a7fbde310444f863e" name="aa8348837ccbf4a3a7fbde310444f863e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8348837ccbf4a3a7fbde310444f863e">&#9670;&nbsp;</a></span>HCDecode()</h2>
+<a id="a4889b07a0f26449f5adf6e66b5a0c801" name="a4889b07a0f26449f5adf6e66b5a0c801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4889b07a0f26449f5adf6e66b5a0c801">&#9670;&nbsp;</a></span>HCCreateCodebook()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string HCDecode </td>
+          <td class="memname">std::string * HCCreateCodebook </td>
           <td>(</td>
           <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>compressed_data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Decode data that has been compressed with Huffman coding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">compressed_data</td><td>Data to decompress </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string Decompressed data </dd></dl>
-
-</div>
-</div>
-<a id="abb5a0f4b4505782cc833a6112914dfff" name="abb5a0f4b4505782cc833a6112914dfff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb5a0f4b4505782cc833a6112914dfff">&#9670;&nbsp;</a></span>HCEncode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string * HCEncode </td>
-          <td>(</td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>input</em></td><td>)</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -139,11 +112,38 @@ Functions</h2></td></tr>
 <p>Create Huffman encoding codebook. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">input</td><td>String to create codebook from </td></tr>
+    <tr><td class="paramname">data</td><td>Data to create codebook from </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string* Codebook of length 256 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string* Codebook of length ALPHABET_SIZE </dd></dl>
+
+</div>
+</div>
+<a id="ab8fa5fae6ce0b257b479e17aee801229" name="ab8fa5fae6ce0b257b479e17aee801229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8fa5fae6ce0b257b479e17aee801229">&#9670;&nbsp;</a></span>HCDecode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string HCDecode </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>encoded_data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decode data that has been encoded with Huffman coding. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">encoded_data</td><td>Data to decode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string Decoded data </dd></dl>
 
 </div>
 </div>

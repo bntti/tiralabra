@@ -86,9 +86,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab48655aa63413b1e9b64fdc72b7d1ca1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFileWriter.html#ab48655aa63413b1e9b64fdc72b7d1ca1">Write</a> (int data, int b)</td></tr>
 <tr class="memdesc:ab48655aa63413b1e9b64fdc72b7d1ca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write b least significant bits from a given integer to the file.  <a href="structFileWriter.html#ab48655aa63413b1e9b64fdc72b7d1ca1">More...</a><br /></td></tr>
 <tr class="separator:ab48655aa63413b1e9b64fdc72b7d1ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd4ff27d94ee1b5889a75157dd0124d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFileWriter.html#abd4ff27d94ee1b5889a75157dd0124d9">Write</a> (char data)</td></tr>
-<tr class="memdesc:abd4ff27d94ee1b5889a75157dd0124d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bits of character into the file.  <a href="structFileWriter.html#abd4ff27d94ee1b5889a75157dd0124d9">More...</a><br /></td></tr>
-<tr class="separator:abd4ff27d94ee1b5889a75157dd0124d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e676610478938b4910f2cdb92240bd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFileWriter.html#a6e676610478938b4910f2cdb92240bd0">Write</a> (uint8_t byte)</td></tr>
+<tr class="memdesc:a6e676610478938b4910f2cdb92240bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write byte into the file.  <a href="structFileWriter.html#a6e676610478938b4910f2cdb92240bd0">More...</a><br /></td></tr>
+<tr class="separator:a6e676610478938b4910f2cdb92240bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86eefa10f1962fb4047f3161e01b17f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFileWriter.html#a86eefa10f1962fb4047f3161e01b17f5">Write</a> (std::string const &amp;data)</td></tr>
 <tr class="memdesc:a86eefa10f1962fb4047f3161e01b17f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write string into the file.  <a href="structFileWriter.html#a86eefa10f1962fb4047f3161e01b17f5">More...</a><br /></td></tr>
 <tr class="separator:a86eefa10f1962fb4047f3161e01b17f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,7 +97,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab8b3a68e3f5dde947a9292068d5a453e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bc6344f97be73298a847125fa0cc2a1"><td class="memItemLeft" align="right" valign="top"><a id="a1bc6344f97be73298a847125fa0cc2a1" name="a1bc6344f97be73298a847125fa0cc2a1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Close</b> ()</td></tr>
-<tr class="memdesc:a1bc6344f97be73298a847125fa0cc2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the file. <br /></td></tr>
+<tr class="memdesc:a1bc6344f97be73298a847125fa0cc2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data to the file and close it. <br /></td></tr>
 <tr class="separator:a1bc6344f97be73298a847125fa0cc2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -221,42 +221,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>bit_count</b> = 0</td>
 
 </div>
 </div>
-<a id="abd4ff27d94ee1b5889a75157dd0124d9" name="abd4ff27d94ee1b5889a75157dd0124d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd4ff27d94ee1b5889a75157dd0124d9">&#9670;&nbsp;</a></span>Write() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void FileWriter::Write </td>
-          <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Write bits of character into the file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Character from which to write bits from </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ab48655aa63413b1e9b64fdc72b7d1ca1" name="ab48655aa63413b1e9b64fdc72b7d1ca1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab48655aa63413b1e9b64fdc72b7d1ca1">&#9670;&nbsp;</a></span>Write() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab48655aa63413b1e9b64fdc72b7d1ca1">&#9670;&nbsp;</a></span>Write() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,7 +267,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>bit_count</b> = 0</td>
 </div>
 </div>
 <a id="a86eefa10f1962fb4047f3161e01b17f5" name="a86eefa10f1962fb4047f3161e01b17f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86eefa10f1962fb4047f3161e01b17f5">&#9670;&nbsp;</a></span>Write() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a86eefa10f1962fb4047f3161e01b17f5">&#9670;&nbsp;</a></span>Write() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,6 +294,40 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>bit_count</b> = 0</td>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>String that will be written to the file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6e676610478938b4910f2cdb92240bd0" name="a6e676610478938b4910f2cdb92240bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e676610478938b4910f2cdb92240bd0">&#9670;&nbsp;</a></span>Write() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FileWriter::Write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>byte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write byte into the file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>Byte to write to the file </td></tr>
   </table>
   </dd>
 </dl>

@@ -83,18 +83,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a419abde4d02761dd5bfb7cd3ba2a8cda"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8hpp.html#a419abde4d02761dd5bfb7cd3ba2a8cda">LZWEncode</a> (std::string const &amp;data)</td></tr>
 <tr class="memdesc:a419abde4d02761dd5bfb7cd3ba2a8cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode data with LZW coding.  <a href="lzw-coding_8hpp.html#a419abde4d02761dd5bfb7cd3ba2a8cda">More...</a><br /></td></tr>
 <tr class="separator:a419abde4d02761dd5bfb7cd3ba2a8cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53c837b91ca6192dc36cf71f30aecec0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8hpp.html#a53c837b91ca6192dc36cf71f30aecec0">LZWDecode</a> (std::vector&lt; int &gt; const &amp;data)</td></tr>
-<tr class="memdesc:a53c837b91ca6192dc36cf71f30aecec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode data that has been encoded with LZW coding.  <a href="lzw-coding_8hpp.html#a53c837b91ca6192dc36cf71f30aecec0">More...</a><br /></td></tr>
-<tr class="separator:a53c837b91ca6192dc36cf71f30aecec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae99c2657f78d43612848b08e6a3741a8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lzw-coding_8hpp.html#ae99c2657f78d43612848b08e6a3741a8">LZWDecode</a> (std::vector&lt; int &gt; const &amp;encoded_data)</td></tr>
+<tr class="memdesc:ae99c2657f78d43612848b08e6a3741a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode data that has been encoded with LZW coding.  <a href="lzw-coding_8hpp.html#ae99c2657f78d43612848b08e6a3741a8">More...</a><br /></td></tr>
+<tr class="separator:ae99c2657f78d43612848b08e6a3741a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Header file for <a class="el" href="lzw-coding_8cpp.html" title="LZW Coding.">lzw-coding.cpp</a>. </p>
 <dl class="section author"><dt>Author</dt><dd>Juho Röyskö </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021-10-29 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1.2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2021-10-30 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a53c837b91ca6192dc36cf71f30aecec0" name="a53c837b91ca6192dc36cf71f30aecec0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53c837b91ca6192dc36cf71f30aecec0">&#9670;&nbsp;</a></span>LZWDecode()</h2>
+<a id="ae99c2657f78d43612848b08e6a3741a8" name="ae99c2657f78d43612848b08e6a3741a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae99c2657f78d43612848b08e6a3741a8">&#9670;&nbsp;</a></span>LZWDecode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,7 +103,7 @@ Functions</h2></td></tr>
           <td class="memname">std::string LZWDecode </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; int &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>codes</em></td><td>)</td>
+          <td class="paramname"><em>encoded_data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -112,7 +112,7 @@ Functions</h2></td></tr>
 <p>Decode data that has been encoded with LZW coding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">codes</td><td>Data to decode </td></tr>
+    <tr><td class="paramname">encoded_data</td><td>Data to decode </td></tr>
   </table>
   </dd>
 </dl>

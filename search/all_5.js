@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['hcdecode_0',['HCDecode',['../huffman-coding_8cpp.html#a326c577742cad6fb743585e27e205286',1,'HCDecode(std::string const &amp;compressed_data):&#160;huffman-coding.cpp'],['../huffman-coding_8hpp.html#aa8348837ccbf4a3a7fbde310444f863e',1,'HCDecode(std::string const &amp;input):&#160;huffman-coding.cpp']]],
-  ['hcencode_1',['HCEncode',['../huffman-coding_8cpp.html#abb5a0f4b4505782cc833a6112914dfff',1,'HCEncode(std::string const &amp;input):&#160;huffman-coding.cpp'],['../huffman-coding_8hpp.html#abb5a0f4b4505782cc833a6112914dfff',1,'HCEncode(std::string const &amp;input):&#160;huffman-coding.cpp']]],
+  ['hccreatecodebook_0',['HCCreateCodebook',['../huffman-coding_8cpp.html#a4889b07a0f26449f5adf6e66b5a0c801',1,'HCCreateCodebook(std::string const &amp;data):&#160;huffman-coding.cpp'],['../huffman-coding_8hpp.html#a4889b07a0f26449f5adf6e66b5a0c801',1,'HCCreateCodebook(std::string const &amp;data):&#160;huffman-coding.cpp']]],
+  ['hcdecode_1',['HCDecode',['../huffman-coding_8cpp.html#ab8fa5fae6ce0b257b479e17aee801229',1,'HCDecode(std::string const &amp;encoded_data):&#160;huffman-coding.cpp'],['../huffman-coding_8hpp.html#ab8fa5fae6ce0b257b479e17aee801229',1,'HCDecode(std::string const &amp;encoded_data):&#160;huffman-coding.cpp']]],
   ['helper_2ecpp_2',['helper.cpp',['../helper_8cpp.html',1,'']]],
   ['helper_2ehpp_3',['helper.hpp',['../helper_8hpp.html',1,'']]],
   ['huffman_2dcoding_2ecpp_4',['huffman-coding.cpp',['../huffman-coding_8cpp.html',1,'']]],
