@@ -1,9 +1,9 @@
 /**
- * @file huffman-test.cpp
+ * @file lzw-test.cpp
  * @author Juho Röyskö
  * @brief Tests compression using LZW coding
- * @version 0.1.2
- * @date 2021-10-02
+ * @version 0.1.3
+ * @date 2021-10-30
  */
 #include <catch.hpp>
 #include <stdio.h>
@@ -11,7 +11,7 @@
 #include "../src/lzw/lzw-runner.hpp"
 
 /**
- * @brief Test Huffman coding
+ * @brief Test LZW coding
  */
 TEST_CASE("Test LZW coding", "[LZW coding]")
 {
