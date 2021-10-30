@@ -1,9 +1,9 @@
 /**
  * @file huffman-test.cpp
  * @author Juho Röyskö
- * @brief Tests Huffman coding compression
- * @version 0.1.2
- * @date 2021-10-02
+ * @brief Tests compression using Huffman coding
+ * @version 0.1.3
+ * @date 2021-10-30
  */
 #include <catch.hpp>
 #include <stdio.h>
@@ -11,9 +11,9 @@
 #include "../src/huffman/huffman-runner.hpp"
 
 /**
- * @brief Test Huffman coding
+ * @brief Test compression using Huffman coding
  */
-TEST_CASE("Test Huffman coding", "[Huffman coding]")
+TEST_CASE("Test compression using Huffman coding", "[Huffman compression]")
 {
     std::string path = Cwd() + "/test-files/";
 

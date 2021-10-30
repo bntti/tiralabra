@@ -2,7 +2,7 @@
  * @file lzw-test.cpp
  * @author Juho Röyskö
  * @brief Tests compression using LZW coding
- * @version 0.1.3
+ * @version 0.1.4
  * @date 2021-10-30
  */
 #include <catch.hpp>
@@ -11,9 +11,9 @@
 #include "../src/lzw/lzw-runner.hpp"
 
 /**
- * @brief Test LZW coding
+ * @brief Test compression using LZW coding
  */
-TEST_CASE("Test LZW coding", "[LZW coding]")
+TEST_CASE("Test compression using LZW coding", "[LZW compression]")
 {
     std::string path = Cwd() + "/test-files/";
 
