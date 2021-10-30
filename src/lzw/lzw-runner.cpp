@@ -2,8 +2,8 @@
  * @file lzw-runner.cpp
  * @author Juho Röyskö
  * @brief Runs LZW coding
- * @version 0.2.0
- * @date 2021-10-02
+ * @version 0.2.1
+ * @date 2021-10-30
  */
 #include <string>
 #include <vector>
@@ -48,6 +48,7 @@ void LZWCompress(std::string const &input_file, bool verbose = 0)
     {
         while (x >= (1 << code_bits) - 1)
         {
+            // Increment code_bits and tell that to the decompressor
             file_writer.Write((1 << code_bits) - 1, code_bits);
             ++code_bits;
         }

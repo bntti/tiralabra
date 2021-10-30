@@ -2,8 +2,8 @@
  * @file huffman-coding.cpp
  * @author Juho Röyskö
  * @brief Huffman coding
- * @version 0.2.0
- * @date 2021-10-29
+ * @version 0.3.0
+ * @date 2021-10-30
  */
 #include <vector>
 #include <queue>
@@ -12,8 +12,8 @@
 #include <cassert>
 #include "../constants.hpp"
 
-std::string codes[ALPHABET_SIZE];
-long long amt[ALPHABET_SIZE];
+std::string codes[ALPHABET_SIZE]; // The codebook
+long long char_count[ALPHABET_SIZE];
 
 /**
  * @brief Clear global variables
@@ -21,11 +21,11 @@ long long amt[ALPHABET_SIZE];
 void Init()
 {
     std::fill_n(codes, ALPHABET_SIZE, "");
-    std::fill_n(amt, ALPHABET_SIZE, 0);
+    std::fill_n(char_count, ALPHABET_SIZE, 0);
 }
 
 /**
- * @brief Node in the binary tree used to create Huffman coding
+ * @brief Node used in the binary tree used to create Huffman coding
  */
 struct Node
 {
@@ -143,9 +143,9 @@ void IncrementBinaryString(std::string &binary_string)
 /**
  * @brief Set the codes for characters using the Canonical Huffman code
  *
- * @param v Vector containing pairs of {lengths of code, character}
+ * @param v Vector containing pairs of {bit-length of code, character}
  */
-void SetCodes(std::vector<std::pair<uint8_t, uint8_t>> &v)
+void SetCodes(std::vector<std::pair<int, uint8_t>> &v)
 {
     std::sort(v.begin(), v.end());
 
@@ -170,7 +170,7 @@ void SetCodes(std::vector<std::pair<uint8_t, uint8_t>> &v)
  */
 void ConvertCodes()
 {
-    std::vector<std::pair<uint8_t, uint8_t>> v;
+    std::vector<std::pair<int, uint8_t>> v;
     for (int i = 0; i < ALPHABET_SIZE; ++i)
         v.push_back({codes[i].length(), i});
     SetCodes(v);
@@ -179,58 +179,61 @@ void ConvertCodes()
 /**
  * @brief Create Huffman encoding codebook
  *
- * @param input String to create codebook from
- * @return std::string* Codebook of length 256
+ * @param data Data to create codebook from
+ * @return std::string* Codebook of length ALPHABET_SIZE
  */
-std::string *HCEncode(std::string const &input)
+std::string *HCCreateCodebook(std::string const &data)
 {
     Init();
 
-    for (char c : input)
-        ++amt[(uint8_t)c];
+    for (uint8_t c : data)
+        ++char_count[c];
 
     // Add characters as Nodes to the priority queue
     // We add the characters that don't appear in the input with weight 0,
     // because we need a code that is at least 8 bits long,
     // so that we can pad the end of the compressed file
-    std::priority_queue<Node *, std::vector<Node *>, CompareWeight> q; // Priority queue containing nodes
+    std::priority_queue<Node *, std::vector<Node *>, CompareWeight> nodes; // Priority queue containing nodes
     for (int i = 0; i < ALPHABET_SIZE; ++i)
-        q.push(new Node(amt[i], i));
+        nodes.push(new Node(char_count[i], i));
 
     // Create a tree from the nodes. Combine two lightest nodes and create a Node as their parent and replace them with their parent
-    while (q.size() > 1)
+    while (nodes.size() > 1)
     {
-        Node *node_1 = q.top();
-        q.pop();
-        Node *node_2 = q.top();
-        q.pop();
+        // Get two lightest nodes.
+        Node *node_1 = nodes.top();
+        nodes.pop();
+        Node *node_2 = nodes.top();
+        nodes.pop();
 
+        // Create new node as their parent.
         Node *new_node = new Node(node_1, node_2);
-        q.push(new_node);
+        nodes.push(new_node);
     }
 
-    std::string current = "";
-    GetCodes(q.top(), current);
-
+    // Get codes and convert them to Canonical Huffman codes
+    std::string code = "";
+    GetCodes(nodes.top(), code);
     ConvertCodes();
-    DeleteNodes(q.top()); // Clear nodes from memory
+
+    DeleteNodes(nodes.top()); // Clear nodes from memory
     return codes;
 }
 
 /**
- * @brief Decode data that has been compressed with Huffman coding
+ * @brief Decode data that has been encoded with Huffman coding
  *
- * @param compressed_data Data to decompress
- * @return std::string Decompressed data
+ * @param encoded_data Data to decode
+ * @return std::string Decoded data
  */
-std::string HCDecode(std::string const &compressed_data)
+std::string HCDecode(std::string const &encoded_data)
 {
     Init();
 
     // Get the codes from the input
-    std::vector<std::pair<uint8_t, uint8_t>> v;
+    std::vector<std::pair<int, uint8_t>> v;
     for (int i = 0; i < ALPHABET_SIZE; ++i)
-        v.push_back({compressed_data[i], i});
+        v.push_back({encoded_data[i], i});
     SetCodes(v);
 
     // Recreate the tree
@@ -238,7 +241,7 @@ std::string HCDecode(std::string const &compressed_data)
     for (int i = 0; i < ALPHABET_SIZE; ++i)
     {
         Node *current_node = start_node;
-        for (char c : codes[i])
+        for (uint8_t c : codes[i])
         {
             if (c == '0')
             {
@@ -258,11 +261,11 @@ std::string HCDecode(std::string const &compressed_data)
     }
 
     // Decode input using the codes and the tree
-    std::string output = "";
+    std::string decoded_data = "";
     Node *current_node = start_node;
-    for (int i = ALPHABET_SIZE; i < (int)compressed_data.length(); ++i)
+    for (int i = ALPHABET_SIZE; i < (int)encoded_data.length(); ++i)
     {
-        uint8_t x = compressed_data[i];
+        uint8_t x = encoded_data[i];
         for (int k = 7; k >= 0; --k)
         {
             int bit = x & (1 << k);
@@ -273,12 +276,12 @@ std::string HCDecode(std::string const &compressed_data)
 
             if (current_node->has_val)
             {
-                output += current_node->val;
+                decoded_data += current_node->val;
                 current_node = start_node;
             }
         }
     }
 
     DeleteNodes(start_node); // Clear nodes from memory
-    return output;
+    return decoded_data;
 }

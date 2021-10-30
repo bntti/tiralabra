@@ -2,8 +2,8 @@
  * @file huffman-runner.cpp
  * @author Juho Röyskö
  * @brief Runs Huffman coding
- * @version 0.4.2
- * @date 2021-10-02
+ * @version 0.5.0
+ * @date 2021-10-30
  */
 #include <iostream>
 #include "huffman-coding.hpp"
@@ -23,11 +23,11 @@ void HuffmanCompress(std::string const &input_file, bool verbose = 0)
         std::cout << "Compressing file with Huffman coding" << std::endl;
         std::cout << "Reading file '" << input_file << "'" << std::endl;
     }
-    std::string file_data = ReadFile(input_file);
+    std::string data = ReadFile(input_file);
 
     if (verbose)
         std::cout << "Compressing data" << std::endl;
-    std::string *codes = HCEncode(file_data);
+    std::string *codes = HCCreateCodebook(data);
 
     // Get name and path for the output file
     std::string output_file = input_file;
@@ -52,7 +52,7 @@ void HuffmanCompress(std::string const &input_file, bool verbose = 0)
     }
 
     // Write compressed data to file
-    for (uint8_t x : file_data)
+    for (uint8_t x : data)
         file_writer.BinaryWrite(codes[x]);
 
     // If there are some bits left pad the end of file with a code that has a length >= 8
