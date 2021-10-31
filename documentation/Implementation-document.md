@@ -66,8 +66,8 @@ C = 110
 D = 111
 ```
 
-To save the codebook we only need to save the bit-lengths of the codes.
-Example:
+To save the codebook we only need to save the bit-lengths of the codes.  
+As an example, if we have the following codes:
 ```
 A = 10    (bits: 2)
 B = 0     (bits: 1)
@@ -78,7 +78,7 @@ The following would be saved:
 ```
 2, 1, 3, 3
 ```
-In this program, all codes are saved for convenience, but that could be optimized.
+In this program, codes for all characters are saved for convenience, but that could be optimized.
 
 After that, the algorithm replaces occurrences of the characters with their codes and saves the codebook and the compressed data to the output file.
 
@@ -125,13 +125,13 @@ After decoding the data it is written to the output file.
 A high level view of the encoding algorithm:
 1. Initialize the dictionary to contain all strings of length one
 3. Read bytes from the input into string S until S isn't in the dictionary
-4. Go back one byte and remove the byte from S
+4. Remove the last byte from S
 6. Add the dictionary index for S to output
-7. Add S followed by the next symbol in the input to the dictionary
+7. Add S followed by removed byte to the dictionary
 8. Go to step 2
 
 The amount of bits used for each code is one in the beginning and gets larger as codes require more bits.  
-To do this, while the bit-length of the code is greater than code_bits, we write 111...111 to the file, where there are code_bits bits, where code_bits is the current code length in bits.
+To do this, while the bit-length of the code is greater than code_bits, we write 111...111 to the file, where there are code_bits bits, where code_bits is the current code length in bits. The ones are written to the output file to tell the decompressor that the code size is changing.
 
 Pseudocode for writing the codes to the file:
 ```
@@ -193,12 +193,12 @@ In the tests, the compression algorithms were tested with files containing rando
   - `images/` Contains images for documentation files
 - `src/` Contains code
   - `constants.hpp` Contains one constant that Huffman coding uses.
-  - `main.cpp` Reads flags and path to the file and then calls `lzw-runner.cpp` or `huffman-runner.cpp`, depending on which algorithm will be used. `main.cpp` can also print usage instructions
+  - `main.cpp` Reads arguments and the path to the input file and then calls `lzw-runner.cpp` or `huffman-runner.cpp`, depending on which algorithm will be used. `main.cpp` can also print usage instructions
   - `huffman/` Contains `huffman-runner` and `huffman-coding`
-    - `huffman-runner.cpp` Manages files and uses `huffman-coding.cpp` for encoding and decoding
+    - `huffman-runner.cpp` Manages files and uses `huffman-coding.cpp` for creating the codebook and decoding
   - `lzw/` Contains `lzw-runner` and `lzw-coding`
     - `lzw-runner.cpp` Manages files and uses `lzw-coding.cpp` for encoding and decoding
-  - `file-manager.cpp`/`file-manager.hpp` Contain tools for writing to files, checking if files exist, and reading from files
+  - `file-manager.cpp`/`file-manager.hpp` Contain tools for writing to files, checking if files exist, editing file paths, and reading from files
 - `tests/` Contains tests for code
   - `test-files/` Contains files that will be used for testing compression and decompression
   - `file-manager-test.cpp` Tests `file-manager.cpp`
