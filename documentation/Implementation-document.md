@@ -149,17 +149,17 @@ Pseudocode for reading the bits from the file:
 ```
 codes = []
 code_bits = 1
-cur_byte = 0
+cur_code = 0
 bit_count = 0
 for bit in compressed_data:
-    cur_byte = (cur_byte << 1) | bit
+    cur_code = (cur_code << 1) | bit // Append bit to the current code
     ++bit_count
     if bit_count == code_bits:
-        if cur_byte >= (1 << code_bits) - 1:
+        if cur_code >= (1 << code_bits) - 1:
             ++code_bits
         else:
-            codes.append(cur_byte)
-        cur_byte = 0
+            codes.append(cur_code)
+        cur_code = 0
         bit_count = 0
 ```
 

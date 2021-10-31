@@ -2,8 +2,8 @@
  * @file lzw-runner.cpp
  * @author Juho Röyskö
  * @brief Runs LZW coding
- * @version 0.2.1
- * @date 2021-10-30
+ * @version 0.2.2
+ * @date 2021-10-31
  */
 #include <string>
 #include <vector>
@@ -80,7 +80,7 @@ void LZWDecompress(std::string const &input_file, bool verbose = 0)
 
     // Read codes from compressed data
     std::vector<int> codes;
-    int current_byte = 0;
+    int current_code = 0;
     int bit_count = 0;
     int code_bits = 1;
     for (char c : data)
@@ -88,15 +88,15 @@ void LZWDecompress(std::string const &input_file, bool verbose = 0)
         for (int i = 7; i >= 0; --i)
         {
             int bit = (c & (1 << i)) > 0;
-            current_byte = current_byte << 1 | bit;
+            current_code = current_code << 1 | bit;
             ++bit_count;
             if (bit_count == code_bits)
             {
-                if (current_byte >= (1 << code_bits) - 1)
+                if (current_code >= (1 << code_bits) - 1)
                     ++code_bits;
                 else
-                    codes.push_back(current_byte);
-                current_byte = 0;
+                    codes.push_back(current_code);
+                current_code = 0;
                 bit_count = 0;
             }
         }
