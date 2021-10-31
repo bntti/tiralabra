@@ -1,6 +1,10 @@
 # Usage instructions
 
-## Dependencies
+## Downloading precompiled binary
+Visit [the releases page](https://github.com/bntti/tiralabra/releases) and download the newest release and follow the instructions there.
+
+## Compilation
+### Dependencies
 - g++
 - make
 #### Optional dependencies
@@ -8,7 +12,7 @@
 - doxygen (for generating documentation)
 - cppcheck (for code analysis)
 
-## Usage
+### Usage
 | Command              | Description                                                                       |
 | -------------------- | --------------------------------------------------------------------------------- |
 | `make`               | Compiles program                                                                  |
@@ -18,7 +22,7 @@
 | `make check`         | Same as `make analyze && make test`                                               |
 | `doxygen`            | Generate documentation (also available [here](https://bntti.github.io/tiralabra)) |
 
-#### Running program
+## Running program
 ```
 $ ./bnzip <args> <file>
 ```

@@ -4,7 +4,11 @@
 ![Codecov workflow status badge](https://github.com/bntti/tiralabra/actions/workflows/codecov.yml/badge.svg)
 [![codecov](https://codecov.io/gh/bntti/tiralabra/branch/main/graph/badge.svg?token=UUM7HC26G1)](https://codecov.io/gh/bntti/tiralabra)
 
-## Dependencies
+## Downloading precompiled binary
+Visit [the releases page](https://github.com/bntti/tiralabra/releases) and download the newest release and follow the instructions there.
+
+## Compilation
+### Dependencies
 - g++
 - make
 #### Optional dependencies
@@ -12,7 +16,7 @@
 - doxygen (for generating documentation)
 - cppcheck (for code analysis)
 
-## Usage
+### Usage
 | Command              | Description                                                                       |
 | -------------------- | --------------------------------------------------------------------------------- |
 | `make`               | Compiles program                                                                  |
@@ -22,7 +26,7 @@
 | `make check`         | Same as `make analyze && make test`                                               |
 | `doxygen`            | Generate documentation (also available [here](https://bntti.github.io/tiralabra)) |
 
-#### Running program
+## Running program
 ```
 $ ./bnzip <args> <file>
 ```
