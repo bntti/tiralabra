@@ -113,12 +113,13 @@ Compressing</h3>
 <div class="line">A = 10</div>
 <div class="line">C = 110</div>
 <div class="line">D = 111</div>
-</div><!-- fragment --><p >To save the codebook we only need to save the bit-lengths of the codes. Example: </p><div class="fragment"><div class="line">A = 10    (bits: 2)</div>
+</div><!-- fragment --><p >To save the codebook we only need to save the bit-lengths of the codes. <br  />
+ As an example, if we have the following codes: </p><div class="fragment"><div class="line">A = 10    (bits: 2)</div>
 <div class="line">B = 0     (bits: 1)</div>
 <div class="line">C = 110   (bits: 3)</div>
 <div class="line">D = 111   (bits: 3)</div>
 </div><!-- fragment --><p> The following would be saved: </p><div class="fragment"><div class="line">2, 1, 3, 3</div>
-</div><!-- fragment --><p> In this program, all codes are saved for convenience, but that could be optimized.</p>
+</div><!-- fragment --><p> In this program, codes for all characters are saved for convenience, but that could be optimized.</p>
 <p >After that, the algorithm replaces occurrences of the characters with their codes and saves the codebook and the compressed data to the output file.</p>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Decompressing</h3>
@@ -156,13 +157,13 @@ Compressing</h3>
 <p >A high level view of the encoding algorithm:</p><ol type="1">
 <li>Initialize the dictionary to contain all strings of length one</li>
 <li>Read bytes from the input into string S until S isn't in the dictionary</li>
-<li>Go back one byte and remove the byte from S</li>
+<li>Remove the last byte from S</li>
 <li>Add the dictionary index for S to output</li>
-<li>Add S followed by the next symbol in the input to the dictionary</li>
+<li>Add S followed by removed byte to the dictionary</li>
 <li>Go to step 2</li>
 </ol>
 <p >The amount of bits used for each code is one in the beginning and gets larger as codes require more bits. <br  />
- To do this, while the bit-length of the code is greater than code_bits, we write 111...111 to the file, where there are code_bits bits, where code_bits is the current code length in bits.</p>
+ To do this, while the bit-length of the code is greater than code_bits, we write 111...111 to the file, where there are code_bits bits, where code_bits is the current code length in bits. The ones are written to the output file to tell the decompressor that the code size is changing.</p>
 <p >Pseudocode for writing the codes to the file: </p><div class="fragment"><div class="line">code_bits = 1</div>
 <div class="line">for code in encoded_data:</div>
 <div class="line">    while code &gt;= (1 &lt;&lt; code_bits) - 1:</div>
@@ -173,17 +174,17 @@ Compressing</h3>
 Decompressing</h3>
 <p >When reading the codes from the file, we need to be able to figure out where the number of bits used for the codes changes. Pseudocode for reading the bits from the file: </p><div class="fragment"><div class="line">codes = []</div>
 <div class="line">code_bits = 1</div>
-<div class="line">cur_byte = 0</div>
+<div class="line">cur_code = 0</div>
 <div class="line">bit_count = 0</div>
 <div class="line">for bit in compressed_data:</div>
-<div class="line">    cur_byte = (cur_byte &lt;&lt; 1) | bit</div>
+<div class="line">    cur_code = (cur_code &lt;&lt; 1) | bit // Append bit to the current code</div>
 <div class="line">    ++bit_count</div>
 <div class="line">    if bit_count == code_bits:</div>
-<div class="line">        if cur_byte &gt;= (1 &lt;&lt; code_bits) - 1:</div>
+<div class="line">        if cur_code &gt;= (1 &lt;&lt; code_bits) - 1:</div>
 <div class="line">            ++code_bits</div>
 <div class="line">        else:</div>
-<div class="line">            codes.append(cur_byte)</div>
-<div class="line">        cur_byte = 0</div>
+<div class="line">            codes.append(cur_code)</div>
+<div class="line">        cur_code = 0</div>
 <div class="line">        bit_count = 0</div>
 </div><!-- fragment --><p >A high level view of the decoding algorithm:</p><ol type="1">
 <li>Initialize the dictionary to contain all strings of length one</li>
@@ -222,16 +223,16 @@ Project structure</h2>
 </li>
 <li><code>src/</code> Contains code<ul>
 <li><code><a class="el" href="constants_8hpp.html" title="Contains some constants that multiple files use.">constants.hpp</a></code> Contains one constant that Huffman coding uses.</li>
-<li><code><a class="el" href="main_8cpp.html" title="Reads arguments and runs the program.">main.cpp</a></code> Reads flags and path to the file and then calls <code><a class="el" href="lzw-runner_8cpp.html" title="Runs LZW coding.">lzw-runner.cpp</a></code> or <code><a class="el" href="huffman-runner_8cpp.html" title="Runs Huffman coding.">huffman-runner.cpp</a></code>, depending on which algorithm will be used. <code><a class="el" href="main_8cpp.html" title="Reads arguments and runs the program.">main.cpp</a></code> can also print usage instructions</li>
+<li><code><a class="el" href="main_8cpp.html" title="Reads arguments and runs the program.">main.cpp</a></code> Reads arguments and the path to the input file and then calls <code><a class="el" href="lzw-runner_8cpp.html" title="Runs LZW coding.">lzw-runner.cpp</a></code> or <code><a class="el" href="huffman-runner_8cpp.html" title="Runs Huffman coding.">huffman-runner.cpp</a></code>, depending on which algorithm will be used. <code><a class="el" href="main_8cpp.html" title="Reads arguments and runs the program.">main.cpp</a></code> can also print usage instructions</li>
 <li><code>huffman/</code> Contains <code>huffman-runner</code> and <code>huffman-coding</code><ul>
-<li><code><a class="el" href="huffman-runner_8cpp.html" title="Runs Huffman coding.">huffman-runner.cpp</a></code> Manages files and uses <code><a class="el" href="huffman-coding_8cpp.html" title="Huffman coding.">huffman-coding.cpp</a></code> for encoding and decoding</li>
+<li><code><a class="el" href="huffman-runner_8cpp.html" title="Runs Huffman coding.">huffman-runner.cpp</a></code> Manages files and uses <code><a class="el" href="huffman-coding_8cpp.html" title="Huffman coding.">huffman-coding.cpp</a></code> for creating the codebook and decoding</li>
 </ul>
 </li>
 <li><code>lzw/</code> Contains <code>lzw-runner</code> and <code>lzw-coding</code><ul>
 <li><code><a class="el" href="lzw-runner_8cpp.html" title="Runs LZW coding.">lzw-runner.cpp</a></code> Manages files and uses <code><a class="el" href="lzw-coding_8cpp.html" title="LZW Coding.">lzw-coding.cpp</a></code> for encoding and decoding</li>
 </ul>
 </li>
-<li><code><a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a></code>/<code><a class="el" href="file-manager_8hpp.html" title="Header file for file-manager.cpp. Also contains FileWriter struct.">file-manager.hpp</a></code> Contain tools for writing to files, checking if files exist, and reading from files</li>
+<li><code><a class="el" href="file-manager_8cpp.html" title="File management utilities.">file-manager.cpp</a></code>/<code><a class="el" href="file-manager_8hpp.html" title="Header file for file-manager.cpp. Also contains FileWriter struct.">file-manager.hpp</a></code> Contain tools for writing to files, checking if files exist, editing file paths, and reading from files</li>
 </ul>
 </li>
 <li><code>tests/</code> Contains tests for code<ul>
